@@ -1285,3 +1285,54 @@
         grid-template-columns: 1fr !important;
     }
 }
+
+/* ==================================================
+   SERVICES FAQ — SOFT LINE BACKGROUND
+================================================== */
+
+.services-faq {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 12% 18%, rgba(251, 248, 241, 0.34), transparent 30%),
+        radial-gradient(circle at 88% 12%, rgba(52, 58, 50, 0.10), transparent 34%),
+        linear-gradient(135deg, var(--color-line) 0%, #D0C9BA 48%, var(--color-line) 100%) !important;
+}
+
+.services-faq::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(52, 58, 50, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(52, 58, 50, 0.05) 1px, transparent 1px);
+    background-size: 42px 42px;
+    opacity: 0.32;
+}
+
+.services-faq .container {
+    position: relative;
+    z-index: 2;
+}
+
+.services-faq .faq-copy .eyebrow,
+.services-faq .faq-copy .section-title,
+.services-faq .faq-copy .section-kicker {
+    color: #191B18;
+}
+
+.services-faq .faq-item {
+    background: rgba(251, 248, 241, 0.56);
+    border-color: rgba(52, 58, 50, 0.16);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.services-faq .faq-question {
+    color: #191B18;
+}
+
+.services-faq .faq-answer p {
+    color: rgba(25, 27, 24, 0.72);
+}
