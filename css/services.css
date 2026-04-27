@@ -502,3 +502,15 @@
     outline: 3px solid rgba(185, 166, 129, 0.75);
     outline-offset: 4px;
 }
+
+.services-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: radial-gradient(circle at var(--services-glow-x, 78%) var(--services-glow-y, 18%),
+            rgba(185, 166, 129, 0.18),
+            transparent 30%);
+    opacity: 0.8;
+}

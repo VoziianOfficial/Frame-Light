@@ -2,10 +2,80 @@
 
 /* ==================================================
    FRAME & LIGHT — SERVICES PAGE SCRIPT
-   Page-specific premium motion.
+   Page-specific premium motion + dynamic services grid.
 ================================================== */
 
 (function () {
+    const servicesData = Array.isArray(window.ServicesData) ? window.ServicesData : [];
+
+    function createIcon(iconName) {
+        const icon = document.createElement('i');
+        icon.setAttribute('data-lucide', iconName || 'panel-top');
+        icon.setAttribute('aria-hidden', 'true');
+        return icon;
+    }
+
+    function formatNumber(index) {
+        return String(index + 1).padStart(2, '0');
+    }
+
+    function renderServicesDirectory() {
+        const grid = document.querySelector('.services-grid');
+
+        if (!grid || !servicesData.length) return;
+
+        grid.replaceChildren();
+
+        servicesData.forEach((service, index) => {
+            const card = document.createElement('a');
+            card.className = 'service-route-card image-card tilt-card';
+            card.href = service.href;
+            card.setAttribute('data-aos', 'fade-up');
+
+            if (index % 3 === 1) {
+                card.setAttribute('data-aos-delay', '70');
+            }
+
+            if (index % 3 === 2) {
+                card.setAttribute('data-aos-delay', '140');
+            }
+
+            const image = document.createElement('img');
+            image.src = service.image;
+            image.alt = `${service.title} provider comparison`;
+
+            const iconWrap = document.createElement('span');
+            iconWrap.className = 'image-card-icon';
+            iconWrap.appendChild(createIcon(service.icon));
+
+            const content = document.createElement('div');
+            content.className = 'image-card-content';
+
+            const number = document.createElement('span');
+            number.className = 'service-card-number';
+            number.textContent = formatNumber(index);
+
+            const title = document.createElement('h3');
+            title.textContent = service.title;
+
+            const description = document.createElement('p');
+            description.textContent = service.description;
+
+            content.append(number, title, description);
+            card.append(image, iconWrap, content);
+
+            grid.appendChild(card);
+        });
+
+        if (window.lucide && typeof window.lucide.createIcons === 'function') {
+            window.lucide.createIcons();
+        }
+
+        if (window.AOS && typeof window.AOS.refreshHard === 'function') {
+            window.AOS.refreshHard();
+        }
+    }
+
     function initServicesHeroMotion() {
         if (!window.gsap) return;
 
@@ -256,22 +326,43 @@
             });
 
             control.addEventListener('blur', () => {
-                const hasFocusInside = form.contains(document.activeElement);
+                window.setTimeout(() => {
+                    const hasFocusInside = form.contains(document.activeElement);
 
-                if (!hasFocusInside) {
-                    form.classList.remove('is-active');
-                }
+                    if (!hasFocusInside) {
+                        form.classList.remove('is-active');
+                    }
+                }, 0);
             });
         });
     }
 
+    function initHeroCursorGlow() {
+        const hero = document.querySelector('.services-hero');
+
+        if (!hero) return;
+
+        hero.addEventListener('mousemove', (event) => {
+            if (window.innerWidth < 920) return;
+
+            const rect = hero.getBoundingClientRect();
+            const x = ((event.clientX - rect.left) / rect.width) * 100;
+            const y = ((event.clientY - rect.top) / rect.height) * 100;
+
+            hero.style.setProperty('--services-glow-x', `${x}%`);
+            hero.style.setProperty('--services-glow-y', `${y}%`);
+        });
+    }
+
     function init() {
+        renderServicesDirectory();
         initServicesHeroMotion();
         initServicesTiltCards();
         initServiceCardKeyboardFocus();
         initCompareMotion();
         initChecklistHoverDepth();
         initRequestFormAccent();
+        initHeroCursorGlow();
     }
 
     if (document.readyState === 'loading') {

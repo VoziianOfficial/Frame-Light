@@ -7,6 +7,7 @@
 
 (function () {
     const config = window.SiteConfig || {};
+    const servicesData = Array.isArray(window.ServicesData) ? window.ServicesData : [];
 
     const selectors = {
         header: '[data-header]',
@@ -40,6 +41,17 @@
 
             return '';
         }, config);
+    }
+
+    function getCurrentPath() {
+        return window.location.pathname.split('/').pop() || 'index.html';
+    }
+
+    function createIcon(iconName) {
+        const icon = document.createElement('i');
+        icon.setAttribute('data-lucide', iconName || 'panel-top');
+        icon.setAttribute('aria-hidden', 'true');
+        return icon;
     }
 
     function setTextContent() {
@@ -86,6 +98,123 @@
         setTextContent();
         setDynamicLinks();
         setCurrentYear();
+    }
+
+    function renderDesktopServiceMenus() {
+        if (!servicesData.length) return;
+
+        const menus = document.querySelectorAll('.nav-dropdown-menu');
+
+        menus.forEach((menu) => {
+            menu.replaceChildren();
+
+            servicesData.forEach((service) => {
+                const link = document.createElement('a');
+                link.className = 'dropdown-service-link';
+                link.href = service.href;
+
+                const title = document.createElement('strong');
+                title.textContent = service.shortTitle || service.title;
+
+                const text = document.createElement('span');
+                text.textContent = service.description;
+
+                link.append(title, text);
+                menu.appendChild(link);
+            });
+        });
+    }
+
+    function renderMobileServiceMenus() {
+        if (!servicesData.length) return;
+
+        const grids = document.querySelectorAll('.mobile-services-grid');
+
+        grids.forEach((grid) => {
+            grid.replaceChildren();
+
+            servicesData.forEach((service) => {
+                const link = document.createElement('a');
+                link.className = 'mobile-service-link';
+                link.href = service.href;
+
+                const label = document.createElement('span');
+                label.textContent = service.title;
+
+                link.append(createIcon(service.icon), label);
+                grid.appendChild(link);
+            });
+        });
+    }
+
+    function renderFooterServiceLinks() {
+        if (!servicesData.length) return;
+
+        const footerServiceNavs = document.querySelectorAll('.footer-links[aria-label="Footer services"]');
+
+        footerServiceNavs.forEach((nav) => {
+            nav.replaceChildren();
+
+            servicesData.forEach((service) => {
+                const link = document.createElement('a');
+                link.href = service.href;
+                link.textContent = service.title;
+
+                nav.appendChild(link);
+            });
+        });
+    }
+
+    function renderProjectTypeSelects() {
+        if (!servicesData.length) return;
+
+        const selects = document.querySelectorAll('select[name="project_type"]');
+        const currentPath = getCurrentPath();
+        const currentService = servicesData.find((service) => service.href === currentPath);
+
+        selects.forEach((select) => {
+            const previousValue = select.value;
+            const shouldHavePlaceholder = select.querySelector('option[value=""]');
+            const selectedValue = previousValue || currentService?.title || '';
+
+            select.replaceChildren();
+
+            if (shouldHavePlaceholder || !selectedValue) {
+                const placeholder = document.createElement('option');
+                placeholder.value = '';
+                placeholder.textContent = 'Select category';
+                select.appendChild(placeholder);
+            }
+
+            servicesData.forEach((service) => {
+                const option = document.createElement('option');
+                option.value = service.title;
+                option.textContent = service.title;
+
+                if (service.title === selectedValue) {
+                    option.selected = true;
+                }
+
+                select.appendChild(option);
+            });
+
+            const unsureOption = document.createElement('option');
+            unsureOption.value = 'Not sure yet';
+            unsureOption.textContent = 'Not sure yet';
+
+            if (selectedValue === 'Not sure yet') {
+                unsureOption.selected = true;
+            }
+
+            select.appendChild(unsureOption);
+        });
+    }
+
+    function renderServicesFromData() {
+        renderDesktopServiceMenus();
+        renderMobileServiceMenus();
+        renderFooterServiceLinks();
+        renderProjectTypeSelects();
     }
 
     function initIcons() {
@@ -378,20 +507,25 @@
     }
 
     function initActiveNav() {
-        const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-        const navLinks = document.querySelectorAll('.nav-link, .footer-links a, .mobile-nav-main a');
+        const currentPath = getCurrentPath();
+
+        const navLinks = document.querySelectorAll(
+            '.nav-link, .footer-links a, .mobile-nav-main a, .dropdown-service-link, .mobile-service-link'
+        );
 
         navLinks.forEach((link) => {
             const href = link.getAttribute('href');
 
             if (href === currentPath) {
                 link.classList.add('is-active');
+                link.classList.add('is-active-service');
                 link.setAttribute('aria-current', 'page');
             }
         });
     }
 
     function init() {
+        renderServicesFromData();
         initConfigInjection();
         initIcons();
         initAOS();
