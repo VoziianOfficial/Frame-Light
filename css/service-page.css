@@ -1759,3 +1759,282 @@
         transform: none;
     }
 }
+
+/* ==================================================
+   SERVICE CTA BAND — STABLE IMAGE SIZE FIX
+   Fixes jumping / shrinking image
+================================================== */
+
+.service-cta-band {
+    padding: clamp(30px, 3.8vw, 54px) 0 !important;
+    overflow: hidden !important;
+}
+
+.service-cta-band .container,
+.service-cta-band .container-wide {
+    width: min(100% - 28px, 1560px) !important;
+    max-width: 1560px !important;
+}
+
+/* стабильная сетка */
+.service-cta-shell {
+    display: grid !important;
+    grid-template-columns: minmax(420px, 0.88fr) minmax(0, 1fr) !important;
+    gap: 12px !important;
+    align-items: stretch !important;
+    min-height: auto !important;
+}
+
+/* фиксируем высоту обеих карточек */
+.service-cta-image,
+.service-cta-content {
+    height: clamp(400px, 34vw, 520px) !important;
+    min-height: clamp(400px, 34vw, 520px) !important;
+    max-height: 520px !important;
+}
+
+/* фото больше не скачет */
+.service-cta-image {
+    position: relative !important;
+    overflow: hidden !important;
+    align-self: stretch !important;
+    flex-shrink: 0 !important;
+    transform: none !important;
+}
+
+/* отключаем transform от AOS именно на фото-блоке */
+.service-cta-image.aos-init,
+.service-cta-image.aos-animate,
+.service-cta-image[data-aos] {
+    transform: none !important;
+}
+
+/* сама картинка всегда ровно по карточке */
+.service-cta-image img {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+
+    object-fit: cover !important;
+    object-position: center center !important;
+
+    transform: scale(1.001) !important;
+}
+
+/* hover без резкого скачка */
+.service-cta-image:hover img {
+    transform: scale(1.04) !important;
+}
+
+/* затемнение поверх фото */
+.service-cta-image::after {
+    z-index: 2 !important;
+}
+
+/* правая карточка держит ту же высоту */
+.service-cta-content {
+    display: grid !important;
+    align-content: center !important;
+    overflow: hidden !important;
+    padding: clamp(22px, 3.2vw, 44px) !important;
+}
+
+/* tablet */
+@media (max-width: 1180px) {
+    .service-cta-shell {
+        grid-template-columns: 1fr !important;
+    }
+
+    .service-cta-image {
+        height: 360px !important;
+        min-height: 360px !important;
+        max-height: 360px !important;
+    }
+
+    .service-cta-content {
+        height: auto !important;
+        min-height: auto !important;
+        max-height: none !important;
+    }
+}
+
+/* mobile */
+@media (max-width: 680px) {
+    .service-cta-image {
+        height: 300px !important;
+        min-height: 300px !important;
+        max-height: 300px !important;
+    }
+}
+
+@media (max-width: 520px) {
+    .service-cta-image {
+        height: 270px !important;
+        min-height: 270px !important;
+        max-height: 270px !important;
+    }
+}
+
+/* ==================================================
+   SPLIT SECTION HEAD — WIDER HORIZONTAL TEXT
+================================================== */
+
+.section-head.split-head {
+    width: 100%;
+    max-width: 1560px;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.05fr) minmax(420px, 0.75fr);
+    align-items: end;
+    gap: clamp(24px, 4vw, 68px);
+    margin-inline: auto;
+}
+
+.section-head.split-head>div {
+    width: 100%;
+    max-width: 980px;
+    min-width: 0;
+}
+
+.section-head.split-head .section-title {
+    max-width: 980px;
+    font-size: clamp(2.5rem, 4.7vw, 5.4rem);
+    line-height: 0.94;
+    font-weight: 500;
+    letter-spacing: -0.045em;
+    text-wrap: initial;
+}
+
+.section-head.split-head .section-kicker {
+    max-width: 760px;
+    justify-self: end;
+    font-size: clamp(0.96rem, 1.05vw, 1.06rem);
+    line-height: 1.56;
+}
+
+/* если AOS добавляет ограничения/transform — не даем ломать ширину */
+.section-head.split-head.aos-init,
+.section-head.split-head.aos-animate {
+    width: 100%;
+}
+
+/* tablet */
+@media (max-width: 1180px) {
+    .section-head.split-head {
+        grid-template-columns: 1fr;
+        align-items: start;
+        gap: 14px;
+    }
+
+    .section-head.split-head>div,
+    .section-head.split-head .section-title,
+    .section-head.split-head .section-kicker {
+        max-width: 100%;
+        justify-self: stretch;
+    }
+}
+
+/* mobile */
+@media (max-width: 680px) {
+    .section-head.split-head .section-title {
+        font-size: clamp(2.25rem, 10vw, 3.8rem);
+        line-height: 1;
+    }
+
+    .section-head.split-head .section-kicker {
+        font-size: 0.94rem;
+        line-height: 1.5;
+    }
+}
+
+/* ==================================================
+   ALL SERVICE PAGES — SAME WIDE SECTION HEAD STYLE
+   Applies to every individual service page
+================================================== */
+
+/* расширяем контейнеры внутри всех сервисных страниц */
+.service-page .container,
+.service-page .container-wide {
+    width: min(100% - 28px, 1560px);
+    max-width: 1560px;
+}
+
+/* одинаковый широкий split-head на всех service pages */
+.service-page .section-head.split-head {
+    width: 100%;
+    max-width: 1560px;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.08fr) minmax(420px, 0.72fr);
+    align-items: end;
+    gap: clamp(24px, 4vw, 68px);
+    margin-inline: auto;
+    margin-bottom: clamp(20px, 3vw, 42px);
+}
+
+/* левая часть с eyebrow + заголовком */
+.service-page .section-head.split-head>div {
+    width: 100%;
+    max-width: 980px;
+    min-width: 0;
+}
+
+/* заголовок шире и не узким столбиком */
+.service-page .section-head.split-head .section-title {
+    max-width: 980px;
+    font-size: clamp(2.45rem, 4.7vw, 5.4rem);
+    line-height: 0.94;
+    font-weight: 500;
+    letter-spacing: -0.045em;
+    text-wrap: initial;
+}
+
+/* параграф справа шире */
+.service-page .section-head.split-head .section-kicker {
+    max-width: 760px;
+    justify-self: end;
+    font-size: clamp(0.96rem, 1.05vw, 1.06rem);
+    line-height: 1.56;
+}
+
+/* защита от AOS */
+.service-page .section-head.split-head.aos-init,
+.service-page .section-head.split-head.aos-animate {
+    width: 100%;
+}
+
+/* tablet */
+@media (max-width: 1180px) {
+    .service-page .section-head.split-head {
+        grid-template-columns: 1fr;
+        align-items: start;
+        gap: 14px;
+        margin-bottom: 24px;
+    }
+
+    .service-page .section-head.split-head>div,
+    .service-page .section-head.split-head .section-title,
+    .service-page .section-head.split-head .section-kicker {
+        max-width: 100%;
+        justify-self: stretch;
+    }
+}
+
+/* mobile */
+@media (max-width: 680px) {
+    .service-page .section-head.split-head {
+        margin-bottom: 20px;
+    }
+
+    .service-page .section-head.split-head .section-title {
+        font-size: clamp(2.25rem, 10vw, 3.8rem);
+        line-height: 1;
+    }
+
+    .service-page .section-head.split-head .section-kicker {
+        font-size: 0.94rem;
+        line-height: 1.5;
+    }
+}
