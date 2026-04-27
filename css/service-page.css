@@ -2038,3 +2038,49 @@
         line-height: 1.5;
     }
 }
+
+
+/* ==================================================
+   SERVICE CTA BAND — CENTER CARD ON TABLET / MOBILE
+================================================== */
+
+@media (max-width: 1180px) {
+    .service-cta-band .service-cta-shell {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        justify-items: center !important;
+        align-items: center !important;
+        gap: 14px !important;
+    }
+
+    .service-cta-band .service-cta-image {
+        width: min(100%, 920px) !important;
+        justify-self: center !important;
+    }
+
+    .service-cta-band .service-cta-content {
+        width: min(100%, 920px) !important;
+        max-width: 920px !important;
+        justify-self: center !important;
+        margin-inline: auto !important;
+    }
+}
+
+@media (max-width: 680px) {
+    .service-cta-band .service-cta-shell {
+        justify-items: center !important;
+        text-align: left !important;
+    }
+
+    .service-cta-band .service-cta-image,
+    .service-cta-band .service-cta-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        justify-self: center !important;
+        margin-inline: auto !important;
+    }
+
+    .service-cta-band .service-cta-content {
+        align-content: center !important;
+    }
+}
