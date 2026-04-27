@@ -1970,3 +1970,24 @@ section[id],
         min-height: var(--header-height);
     }
 }
+
+/* ==================================================
+   WIDE COMPACT SECTION SAFETY
+================================================== */
+
+.services-directory,
+.services-compare,
+.home-showcase,
+.home-quote,
+.contact-map-section {
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+.services-directory *,
+.services-compare *,
+.home-showcase *,
+.home-quote *,
+.contact-map-section * {
+    min-width: 0;
+}
