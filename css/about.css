@@ -1637,3 +1637,154 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* ==================================================
+   ABOUT — HIDE VISUAL SECTIONS ON TABLET / MOBILE
+================================================== */
+
+@media (max-width: 1180px) {
+
+    .about-hero-visual,
+    .about-hero-visual.aos-init,
+    .about-hero-visual.aos-animate,
+    .about-story,
+    .section.about-story {
+        display: none !important;
+    }
+}
+
+/* ==================================================
+   CONTACT FORM SIDE — HIDE ON TABLET / MOBILE
+================================================== */
+
+@media (max-width: 1180px) {
+
+    .contact-form-side,
+    .contact-form-side.aos-init,
+    .contact-form-side.aos-animate {
+        display: none !important;
+    }
+}
+
+/* ==================================================
+   CONTACT REAL MAP — STABLE SIZE ON TABLET / MOBILE
+================================================== */
+
+.map-card.contact-map-card.real-contact-map,
+.map-card.contact-map-card.real-contact-map.aos-init,
+.map-card.contact-map-card.real-contact-map.aos-animate {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    background: var(--color-dark);
+}
+
+/* iframe всегда заполняет всю карту */
+.map-card.contact-map-card.real-contact-map iframe {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 100% !important;
+
+    display: block !important;
+    border: 0 !important;
+}
+
+/* текст поверх карты не должен менять высоту карты */
+.map-card.contact-map-card.real-contact-map .map-content {
+    position: absolute !important;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3 !important;
+
+    min-height: auto !important;
+    height: auto !important;
+    max-width: 720px;
+
+    padding: clamp(20px, 3vw, 40px);
+}
+
+/* затемнение поверх карты */
+.map-card.contact-map-card.real-contact-map::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background:
+        linear-gradient(90deg,
+            rgba(25, 27, 24, 0.68) 0%,
+            rgba(25, 27, 24, 0.34) 45%,
+            rgba(25, 27, 24, 0.08) 100%),
+        linear-gradient(180deg,
+            rgba(25, 27, 24, 0.04) 0%,
+            rgba(25, 27, 24, 0.42) 100%);
+}
+
+/* убираем старые декоративные точки, если они остались */
+.map-card.contact-map-card.real-contact-map .map-pin {
+    display: none !important;
+}
+
+/* TABLET */
+@media (max-width: 1180px) {
+    .contact-map-layout {
+        grid-template-columns: 1fr !important;
+        align-items: stretch !important;
+    }
+
+    .map-card.contact-map-card.real-contact-map,
+    .map-card.contact-map-card.real-contact-map.aos-init,
+    .map-card.contact-map-card.real-contact-map.aos-animate {
+        height: 430px !important;
+        min-height: 430px !important;
+        max-height: 430px !important;
+        flex: 0 0 430px !important;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 680px) {
+
+    .map-card.contact-map-card.real-contact-map,
+    .map-card.contact-map-card.real-contact-map.aos-init,
+    .map-card.contact-map-card.real-contact-map.aos-animate {
+        height: 360px !important;
+        min-height: 360px !important;
+        max-height: 360px !important;
+        flex: 0 0 360px !important;
+    }
+
+    .map-card.contact-map-card.real-contact-map .map-content {
+        padding: 20px;
+    }
+
+    .map-card.contact-map-card.real-contact-map .map-content h2 {
+        font-size: clamp(2rem, 9vw, 3.3rem);
+        line-height: 1;
+    }
+
+    .map-card.contact-map-card.real-contact-map .map-content p {
+        font-size: 0.86rem;
+        line-height: 1.45;
+    }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 430px) {
+
+    .map-card.contact-map-card.real-contact-map,
+    .map-card.contact-map-card.real-contact-map.aos-init,
+    .map-card.contact-map-card.real-contact-map.aos-animate {
+        height: 340px !important;
+        min-height: 340px !important;
+        max-height: 340px !important;
+        flex: 0 0 340px !important;
+    }
+}

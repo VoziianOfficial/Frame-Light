@@ -1584,3 +1584,176 @@ background:
         padding: 0 16px 16px;
     }
 }
+
+/* ==================================================
+   CONTACT MAP — FIX REAL MAP SIZE
+   class="map-card contact-map-card real-contact-map"
+================================================== */
+
+.contact-map-section {
+    padding: clamp(30px, 4vw, 56px) 0 !important;
+    overflow: hidden;
+}
+
+.contact-map-section .container-wide {
+    width: min(100% - 28px, 1560px) !important;
+    max-width: 1560px !important;
+}
+
+.contact-map-layout {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.05fr) minmax(420px, 0.78fr) !important;
+    gap: clamp(14px, 2vw, 24px) !important;
+    align-items: stretch !important;
+}
+
+/* сама карта держит стабильный размер */
+.real-contact-map,
+.map-card.contact-map-card.real-contact-map {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+
+    min-height: clamp(430px, 38vw, 560px) !important;
+    height: clamp(430px, 38vw, 560px) !important;
+    max-height: 560px !important;
+
+    overflow: hidden !important;
+    padding: 0 !important;
+    border: 1px solid rgba(189, 182, 168, 0.78);
+    background: var(--color-dark);
+    box-shadow: var(--shadow-card);
+}
+
+/* отключаем старую декоративную сетку карты */
+.real-contact-map::before {
+    display: none !important;
+}
+
+/* затемнение поверх настоящей карты */
+.real-contact-map::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background:
+        linear-gradient(90deg,
+            rgba(25, 27, 24, 0.66) 0%,
+            rgba(25, 27, 24, 0.34) 44%,
+            rgba(25, 27, 24, 0.08) 100%),
+        linear-gradient(180deg,
+            transparent 0%,
+            rgba(25, 27, 24, 0.38) 100%);
+}
+
+/* iframe всегда растягивается на всю карточку */
+.real-contact-map iframe {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 100% !important;
+
+    display: block !important;
+    border: 0 !important;
+    filter: saturate(0.88) contrast(1.03);
+}
+
+/* текст поверх карты */
+.real-contact-map .map-content {
+    position: absolute !important;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3 !important;
+
+    width: 100%;
+    max-width: 720px;
+    min-height: auto !important;
+
+    display: grid;
+    align-content: end;
+    gap: clamp(10px, 1.4vw, 16px);
+    padding: clamp(22px, 3vw, 42px);
+
+    color: var(--color-white);
+}
+
+.real-contact-map .map-content .eyebrow {
+    color: rgba(251, 248, 241, 0.82);
+}
+
+.real-contact-map .map-content h2 {
+    max-width: 680px;
+    color: var(--color-white);
+    font-family: var(--font-heading);
+    font-size: clamp(2.25rem, 4vw, 4.9rem);
+    font-weight: 500;
+    line-height: 0.94;
+    letter-spacing: -0.045em;
+}
+
+.real-contact-map .map-content p {
+    max-width: 620px;
+    color: rgba(251, 248, 241, 0.76);
+    font-size: 0.94rem;
+    line-height: 1.52;
+}
+
+/* правая панель держит высоту как карта */
+.contact-map-section .service-area-panel {
+    min-height: clamp(430px, 38vw, 560px) !important;
+    height: clamp(430px, 38vw, 560px) !important;
+    max-height: 560px !important;
+
+    display: grid !important;
+    align-content: center !important;
+    overflow: hidden;
+}
+
+/* планшет */
+@media (max-width: 1180px) {
+    .contact-map-layout {
+        grid-template-columns: 1fr !important;
+    }
+
+    .real-contact-map,
+    .map-card.contact-map-card.real-contact-map {
+        min-height: 420px !important;
+        height: 420px !important;
+        max-height: none !important;
+    }
+
+    .contact-map-section .service-area-panel {
+        min-height: auto !important;
+        height: auto !important;
+        max-height: none !important;
+    }
+}
+
+/* телефон */
+@media (max-width: 680px) {
+
+    .real-contact-map,
+    .map-card.contact-map-card.real-contact-map {
+        min-height: 360px !important;
+        height: 360px !important;
+    }
+
+    .real-contact-map .map-content {
+        padding: 20px;
+    }
+
+    .real-contact-map .map-content h2 {
+        font-size: clamp(2rem, 9.5vw, 3.4rem);
+        line-height: 1;
+    }
+
+    .real-contact-map .map-content p {
+        font-size: 0.86rem;
+        line-height: 1.45;
+    }
+}

@@ -2491,3 +2491,15 @@ button,
         scroll-behavior: auto !important;
     }
 }
+
+/* ==================================================
+   HOME SHOWCASE — HIDE ON TABLET / MOBILE
+================================================== */
+
+@media (max-width: 1180px) {
+
+    .home-showcase,
+    .section.home-showcase {
+        display: none !important;
+    }
+}

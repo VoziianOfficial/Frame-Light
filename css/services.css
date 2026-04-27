@@ -1336,3 +1336,28 @@
 .services-faq .faq-answer p {
     color: rgba(25, 27, 24, 0.72);
 }
+
+/* ==================================================
+   SERVICES HERO PANEL — HIDE ON TABLET / MOBILE
+================================================== */
+
+@media (max-width: 1180px) {
+
+    .services-hero-directory-panel,
+    .services-hero-directory-panel.aos-init,
+    .services-hero-directory-panel.aos-animate {
+        display: none !important;
+    }
+}
+
+/* ==================================================
+   SERVICES COMPARE — HIDE ON TABLET / MOBILE
+================================================== */
+
+@media (max-width: 1180px) {
+
+    .services-compare,
+    .section.services-compare {
+        display: none !important;
+    }
+}
