@@ -1184,3 +1184,104 @@
         justify-self: stretch;
     }
 }
+
+/* ==================================================
+   SERVICES REVIEW — WIDE LUXURY LAYOUT FIX
+================================================== */
+
+.services-review {
+    padding: clamp(34px, 4.5vw, 64px) 0 !important;
+}
+
+/* расширяем контейнер именно этой секции */
+.services-review .container {
+    width: min(100% - 28px, 1560px) !important;
+    max-width: 1560px !important;
+}
+
+/* делаем левую колонку шире */
+.services-review .review-layout {
+    display: grid !important;
+    grid-template-columns: minmax(620px, 1.08fr) minmax(480px, 0.92fr) !important;
+    gap: clamp(28px, 4vw, 62px) !important;
+    align-items: start !important;
+}
+
+/* сам текстовый блок */
+.services-review .review-copy {
+    width: 100% !important;
+    max-width: 980px !important;
+    min-width: 0 !important;
+}
+
+/* заголовок меньше и шире, чтобы не был узким столбиком */
+.services-review .review-copy .section-title {
+    max-width: 960px !important;
+    font-size: clamp(2.55rem, 4.6vw, 5.25rem) !important;
+    line-height: 0.96 !important;
+    font-weight: 500 !important;
+    letter-spacing: -0.035em !important;
+    text-wrap: initial !important;
+}
+
+/* параграф шире и ровнее */
+.services-review .review-copy .section-kicker {
+    max-width: 820px !important;
+    font-size: clamp(0.98rem, 1.08vw, 1.08rem) !important;
+    line-height: 1.58 !important;
+}
+
+/* правая колонка */
+.services-review .review-checklist {
+    width: 100% !important;
+    max-width: 720px !important;
+    justify-self: end !important;
+}
+
+/* сами карточки чуть компактнее */
+.services-review .review-check {
+    padding: clamp(18px, 2vw, 24px) !important;
+}
+
+.services-review .review-check h3 {
+    font-size: clamp(1.35rem, 1.9vw, 1.85rem) !important;
+}
+
+.services-review .review-check p {
+    font-size: 0.9rem !important;
+    line-height: 1.55 !important;
+}
+
+/* tablet */
+@media (max-width: 1180px) {
+    .services-review .container {
+        width: min(100% - 28px, 1100px) !important;
+    }
+
+    .services-review .review-layout {
+        grid-template-columns: 1fr !important;
+    }
+
+    .services-review .review-copy,
+    .services-review .review-copy .section-title,
+    .services-review .review-copy .section-kicker,
+    .services-review .review-checklist {
+        max-width: 100% !important;
+    }
+
+    .services-review .review-checklist {
+        justify-self: stretch !important;
+    }
+}
+
+/* mobile */
+@media (max-width: 680px) {
+    .services-review .review-copy .section-title {
+        font-size: clamp(2.35rem, 11vw, 4rem) !important;
+        line-height: 1 !important;
+    }
+
+    .services-review .review-check {
+        grid-template-columns: 1fr !important;
+    }
+}
