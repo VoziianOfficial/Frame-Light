@@ -806,3 +806,152 @@
         min-height: 300px;
     }
 }
+
+.services-hero-directory {
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(90deg,
+            rgba(241, 237, 228, 0.58) 0%,
+            rgba(241, 237, 228, 0.44) 42%,
+            rgba(221, 215, 202, 0.18) 68%,
+            rgba(52, 58, 50, 0.06) 100%),
+        linear-gradient(180deg,
+            rgba(241, 237, 228, 0.18) 0%,
+            rgba(241, 237, 228, 0.34) 100%),
+        url("../assets/images/services/services-hero.jpg") center right / cover no-repeat;
+}
+
+.services-hero-directory::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 18% 20%, rgba(185, 166, 129, 0.08), transparent 30%),
+        linear-gradient(180deg, transparent 0%, rgba(241, 237, 228, 0.22) 100%);
+}
+
+.services-hero-directory .services-hero-grid-bg {
+    z-index: 1;
+    opacity: 0.1;
+    mix-blend-mode: multiply;
+}
+
+.services-hero-directory .services-hero-shell {
+    position: relative;
+    z-index: 3;
+}
+
+.services-hero-directory .services-hero-copy {
+    padding: clamp(16px, 2vw, 26px);
+    margin-left: clamp(-16px, -1.2vw, 0px);
+    background: linear-gradient(90deg,
+            rgba(241, 237, 228, 0.24),
+            rgba(241, 237, 228, 0.08),
+            transparent);
+}
+
+.services-hero-directory .page-title {
+    text-shadow: 0 10px 32px rgba(251, 248, 241, 0.24);
+}
+
+.services-hero-directory .services-hero-directory-panel {
+    background:
+        linear-gradient(145deg, rgba(251, 248, 241, 0.58), rgba(221, 215, 202, 0.32)),
+        radial-gradient(circle at 100% 0%, rgba(185, 166, 129, 0.12), transparent 36%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-color: rgba(251, 248, 241, 0.34);
+}
+
+.services-hero-directory .services-hero-mini-card {
+    background: rgba(251, 248, 241, 0.38);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+}
+
+.services-hero-directory .services-hero-mini-card:hover {
+    background: rgba(251, 248, 241, 0.66);
+}
+
+/* mobile/tablet */
+@media (max-width: 1180px) {
+    .services-hero-directory {
+        background:
+            linear-gradient(180deg,
+                rgba(241, 237, 228, 0.58) 0%,
+                rgba(241, 237, 228, 0.46) 52%,
+                rgba(221, 215, 202, 0.34) 100%),
+            url("../assets/images/services/services-hero.jpg") center / cover no-repeat;
+    }
+
+    .services-hero-directory .services-hero-copy {
+        margin-left: 0;
+        padding: 0;
+        background: transparent;
+    }
+}
+
+@media (max-width: 680px) {
+    .services-hero-directory {
+        background:
+            linear-gradient(180deg,
+                rgba(241, 237, 228, 0.64) 0%,
+                rgba(241, 237, 228, 0.48) 52%,
+                rgba(221, 215, 202, 0.42) 100%),
+            url("../assets/images/services/services-hero.jpg") center / cover no-repeat;
+    }
+
+    .services-hero-directory::before {
+        background:
+            linear-gradient(180deg, rgba(241, 237, 228, 0.04), rgba(241, 237, 228, 0.28));
+    }
+}
+
+/* ==================================================
+   SERVICES HERO — TEXT CONTRAST BOOST
+================================================== */
+
+.services-hero-directory .eyebrow {
+    color: rgba(25, 27, 24, 0.86);
+}
+
+.services-hero-directory .page-title {
+    color: #11140F;
+    text-shadow:
+        0 2px 18px rgba(251, 248, 241, 0.72),
+        0 14px 42px rgba(251, 248, 241, 0.42);
+}
+
+.services-hero-directory .services-hero-copy>p {
+    color: rgba(25, 27, 24, 0.82);
+    font-weight: 500;
+}
+
+.services-hero-directory .services-hero-note {
+    background: rgba(251, 248, 241, 0.62);
+    border-color: rgba(52, 58, 50, 0.18);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.services-hero-directory .services-hero-note p {
+    color: rgba(25, 27, 24, 0.78);
+    font-weight: 500;
+}
+
+.services-hero-directory .services-directory-head strong,
+.services-hero-directory .services-hero-mini-card strong {
+    color: #141713;
+}
+
+.services-hero-directory .services-hero-mini-card p {
+    color: rgba(25, 27, 24, 0.72);
+    font-weight: 500;
+}
+
+.services-hero-directory .services-directory-footer span {
+    color: rgba(25, 27, 24, 0.78);
+}
