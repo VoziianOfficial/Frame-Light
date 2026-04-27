@@ -2550,3 +2550,438 @@ button,
         justify-content: center;
     }
 }
+
+
+
+/* ==================================================
+   CONTACT AREA — NEW PREMIUM MAP SECTION
+   Replaces old contact-map-section
+================================================== */
+
+.contact-area-section {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(34px, 4.6vw, 66px) 0 !important;
+    background:
+        radial-gradient(circle at 12% 10%, rgba(185, 166, 129, 0.18), transparent 30%),
+        linear-gradient(180deg, var(--color-bg) 0%, rgba(221, 215, 202, 0.62) 100%);
+}
+
+.contact-area-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(52, 58, 50, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(52, 58, 50, 0.045) 1px, transparent 1px);
+    background-size: 46px 46px;
+    opacity: 0.45;
+}
+
+.contact-area-section .container-wide {
+    position: relative;
+    z-index: 2;
+    width: min(100% - 28px, 1560px) !important;
+    max-width: 1560px !important;
+}
+
+/* top text */
+.contact-area-head {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.36fr) minmax(0, 1fr);
+    gap: clamp(22px, 4vw, 64px);
+    align-items: start;
+    margin-bottom: clamp(18px, 2.5vw, 32px);
+}
+
+.contact-area-head>div {
+    max-width: 1120px;
+    display: grid;
+    gap: 16px;
+}
+
+.contact-area-head .section-title {
+    max-width: 1120px;
+    font-size: clamp(2.6rem, 4.7vw, 5.8rem);
+    line-height: 0.94;
+    font-weight: 500;
+    letter-spacing: -0.045em;
+    text-wrap: initial;
+}
+
+.contact-area-head .section-kicker {
+    max-width: 900px;
+    font-size: clamp(0.98rem, 1.08vw, 1.08rem);
+    line-height: 1.58;
+}
+
+/* real map card */
+.contact-area-map-card {
+    position: relative;
+    width: 100%;
+    height: clamp(390px, 36vw, 560px);
+    overflow: hidden;
+    border: 1px solid rgba(189, 182, 168, 0.84);
+    background: var(--color-dark);
+    box-shadow: 0 26px 80px rgba(25, 27, 24, 0.16);
+}
+
+.contact-area-map-card iframe {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    filter: saturate(0.84) contrast(1.04);
+}
+
+.contact-area-map-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background:
+        linear-gradient(90deg,
+            rgba(25, 27, 24, 0.72) 0%,
+            rgba(25, 27, 24, 0.38) 38%,
+            rgba(25, 27, 24, 0.04) 100%),
+        linear-gradient(180deg,
+            transparent 0%,
+            rgba(25, 27, 24, 0.34) 100%);
+}
+
+/* overlay on map */
+.contact-area-map-overlay {
+    position: absolute;
+    left: clamp(18px, 3vw, 42px);
+    bottom: clamp(18px, 3vw, 42px);
+    z-index: 3;
+    width: min(520px, calc(100% - 36px));
+    display: grid;
+    gap: 8px;
+    padding: clamp(18px, 2.4vw, 28px);
+    border: 1px solid rgba(251, 248, 241, 0.22);
+    background: rgba(25, 27, 24, 0.56);
+    color: var(--color-white);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+.contact-area-map-overlay span {
+    font-family: var(--font-accent);
+    font-size: 0.66rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+}
+
+.contact-area-map-overlay strong {
+    font-family: var(--font-heading);
+    font-size: clamp(1.7rem, 2.5vw, 2.8rem);
+    font-weight: 500;
+    line-height: 0.96;
+    letter-spacing: -0.045em;
+}
+
+.contact-area-map-overlay p {
+    color: rgba(251, 248, 241, 0.72);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* bottom cards */
+.contact-area-steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.contact-area-steps article {
+    min-height: 150px;
+    display: grid;
+    grid-template-columns: 46px minmax(0, 1fr);
+    gap: 16px;
+    align-items: start;
+    padding: clamp(18px, 2vw, 24px);
+    border: 1px solid rgba(189, 182, 168, 0.78);
+    background: rgba(251, 248, 241, 0.54);
+    box-shadow: 0 16px 42px rgba(25, 27, 24, 0.07);
+    transition:
+        transform 0.28s var(--ease-out),
+        border-color 0.28s var(--ease-out),
+        background 0.28s var(--ease-out),
+        box-shadow 0.28s var(--ease-out);
+}
+
+.contact-area-steps article:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-accent);
+    background: rgba(251, 248, 241, 0.82);
+    box-shadow: 0 22px 58px rgba(25, 27, 24, 0.11);
+}
+
+.contact-area-steps article>span {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(52, 58, 50, 0.16);
+    background: rgba(185, 166, 129, 0.18);
+    color: var(--color-dark);
+    font-family: var(--font-accent);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.contact-area-steps strong {
+    display: block;
+    margin-bottom: 6px;
+    font-family: var(--font-heading);
+    font-size: clamp(1.35rem, 1.8vw, 1.85rem);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.035em;
+}
+
+.contact-area-steps p {
+    max-width: 460px;
+    color: var(--color-muted);
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+/* tablet */
+@media (max-width: 1180px) {
+    .contact-area-head {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .contact-area-head .section-title,
+    .contact-area-head .section-kicker {
+        max-width: 100%;
+    }
+
+    .contact-area-map-card {
+        height: 430px;
+    }
+
+    .contact-area-steps {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-area-steps article {
+        min-height: auto;
+    }
+}
+
+/* mobile */
+@media (max-width: 680px) {
+    .contact-area-section {
+        padding: 28px 0 !important;
+    }
+
+    .contact-area-head .section-title {
+        font-size: clamp(2.25rem, 10vw, 3.8rem);
+        line-height: 1;
+    }
+
+    .contact-area-map-card {
+        height: 360px;
+    }
+
+    .contact-area-map-overlay {
+        left: 14px;
+        right: 14px;
+        bottom: 14px;
+        width: auto;
+        padding: 16px;
+    }
+
+    .contact-area-map-overlay strong {
+        font-size: 1.65rem;
+    }
+
+    .contact-area-map-overlay p {
+        font-size: 0.82rem;
+    }
+
+    .contact-area-steps article {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 18px;
+    }
+}
+
+@media (max-width: 430px) {
+    .contact-area-map-card {
+        height: 330px;
+    }
+}
+
+/* ==================================================
+   CONTACT AREA — COMPACT ONE-SCROLL VERSION
+================================================== */
+
+.contact-area-section {
+    padding: clamp(24px, 3vw, 42px) 0 !important;
+}
+
+/* верхний текст компактнее */
+.contact-area-head {
+    grid-template-columns: minmax(180px, 0.28fr) minmax(0, 1fr);
+    gap: clamp(16px, 3vw, 44px);
+    margin-bottom: clamp(14px, 1.8vw, 22px);
+}
+
+.contact-area-head>div {
+    gap: 10px;
+}
+
+.contact-area-head .section-title {
+    max-width: 1040px;
+    font-size: clamp(2.25rem, 4vw, 4.9rem);
+    line-height: 0.94;
+    font-weight: 500;
+}
+
+.contact-area-head .section-kicker {
+    max-width: 840px;
+    font-size: clamp(0.92rem, 1vw, 1rem);
+    line-height: 1.48;
+}
+
+/* карта ниже */
+.contact-area-map-card {
+    height: clamp(300px, 28vw, 430px) !important;
+}
+
+/* overlay на карте компактнее */
+.contact-area-map-overlay {
+    gap: 6px;
+    padding: clamp(14px, 1.8vw, 22px);
+    width: min(470px, calc(100% - 36px));
+}
+
+.contact-area-map-overlay strong {
+    font-size: clamp(1.45rem, 2vw, 2.25rem);
+}
+
+.contact-area-map-overlay p {
+    font-size: 0.82rem;
+    line-height: 1.42;
+}
+
+/* карточки ниже карты компактнее */
+.contact-area-steps {
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.contact-area-steps article {
+    min-height: 118px;
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: 12px;
+    padding: clamp(14px, 1.6vw, 18px);
+}
+
+.contact-area-steps article>span {
+    width: 34px;
+    height: 34px;
+    font-size: 0.62rem;
+}
+
+.contact-area-steps strong {
+    margin-bottom: 4px;
+    font-size: clamp(1.15rem, 1.45vw, 1.45rem);
+}
+
+.contact-area-steps p {
+    font-size: 0.8rem;
+    line-height: 1.38;
+}
+
+/* tablet */
+@media (max-width: 1180px) {
+    .contact-area-section {
+        padding: 28px 0 !important;
+    }
+
+    .contact-area-head {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+
+    .contact-area-map-card {
+        height: 360px !important;
+    }
+
+    .contact-area-steps {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .contact-area-steps article {
+        grid-template-columns: 1fr;
+        min-height: 140px;
+    }
+}
+
+/* mobile */
+@media (max-width: 680px) {
+    .contact-area-section {
+        padding: 24px 0 !important;
+    }
+
+    .contact-area-head .section-title {
+        font-size: clamp(2rem, 9vw, 3.3rem);
+        line-height: 1;
+    }
+
+    .contact-area-head .section-kicker {
+        font-size: 0.9rem;
+        line-height: 1.45;
+    }
+
+    .contact-area-map-card {
+        height: 310px !important;
+    }
+
+    .contact-area-map-overlay {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        width: auto;
+        padding: 14px;
+    }
+
+    .contact-area-map-overlay strong {
+        font-size: 1.45rem;
+    }
+
+    .contact-area-map-overlay p {
+        font-size: 0.78rem;
+    }
+
+    .contact-area-steps {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-area-steps article {
+        min-height: auto;
+        padding: 16px;
+    }
+}
+
+@media (max-width: 430px) {
+    .contact-area-map-card {
+        height: 285px !important;
+    }
+}
