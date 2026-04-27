@@ -2239,3 +2239,255 @@ section[id],
         margin-top: 5px;
     }
 }
+
+
+/* ==================================================
+   FRAME & LIGHT — CSS ONLY PREMIUM MOTION
+   Lightweight, no JS needed
+================================================== */
+
+/* плавность для всего сайта */
+a,
+button,
+.btn,
+.surface-card,
+.image-card,
+.service-route-card,
+.home-service-card,
+.review-check,
+.compliance-item,
+.factor-item,
+.evaluate-card,
+.model-card,
+.values-stack article,
+.services-hero-mini-card,
+.contact-mini-card,
+.faq-item,
+.service-area-steps article,
+.service-area-steps-new article,
+.dropdown-service-link,
+.mobile-service-link,
+.form-card {
+    transition:
+        transform 0.32s var(--ease-out),
+        border-color 0.32s var(--ease-out),
+        background 0.32s var(--ease-out),
+        color 0.32s var(--ease-out),
+        box-shadow 0.32s var(--ease-out),
+        opacity 0.32s var(--ease-out),
+        filter 0.32s var(--ease-out);
+}
+
+/* карточки оживают */
+.surface-card:hover,
+.image-card:hover,
+.service-route-card:hover,
+.home-service-card:hover,
+.review-check:hover,
+.compliance-item:hover,
+.factor-item:hover,
+.evaluate-card:hover,
+.model-card:hover,
+.values-stack article:hover,
+.services-hero-mini-card:hover,
+.contact-mini-card:hover,
+.faq-item:hover,
+.service-area-steps article:hover,
+.service-area-steps-new article:hover,
+.dropdown-service-link:hover,
+.mobile-service-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 22px 58px rgba(25, 27, 24, 0.12);
+}
+
+/* фото мягко увеличиваются */
+.image-card img,
+.service-route-card img,
+.home-service-card img,
+.service-overview-media img,
+.service-cta-image img,
+.compare-image img,
+.about-story-media img,
+.values-image img,
+.contact-hero-photo img,
+.about-hero-photo img {
+    transform-origin: center;
+    transition:
+        transform 0.8s var(--ease-out),
+        filter 0.8s var(--ease-out);
+}
+
+.image-card:hover img,
+.service-route-card:hover img,
+.home-service-card:hover img,
+.service-overview-media:hover img,
+.service-cta-image:hover img,
+.compare-image:hover img,
+.about-story-media:hover img,
+.values-image:hover img,
+.contact-hero-photo:hover img,
+.about-hero-photo:hover img {
+    transform: scale(1.045);
+    filter: saturate(1.06) contrast(1.04);
+}
+
+/* кнопки */
+.btn {
+    transform: translateZ(0);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0) scale(0.985);
+}
+
+/* красивый блик на кнопках */
+.btn::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    z-index: -1;
+    background: linear-gradient(120deg,
+            transparent 0%,
+            rgba(251, 248, 241, 0.28) 42%,
+            transparent 70%);
+    transform: translateX(-120%);
+    transition: transform 0.65s var(--ease-out);
+    pointer-events: none;
+}
+
+.btn:hover::after {
+    transform: translateX(120%);
+}
+
+/* input живее */
+.form-control {
+    transition:
+        border-color 0.25s var(--ease-out),
+        background 0.25s var(--ease-out),
+        box-shadow 0.25s var(--ease-out),
+        transform 0.25s var(--ease-out);
+}
+
+.form-control:focus {
+    transform: translateY(-1px);
+}
+
+/* FAQ */
+.faq-question {
+    transition:
+        background 0.28s var(--ease-out),
+        color 0.28s var(--ease-out);
+}
+
+.faq-question:hover {
+    background: rgba(185, 166, 129, 0.11);
+}
+
+.faq-item.is-open {
+    border-color: rgba(185, 166, 129, 0.72);
+    background: rgba(251, 248, 241, 0.64);
+    box-shadow: 0 18px 52px rgba(25, 27, 24, 0.08);
+}
+
+/* линия eyebrow немного оживает */
+.eyebrow::before {
+    transform-origin: left center;
+    transition:
+        transform 0.36s var(--ease-out),
+        opacity 0.36s var(--ease-out);
+}
+
+.eyebrow:hover::before {
+    transform: scaleX(1.3);
+    opacity: 0.9;
+}
+
+/* лёгкое плавание только для главных карточек */
+.services-hero-directory-panel,
+.service-hero-panel,
+.contact-hero-form,
+.about-hero-note {
+    animation: softFloat 7s ease-in-out infinite;
+}
+
+@keyframes softFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+/* точки карты */
+.map-pin {
+    animation: mapPinPulse 2.8s ease-in-out infinite;
+}
+
+.map-pin.two {
+    animation-delay: 0.35s;
+}
+
+.map-pin.three {
+    animation-delay: 0.7s;
+}
+
+@keyframes mapPinPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(185, 166, 129, 0.16);
+    }
+
+    50% {
+        transform: scale(1.08);
+        box-shadow: 0 0 0 16px rgba(185, 166, 129, 0.08);
+    }
+}
+
+/* на телефоне меньше движения */
+@media (max-width: 820px) {
+
+    .services-hero-directory-panel,
+    .service-hero-panel,
+    .contact-hero-form,
+    .about-hero-note {
+        animation: none;
+    }
+
+    .surface-card:hover,
+    .image-card:hover,
+    .service-route-card:hover,
+    .home-service-card:hover,
+    .review-check:hover,
+    .compliance-item:hover,
+    .factor-item:hover,
+    .evaluate-card:hover,
+    .model-card:hover,
+    .values-stack article:hover,
+    .services-hero-mini-card:hover,
+    .contact-mini-card:hover,
+    .faq-item:hover {
+        transform: translateY(-3px);
+    }
+}
+
+/* для пользователей с выключенными анимациями */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+}
