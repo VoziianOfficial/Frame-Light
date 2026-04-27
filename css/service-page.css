@@ -2084,3 +2084,237 @@
         align-content: center !important;
     }
 }
+
+/* ==================================================
+   SERVICE OVERVIEW — ABSOLUTE STABLE IMAGE FIX
+   Fixes jumping image on all service pages
+================================================== */
+
+.service-page .service-overview,
+.section.service-overview {
+    padding: clamp(30px, 3.6vw, 54px) 0 !important;
+    overflow: hidden !important;
+}
+
+/* широкий контейнер */
+.service-page .service-overview .container,
+.service-page .service-overview .container-wide,
+.section.service-overview .container,
+.section.service-overview .container-wide {
+    width: min(100% - 28px, 1560px) !important;
+    max-width: 1560px !important;
+}
+
+/* стабильная сетка */
+.service-page .service-overview-layout,
+.section.service-overview .service-overview-layout {
+    display: grid !important;
+    grid-template-columns: minmax(420px, 560px) minmax(0, 1fr) !important;
+    gap: clamp(24px, 4vw, 64px) !important;
+    align-items: center !important;
+}
+
+/* ГЛАВНОЕ: фото больше не зависит от текста и clamp/vw */
+.service-page .service-overview-media,
+.section.service-overview .service-overview-media {
+    position: relative !important;
+    display: block !important;
+
+    width: 100% !important;
+    height: 520px !important;
+    min-height: 520px !important;
+    max-height: 520px !important;
+
+    overflow: hidden !important;
+    flex: none !important;
+    align-self: center !important;
+
+    border: 1px solid rgba(189, 182, 168, 0.78) !important;
+    background: var(--color-bg-soft) !important;
+    box-shadow: var(--shadow-card) !important;
+
+    transform: none !important;
+    contain: layout paint;
+}
+
+/* если AOS стоит на фото — он больше не двигает размер */
+.service-page .service-overview-media[data-aos],
+.service-page .service-overview-media.aos-init,
+.service-page .service-overview-media.aos-animate,
+.section.service-overview .service-overview-media[data-aos],
+.section.service-overview .service-overview-media.aos-init,
+.section.service-overview .service-overview-media.aos-animate {
+    transform: none !important;
+}
+
+/* картинка всегда заполняет карточку */
+.service-page .service-overview-media img,
+.section.service-overview .service-overview-media img {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+
+    object-fit: cover !important;
+    object-position: center center !important;
+
+    transform: scale(1.001) !important;
+    transform-origin: center center !important;
+
+    transition:
+        transform 0.7s var(--ease-out),
+        filter 0.7s var(--ease-out);
+}
+
+/* overlay всегда поверх */
+.service-page .service-overview-media::after,
+.section.service-overview .service-overview-media::after {
+    content: "";
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 2 !important;
+    pointer-events: none !important;
+    background:
+        linear-gradient(180deg, rgba(25, 27, 24, 0.02), rgba(25, 27, 24, 0.44)),
+        radial-gradient(circle at 22% 20%, rgba(185, 166, 129, 0.14), transparent 30%) !important;
+}
+
+/* badge не влияет на высоту фото */
+.service-page .service-media-badge,
+.section.service-overview .service-media-badge {
+    position: absolute !important;
+    z-index: 3 !important;
+    left: clamp(14px, 2vw, 26px) !important;
+    right: clamp(14px, 2vw, 26px) !important;
+    bottom: clamp(14px, 2vw, 26px) !important;
+
+    padding: clamp(14px, 1.8vw, 20px) !important;
+    gap: 6px !important;
+}
+
+/* hover только картинка, не сама карточка */
+.service-page .service-overview-media:hover,
+.section.service-overview .service-overview-media:hover {
+    transform: none !important;
+}
+
+.service-page .service-overview-media:hover img,
+.section.service-overview .service-overview-media:hover img {
+    transform: scale(1.04) !important;
+    filter: saturate(1.06) contrast(1.04);
+}
+
+/* текстовая часть шире */
+.service-page .service-overview-content,
+.section.service-overview .service-overview-content {
+    width: 100% !important;
+    max-width: 980px !important;
+    display: grid !important;
+    gap: clamp(12px, 1.6vw, 20px) !important;
+}
+
+.service-page .service-overview-content .section-title,
+.section.service-overview .service-overview-content .section-title,
+.section.service-overview .section-title {
+    max-width: 980px !important;
+    font-size: clamp(2.45rem, 4.5vw, 5.2rem) !important;
+    line-height: 0.94 !important;
+    font-weight: 500 !important;
+    letter-spacing: -0.045em !important;
+    text-wrap: initial !important;
+}
+
+.service-page .service-rich-text,
+.section.service-overview .service-rich-text {
+    max-width: 980px !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: clamp(14px, 2vw, 26px) !important;
+    font-size: clamp(0.94rem, 1vw, 1.02rem) !important;
+    line-height: 1.55 !important;
+}
+
+/* TABLET */
+@media (max-width: 1180px) {
+
+    .service-page .service-overview-layout,
+    .section.service-overview .service-overview-layout {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+    }
+
+    .service-page .service-overview-media,
+    .section.service-overview .service-overview-media {
+        width: min(100%, 920px) !important;
+        height: 420px !important;
+        min-height: 420px !important;
+        max-height: 420px !important;
+        justify-self: center !important;
+    }
+
+    .service-page .service-overview-content,
+    .section.service-overview .service-overview-content {
+        max-width: 100% !important;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 720px) {
+
+    .service-page .service-overview,
+    .section.service-overview {
+        padding: 28px 0 !important;
+    }
+
+    .service-page .service-overview-media,
+    .section.service-overview .service-overview-media {
+        width: 100% !important;
+        height: 340px !important;
+        min-height: 340px !important;
+        max-height: 340px !important;
+    }
+
+    .service-page .service-rich-text,
+    .section.service-overview .service-rich-text {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+        font-size: 0.94rem !important;
+        line-height: 1.5 !important;
+    }
+
+    .service-page .service-overview-content .section-title,
+    .section.service-overview .service-overview-content .section-title,
+    .section.service-overview .section-title {
+        font-size: clamp(2.25rem, 10vw, 3.8rem) !important;
+        line-height: 1 !important;
+    }
+}
+
+@media (max-width: 520px) {
+
+    .service-page .service-overview-media,
+    .section.service-overview .service-overview-media {
+        height: 290px !important;
+        min-height: 290px !important;
+        max-height: 290px !important;
+    }
+
+    .service-page .service-media-badge,
+    .section.service-overview .service-media-badge {
+        left: 14px !important;
+        right: 14px !important;
+        bottom: 14px !important;
+        padding: 14px !important;
+    }
+
+    .service-page .service-media-badge strong,
+    .section.service-overview .service-media-badge strong {
+        font-size: 1.45rem !important;
+        line-height: 1 !important;
+    }
+}
