@@ -2,11 +2,11 @@
 
 /* ==================================================
    FRAME & LIGHT — SERVICES PAGE SCRIPT
-   Page-specific premium motion + dynamic services grid.
 ================================================== */
 
 (function () {
     const servicesData = Array.isArray(window.ServicesData) ? window.ServicesData : [];
+    let servicesDirectorySwiper = null;
 
     function createIcon(iconName) {
         const icon = document.createElement('i');
@@ -20,25 +20,19 @@
     }
 
     function renderServicesDirectory() {
-        const grid = document.querySelector('.services-grid');
+        const slider = document.querySelector('.services-directory-swiper');
+        const wrapper = slider?.querySelector('.swiper-wrapper');
 
-        if (!grid || !servicesData.length) return;
+        if (!wrapper || !servicesData.length) return;
 
-        grid.replaceChildren();
+        wrapper.replaceChildren();
 
         servicesData.forEach((service, index) => {
             const card = document.createElement('a');
-            card.className = 'service-route-card image-card tilt-card';
+
+            card.className = 'service-route-card image-card tilt-card swiper-slide';
             card.href = service.href;
             card.setAttribute('data-aos', 'fade-up');
-
-            if (index % 3 === 1) {
-                card.setAttribute('data-aos-delay', '70');
-            }
-
-            if (index % 3 === 2) {
-                card.setAttribute('data-aos-delay', '140');
-            }
 
             const image = document.createElement('img');
             image.src = service.image;
@@ -64,7 +58,7 @@
             content.append(number, title, description);
             card.append(image, iconWrap, content);
 
-            grid.appendChild(card);
+            wrapper.appendChild(card);
         });
 
         if (window.lucide && typeof window.lucide.createIcons === 'function') {
@@ -76,15 +70,65 @@
         }
     }
 
+    function initServicesDirectorySwiper() {
+        const slider = document.querySelector('.services-directory-swiper');
+
+        if (!slider || !window.Swiper) return;
+
+        if (servicesDirectorySwiper) {
+            servicesDirectorySwiper.destroy(true, true);
+            servicesDirectorySwiper = null;
+        }
+
+        servicesDirectorySwiper = new window.Swiper(slider, {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            spaceBetween: 10,
+            speed: 720,
+            grabCursor: true,
+            watchOverflow: true,
+            roundLengths: true,
+            rewind: true,
+            observer: true,
+            observeParents: true,
+
+            navigation: {
+                nextEl: '.services-directory-next',
+                prevEl: '.services-directory-prev'
+            },
+
+            pagination: {
+                el: '.services-directory-pagination',
+                clickable: true
+            },
+
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                },
+                760: {
+                    slidesPerView: 2,
+                    spaceBetween: 12
+                },
+                1180: {
+                    slidesPerView: 3,
+                    spaceBetween: 14
+                }
+            }
+        });
+    }
+
     function initServicesHeroMotion() {
         if (!window.gsap) return;
 
         const hero = document.querySelector('.services-hero');
-        const image = document.querySelector('.services-hero-bg img');
         const title = document.querySelector('.services-hero .page-title');
-        const text = document.querySelector('.services-hero-copy p');
+        const text = document.querySelector('.services-hero-copy > p');
         const actions = document.querySelector('.services-hero .hero-actions');
-        const panel = document.querySelector('.services-hero-panel');
+        const note = document.querySelector('.services-hero-note');
+        const panel = document.querySelector('.services-hero-directory-panel');
+        const miniCards = document.querySelectorAll('.services-hero-mini-card');
 
         if (!hero) return;
 
@@ -94,67 +138,38 @@
             }
         });
 
-        if (image) {
-            timeline.fromTo(
-                image,
-                {
-                    scale: 1.12,
-                    opacity: 0.82
-                },
-                {
-                    scale: 1.04,
-                    opacity: 1,
-                    duration: 1.35
-                },
-                0
-            );
-        }
-
         if (title) {
             timeline.fromTo(
                 title,
-                {
-                    y: 38,
-                    opacity: 0
-                },
-                {
-                    y: 0,
-                    opacity: 1,
-                    duration: 0.9
-                },
-                0.12
+                { y: 34, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.82 },
+                0.08
             );
         }
 
         if (text) {
             timeline.fromTo(
                 text,
-                {
-                    y: 22,
-                    opacity: 0
-                },
-                {
-                    y: 0,
-                    opacity: 1,
-                    duration: 0.75
-                },
-                0.28
+                { y: 20, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.68 },
+                0.2
             );
         }
 
         if (actions) {
             timeline.fromTo(
                 actions.children,
-                {
-                    y: 18,
-                    opacity: 0
-                },
-                {
-                    y: 0,
-                    opacity: 1,
-                    duration: 0.65,
-                    stagger: 0.08
-                },
+                { y: 16, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.58, stagger: 0.08 },
+                0.32
+            );
+        }
+
+        if (note) {
+            timeline.fromTo(
+                note,
+                { y: 16, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.58 },
                 0.42
             );
         }
@@ -162,17 +177,17 @@
         if (panel) {
             timeline.fromTo(
                 panel,
-                {
-                    x: 36,
-                    opacity: 0,
-                    rotate: 1.4
-                },
-                {
-                    x: 0,
-                    opacity: 1,
-                    rotate: 0,
-                    duration: 0.9
-                },
+                { x: 30, opacity: 0, rotate: 1 },
+                { x: 0, opacity: 1, rotate: 0, duration: 0.78 },
+                0.18
+            );
+        }
+
+        if (miniCards.length) {
+            timeline.fromTo(
+                miniCards,
+                { y: 14, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.48, stagger: 0.05 },
                 0.38
             );
         }
@@ -232,17 +247,14 @@
         if (compareImage) {
             window.gsap.fromTo(
                 compareImage,
-                {
-                    y: 42,
-                    opacity: 0.78
-                },
+                { y: 34, opacity: 0.78 },
                 {
                     y: 0,
                     opacity: 1,
                     ease: 'power2.out',
                     scrollTrigger: {
                         trigger: '.services-compare',
-                        start: 'top 75%',
+                        start: 'top 80%',
                         end: 'center center',
                         scrub: 0.8
                     }
@@ -253,19 +265,16 @@
         if (compareContent) {
             window.gsap.fromTo(
                 compareContent,
-                {
-                    y: 30,
-                    opacity: 0.82
-                },
+                { y: 26, opacity: 0.82 },
                 {
                     y: 0,
                     opacity: 1,
                     ease: 'power2.out',
                     scrollTrigger: {
                         trigger: '.services-compare',
-                        start: 'top 72%',
+                        start: 'top 78%',
                         end: 'center center',
-                        scrub: 0.9
+                        scrub: 0.8
                     }
                 }
             );
@@ -274,19 +283,16 @@
         if (comparePoints.length) {
             window.gsap.fromTo(
                 comparePoints,
-                {
-                    x: 22,
-                    opacity: 0
-                },
+                { x: 18, opacity: 0 },
                 {
                     x: 0,
                     opacity: 1,
-                    duration: 0.65,
-                    stagger: 0.1,
+                    duration: 0.58,
+                    stagger: 0.08,
                     ease: 'power3.out',
                     scrollTrigger: {
                         trigger: '.compare-points',
-                        start: 'top 82%'
+                        start: 'top 86%'
                     }
                 }
             );
@@ -327,9 +333,7 @@
 
             control.addEventListener('blur', () => {
                 window.setTimeout(() => {
-                    const hasFocusInside = form.contains(document.activeElement);
-
-                    if (!hasFocusInside) {
+                    if (!form.contains(document.activeElement)) {
                         form.classList.remove('is-active');
                     }
                 }, 0);
@@ -337,32 +341,21 @@
         });
     }
 
-    function initHeroCursorGlow() {
-        const hero = document.querySelector('.services-hero');
-
-        if (!hero) return;
-
-        hero.addEventListener('mousemove', (event) => {
-            if (window.innerWidth < 920) return;
-
-            const rect = hero.getBoundingClientRect();
-            const x = ((event.clientX - rect.left) / rect.width) * 100;
-            const y = ((event.clientY - rect.top) / rect.height) * 100;
-
-            hero.style.setProperty('--services-glow-x', `${x}%`);
-            hero.style.setProperty('--services-glow-y', `${y}%`);
-        });
-    }
-
     function init() {
         renderServicesDirectory();
+        initServicesDirectorySwiper();
         initServicesHeroMotion();
         initServicesTiltCards();
         initServiceCardKeyboardFocus();
         initCompareMotion();
         initChecklistHoverDepth();
         initRequestFormAccent();
-        initHeroCursorGlow();
+
+        window.addEventListener('resize', () => {
+            if (servicesDirectorySwiper) {
+                servicesDirectorySwiper.update();
+            }
+        });
     }
 
     if (document.readyState === 'loading') {
