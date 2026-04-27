@@ -2,113 +2,133 @@
    FRAME & LIGHT — INDIVIDUAL SERVICE PAGES
 ================================================== */
 
+/* общий широкий контейнер на всех service pages */
+.service-page .container,
+.service-page .container-wide {
+    width: min(100% - 28px, 1560px);
+    max-width: 1560px;
+    margin-inline: auto;
+}
+
 /* ================= SERVICE HERO ================= */
 
 .service-hero {
     position: relative;
-    min-height: calc(92vh - var(--header-height));
+    min-height: min(720px, calc(100svh - var(--header-height)));
     display: grid;
-    align-items: end;
-    padding: clamp(82px, 9vw, 138px) 0 clamp(34px, 5vw, 72px);
+    align-items: center;
     overflow: hidden;
-    background: var(--color-dark);
+    padding: clamp(92px, 8vw, 118px) 0 clamp(28px, 4vw, 48px);
+    background:
+        linear-gradient(90deg,
+            rgba(25, 27, 24, 0.78) 0%,
+            rgba(25, 27, 24, 0.58) 42%,
+            rgba(25, 27, 24, 0.34) 68%,
+            rgba(25, 27, 24, 0.18) 100%),
+        linear-gradient(180deg,
+            rgba(25, 27, 24, 0.16) 0%,
+            rgba(25, 27, 24, 0.56) 100%),
+        url("../assets/images/services/window-installation-card.jpg") center right / cover no-repeat;
     color: var(--color-white);
 }
 
 .service-hero-bg,
 .service-hero-overlay {
-    position: absolute;
-    inset: 0;
-}
-
-.service-hero-bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: saturate(0.88) contrast(1.04);
-    transform: scale(1.04);
-}
-
-.service-hero-overlay {
-    z-index: 1;
-    background:
-        radial-gradient(circle at 78% 18%, rgba(185, 166, 129, 0.24), transparent 30%),
-        linear-gradient(90deg, rgba(25, 27, 24, 0.92) 0%, rgba(25, 27, 24, 0.62) 48%, rgba(25, 27, 24, 0.8) 100%),
-        linear-gradient(180deg, rgba(25, 27, 24, 0.08) 0%, rgba(25, 27, 24, 0.86) 100%);
+    display: none !important;
 }
 
 .service-hero .noise-layer {
-    z-index: 2;
+    z-index: 1;
+    opacity: 0.12;
 }
 
 .service-hero::before {
     content: "";
     position: absolute;
     inset: 0;
-    z-index: 2;
+    z-index: 1;
     pointer-events: none;
-    background: radial-gradient(circle at var(--service-glow-x, 78%) var(--service-glow-y, 18%),
-            rgba(185, 166, 129, 0.18),
-            transparent 30%);
-    opacity: 0.82;
+    background:
+        radial-gradient(circle at 18% 18%, rgba(185, 166, 129, 0.16), transparent 30%),
+        radial-gradient(circle at 82% 18%, rgba(251, 248, 241, 0.08), transparent 28%),
+        linear-gradient(180deg, transparent 0%, rgba(25, 27, 24, 0.30) 100%);
 }
 
 .service-hero-shell {
     position: relative;
     z-index: 3;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(300px, 430px);
-    gap: clamp(30px, 6vw, 86px);
-    align-items: end;
+    grid-template-columns: minmax(0, 1.22fr) minmax(360px, 0.58fr);
+    gap: clamp(28px, 4vw, 64px);
+    align-items: center;
 }
 
 .service-hero-copy {
-    max-width: 960px;
+    width: 100%;
+    max-width: 1040px;
     display: grid;
-    gap: clamp(18px, 2.4vw, 28px);
+    gap: clamp(12px, 1.6vw, 20px);
 }
 
 .service-hero .eyebrow {
-    color: rgba(251, 248, 241, 0.78);
+    color: rgba(251, 248, 241, 0.82);
 }
 
-.service-hero .page-title {
+.service-hero .page-title,
+.service-hero .page-title.text-balance {
+    max-width: 1040px;
     color: var(--color-white);
+    font-size: clamp(2.8rem, 5.8vw, 6.6rem);
+    font-weight: 500;
+    line-height: 0.92;
+    letter-spacing: -0.055em;
+    text-wrap: initial;
+    text-shadow:
+        0 14px 42px rgba(0, 0, 0, 0.28),
+        0 2px 16px rgba(0, 0, 0, 0.22);
 }
 
 .service-hero-copy p {
-    max-width: 700px;
-    color: rgba(251, 248, 241, 0.76);
-    font-size: clamp(1rem, 1.35vw, 1.16rem);
-    line-height: 1.75;
+    max-width: 860px;
+    color: rgba(251, 248, 241, 0.78);
+    font-size: clamp(0.98rem, 1.08vw, 1.08rem);
+    line-height: 1.58;
+}
+
+.service-hero .hero-actions {
+    margin-top: 2px;
+    gap: 10px;
 }
 
 .service-hero-panel {
     position: relative;
+    width: 100%;
+    max-width: 520px;
+    justify-self: end;
     overflow: hidden;
-    padding: clamp(22px, 3vw, 34px);
-    border: 1px solid rgba(251, 248, 241, 0.2);
+    padding: clamp(18px, 2.2vw, 26px);
+    border: 1px solid rgba(251, 248, 241, 0.24);
     background:
-        linear-gradient(145deg, rgba(251, 248, 241, 0.16), rgba(251, 248, 241, 0.06)),
-        rgba(25, 27, 24, 0.28);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.24);
+        linear-gradient(145deg, rgba(251, 248, 241, 0.18), rgba(251, 248, 241, 0.07)),
+        rgba(25, 27, 24, 0.34);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
 }
 
 .service-hero-panel::before {
     content: "";
     position: absolute;
-    inset: 12px;
+    inset: 10px;
     border: 1px solid rgba(185, 166, 129, 0.18);
     pointer-events: none;
 }
 
 .service-hero-panel span {
     display: inline-flex;
-    margin-bottom: 28px;
+    margin-bottom: 16px;
     font-family: var(--font-accent);
-    font-size: 0.68rem;
+    font-size: 0.62rem;
     font-weight: 800;
     letter-spacing: 0.18em;
     text-transform: uppercase;
@@ -117,71 +137,104 @@
 
 .service-hero-panel h2 {
     font-family: var(--font-heading);
-    font-size: clamp(2rem, 3.4vw, 3.25rem);
-    font-weight: 600;
-    line-height: 0.94;
-    letter-spacing: -0.05em;
+    font-size: clamp(1.65rem, 2.5vw, 2.55rem);
+    font-weight: 500;
+    line-height: 0.98;
+    letter-spacing: -0.045em;
 }
 
 .service-hero-panel p {
-    margin-top: 18px;
-    color: rgba(251, 248, 241, 0.68);
-    font-size: 0.94rem;
-    line-height: 1.7;
+    margin-top: 12px;
+    color: rgba(251, 248, 241, 0.70);
+    font-size: 0.86rem;
+    line-height: 1.52;
 }
 
 /* ================= OVERVIEW ================= */
 
 .service-overview {
-    background: var(--color-bg);
+    padding: clamp(30px, 3.6vw, 54px) 0 !important;
+    overflow: hidden !important;
+    background:
+        linear-gradient(180deg, var(--color-bg) 0%, rgba(221, 215, 202, 0.34) 100%);
 }
 
 .service-overview-layout {
-    display: grid;
-    grid-template-columns: minmax(320px, 0.78fr) minmax(0, 0.92fr);
-    gap: clamp(28px, 6vw, 78px);
-    align-items: center;
+    display: grid !important;
+    grid-template-columns: minmax(420px, 560px) minmax(0, 1fr) !important;
+    gap: clamp(24px, 4vw, 64px) !important;
+    align-items: center !important;
 }
 
 .service-overview-media {
-    position: relative;
-    min-height: clamp(430px, 54vw, 660px);
-    overflow: hidden;
-    border: 1px solid rgba(189, 182, 168, 0.78);
-    background: var(--color-bg-soft);
-    box-shadow: var(--shadow-card);
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    height: 520px !important;
+    min-height: 520px !important;
+    max-height: 520px !important;
+    overflow: hidden !important;
+    align-self: center !important;
+    border: 1px solid rgba(189, 182, 168, 0.78) !important;
+    background: var(--color-bg-soft) !important;
+    box-shadow: var(--shadow-card) !important;
+    transform: none !important;
+    contain: layout paint;
+}
+
+.service-overview-media[data-aos],
+.service-overview-media.aos-init,
+.service-overview-media.aos-animate {
+    transform: none !important;
 }
 
 .service-overview-media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: saturate(0.92) contrast(1.02);
-    transition: transform 0.8s var(--ease-out);
-}
-
-.service-overview-media:hover img {
-    transform: scale(1.045);
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    transform: scale(1.001) !important;
+    transform-origin: center center !important;
+    transition:
+        transform 0.7s var(--ease-out),
+        filter 0.7s var(--ease-out);
 }
 
 .service-overview-media::after {
     content: "";
-    position: absolute;
-    inset: 0;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 2 !important;
+    pointer-events: none !important;
     background:
-        linear-gradient(180deg, rgba(25, 27, 24, 0.02), rgba(25, 27, 24, 0.46)),
-        radial-gradient(circle at 22% 20%, rgba(185, 166, 129, 0.16), transparent 30%);
+        linear-gradient(180deg, rgba(25, 27, 24, 0.02), rgba(25, 27, 24, 0.44)),
+        radial-gradient(circle at 22% 20%, rgba(185, 166, 129, 0.14), transparent 30%) !important;
+}
+
+.service-overview-media:hover {
+    transform: none !important;
+}
+
+.service-overview-media:hover img {
+    transform: scale(1.04) !important;
+    filter: saturate(1.06) contrast(1.04);
 }
 
 .service-media-badge {
-    position: absolute;
-    left: clamp(16px, 3vw, 30px);
-    right: clamp(16px, 3vw, 30px);
-    bottom: clamp(16px, 3vw, 30px);
-    z-index: 2;
+    position: absolute !important;
+    z-index: 3 !important;
+    left: clamp(14px, 2vw, 26px) !important;
+    right: clamp(14px, 2vw, 26px) !important;
+    bottom: clamp(14px, 2vw, 26px) !important;
     display: grid;
-    gap: 8px;
-    padding: clamp(16px, 2.4vw, 24px);
+    gap: 6px !important;
+    padding: clamp(14px, 1.8vw, 20px) !important;
     border: 1px solid rgba(251, 248, 241, 0.24);
     background: rgba(25, 27, 24, 0.56);
     color: var(--color-white);
@@ -191,7 +244,7 @@
 
 .service-media-badge span {
     font-family: var(--font-accent);
-    font-size: 0.68rem;
+    font-size: 0.62rem;
     font-weight: 800;
     letter-spacing: 0.16em;
     text-transform: uppercase;
@@ -199,32 +252,59 @@
 }
 
 .service-media-badge strong {
-    max-width: 520px;
+    max-width: 620px;
     font-family: var(--font-heading);
-    font-size: clamp(1.55rem, 2.6vw, 2.45rem);
-    font-weight: 600;
-    line-height: 0.96;
+    font-size: clamp(1.35rem, 2.1vw, 2.1rem);
+    font-weight: 500;
+    line-height: 0.98;
     letter-spacing: -0.04em;
 }
 
 .service-overview-content {
-    display: grid;
-    gap: 20px;
+    width: 100% !important;
+    max-width: 980px !important;
+    display: grid !important;
+    gap: clamp(12px, 1.6vw, 20px) !important;
+}
+
+.service-overview-content .section-title,
+.service-overview .section-title {
+    max-width: 980px !important;
+    font-size: clamp(2.45rem, 4.5vw, 5.2rem) !important;
+    line-height: 0.94 !important;
+    font-weight: 500 !important;
+    letter-spacing: -0.045em !important;
+    text-wrap: initial !important;
 }
 
 .service-rich-text {
-    display: grid;
-    gap: 18px;
+    max-width: 980px !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: clamp(14px, 2vw, 26px) !important;
     color: var(--color-muted);
-    font-size: clamp(0.98rem, 1.2vw, 1.08rem);
-    line-height: 1.78;
+    font-size: clamp(0.94rem, 1vw, 1.02rem) !important;
+    line-height: 1.55 !important;
+}
+
+.service-rich-text p {
+    max-width: none;
 }
 
 /* ================= EVALUATION ================= */
 
 .service-evaluate {
     background:
-        linear-gradient(180deg, rgba(221, 215, 202, 0.62), var(--color-bg-soft));
+        radial-gradient(circle at 12% 12%, rgba(185, 166, 129, 0.16), transparent 32%),
+        linear-gradient(180deg, #D5CEC0 0%, #CFC7B8 100%) !important;
+}
+
+.service-evaluate .section-title {
+    color: #171A16;
+}
+
+.service-evaluate .section-kicker {
+    color: rgba(25, 27, 24, 0.72);
 }
 
 .evaluate-grid {
@@ -240,6 +320,8 @@
     align-content: space-between;
     gap: 22px;
     padding: clamp(20px, 2.6vw, 32px);
+    background: rgba(251, 248, 241, 0.54);
+    border-color: rgba(52, 58, 50, 0.14);
     transition:
         transform 0.32s var(--ease-out),
         border-color 0.32s var(--ease-out),
@@ -250,7 +332,7 @@
 .evaluate-card:hover {
     transform: translateY(-6px);
     border-color: var(--color-accent);
-    background: var(--color-card-light);
+    background: rgba(251, 248, 241, 0.76);
     box-shadow: var(--shadow-soft);
 }
 
@@ -287,33 +369,54 @@
 /* ================= FACTORS ================= */
 
 .service-factors {
+    overflow: hidden;
     background: var(--color-bg);
 }
 
 .factors-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 0.72fr) minmax(320px, 0.9fr);
-    gap: clamp(30px, 6vw, 82px);
-    align-items: start;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.05fr) minmax(480px, 0.95fr) !important;
+    gap: clamp(28px, 4vw, 68px) !important;
+    align-items: start !important;
 }
 
 .factors-copy {
     position: sticky;
     top: calc(var(--header-height) + 28px);
+    width: 100%;
+    max-width: 960px !important;
     display: grid;
-    gap: 18px;
+    gap: clamp(14px, 1.8vw, 22px);
+}
+
+.factors-copy .section-title {
+    max-width: 960px !important;
+    font-size: clamp(2.55rem, 4.7vw, 5.4rem);
+    line-height: 0.94;
+    font-weight: 500;
+    letter-spacing: -0.045em;
+    text-wrap: initial;
+}
+
+.factors-copy .section-kicker {
+    max-width: 840px !important;
+    font-size: clamp(0.98rem, 1.08vw, 1.08rem);
+    line-height: 1.58;
 }
 
 .factors-list {
+    width: 100%;
+    max-width: 760px;
+    justify-self: end;
     display: grid;
     gap: 10px;
 }
 
 .factor-item {
     display: grid;
-    grid-template-columns: 72px 1fr;
-    gap: 18px;
-    padding: clamp(20px, 2.5vw, 30px) 0;
+    grid-template-columns: 60px minmax(0, 1fr) !important;
+    gap: 16px !important;
+    padding: clamp(16px, 2vw, 24px) 0 !important;
     border-top: 1px solid rgba(52, 58, 50, 0.16);
 }
 
@@ -338,1116 +441,127 @@
 .factor-item h3 {
     margin-bottom: 8px;
     font-family: var(--font-heading);
-    font-size: clamp(1.55rem, 2.5vw, 2.3rem);
-    font-weight: 600;
+    font-size: clamp(1.45rem, 2vw, 2.05rem);
+    font-weight: 500;
     line-height: 0.98;
     letter-spacing: -0.045em;
 }
 
 .factor-item p {
+    max-width: 620px;
     color: var(--color-muted);
-    font-size: 0.94rem;
-    line-height: 1.68;
+    font-size: 0.92rem;
+    line-height: 1.56;
 }
 
-/* ================= CTA BAND ================= */
+/* ================= CTA BAND — CLEAN REDESIGN ================= */
 
 .service-cta-band {
-    background: var(--color-bg-soft);
+    padding: clamp(34px, 4vw, 62px) 0 !important;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 8% 12%, rgba(185, 166, 129, 0.18), transparent 30%),
+        linear-gradient(180deg, rgba(221, 215, 202, 0.62), var(--color-bg));
+}
+
+.service-cta-band .container-wide {
+    width: min(100% - 28px, 1420px) !important;
+    max-width: 1420px !important;
+    margin-inline: auto !important;
 }
 
 .service-cta-shell {
-    display: grid;
-    grid-template-columns: minmax(320px, 0.82fr) minmax(0, 0.94fr);
-    align-items: stretch;
-    gap: 12px;
-    min-height: 620px;
+    display: grid !important;
+    grid-template-columns: minmax(420px, 0.92fr) minmax(0, 1fr) !important;
+    gap: clamp(12px, 1.6vw, 22px) !important;
+    align-items: stretch !important;
+    justify-content: center !important;
+}
+
+.service-cta-image,
+.service-cta-content {
+    min-height: clamp(420px, 34vw, 540px) !important;
+    border: 1px solid rgba(189, 182, 168, 0.78);
+    box-shadow: var(--shadow-card);
 }
 
 .service-cta-image {
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(189, 182, 168, 0.78);
-    background: var(--color-bg-soft);
-    box-shadow: var(--shadow-card);
+    position: relative !important;
+    overflow: hidden !important;
+    background: var(--color-dark);
+    align-self: stretch !important;
+    transform: none !important;
+}
+
+.service-cta-image[data-aos],
+.service-cta-image.aos-init,
+.service-cta-image.aos-animate {
+    transform: none !important;
+}
+
+.service-cta-image img {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    transform: scale(1.001) !important;
+    transition:
+        transform 0.7s var(--ease-out),
+        filter 0.7s var(--ease-out);
 }
 
 .service-cta-image::after {
     content: "";
     position: absolute;
     inset: 0;
+    z-index: 2;
+    pointer-events: none;
     background:
-        linear-gradient(180deg, rgba(25, 27, 24, 0.04), rgba(25, 27, 24, 0.36)),
-        radial-gradient(circle at 24% 18%, rgba(185, 166, 129, 0.14), transparent 28%);
-}
-
-.service-cta-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: saturate(0.92) contrast(1.02);
-    transition: transform 0.8s var(--ease-out);
+        linear-gradient(180deg, rgba(25, 27, 24, 0.04), rgba(25, 27, 24, 0.42)),
+        radial-gradient(circle at 24% 18%, rgba(185, 166, 129, 0.16), transparent 30%);
 }
 
 .service-cta-image:hover img {
-    transform: scale(1.045);
+    transform: scale(1.04) !important;
+    filter: saturate(1.05) contrast(1.04);
 }
 
-.service-cta-content {
-    display: grid;
-    align-content: center;
-    gap: 20px;
-    padding: clamp(24px, 5vw, 62px);
-    border: 1px solid rgba(189, 182, 168, 0.78);
-    background:
-        radial-gradient(circle at 100% 0%, rgba(185, 166, 129, 0.24), transparent 34%),
-        linear-gradient(145deg, rgba(251, 248, 241, 0.76), rgba(221, 215, 202, 0.64));
-    box-shadow: var(--shadow-card);
-}
-
-.service-cta-content p {
-    max-width: 720px;
-    color: var(--color-muted);
-    font-size: clamp(1rem, 1.25vw, 1.12rem);
-    line-height: 1.78;
-}
-
-/* ================= REQUEST ================= */
-
-.service-request {
-    background:
-        linear-gradient(180deg, var(--color-bg-soft), var(--color-bg));
-}
-
-.service-request-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 0.75fr) minmax(320px, 0.82fr);
-    gap: clamp(28px, 6vw, 76px);
-    align-items: center;
-}
-
-.service-request-copy {
-    display: grid;
-    gap: 20px;
-}
-
-.service-request-note {
-    display: grid;
-    grid-template-columns: 38px 1fr;
-    gap: 14px;
-    padding: clamp(18px, 2.4vw, 26px);
-}
-
-.service-request-note i,
-.service-request-note svg {
-    width: 38px;
-    height: 38px;
-    padding: 9px;
-    border: 1px solid rgba(251, 248, 241, 0.2);
-    background: rgba(251, 248, 241, 0.08);
-    color: var(--color-accent);
-}
-
-.service-request-note p {
-    color: rgba(251, 248, 241, 0.72);
-    font-size: 0.94rem;
-    line-height: 1.68;
-}
-
-.service-form {
-    max-width: 680px;
-    justify-self: end;
-}
-
-.service-form.is-active {
-    border-color: var(--color-accent);
-    box-shadow: 0 24px 70px rgba(25, 27, 24, 0.15);
-}
-
-/* ================= FAQ ================= */
-
-.service-faq {
-    background: var(--color-bg);
-}
-
-.service-faq .faq-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 0.68fr) minmax(320px, 0.82fr);
-    gap: clamp(28px, 6vw, 78px);
-    align-items: start;
-}
-
-.service-faq .faq-copy {
-    position: sticky;
-    top: calc(var(--header-height) + 28px);
-    display: grid;
-    gap: 18px;
-}
-
-/* ================= RELATED SMALL UTILITY ================= */
-
-.service-page .dropdown-service-link[href="window-installation.html"],
-.service-page .mobile-service-link[href="window-installation.html"] {
-    border-color: rgba(185, 166, 129, 0.55);
-}
-
-/* ================= RESPONSIVE ================= */
-
-@media (max-width: 1180px) {
-
-    .service-hero-shell,
-    .service-overview-layout,
-    .factors-layout,
-    .service-cta-shell,
-    .service-request-layout,
-    .service-faq .faq-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .service-hero-panel {
-        max-width: 620px;
-    }
-
-    .factors-copy,
-    .service-faq .faq-copy {
-        position: relative;
-        top: auto;
-    }
-
-    .evaluate-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .service-cta-shell {
-        min-height: auto;
-    }
-
-    .service-cta-image {
-        min-height: 520px;
-    }
-
-    .service-form {
-        max-width: none;
-        justify-self: stretch;
-    }
-}
-
-@media (max-width: 900px) {
-    .service-hero {
-        min-height: auto;
-        padding-top: clamp(88px, 16vw, 126px);
-    }
-
-    .service-overview-media {
-        min-height: 430px;
-    }
-
-    .evaluate-card {
-        min-height: 280px;
-    }
-
-    .factor-item {
-        grid-template-columns: 1fr;
-        gap: 12px;
-    }
-
-    .factor-item>span {
-        width: 46px;
-        height: 46px;
-    }
-}
-
-@media (max-width: 720px) {
-    .evaluate-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .service-overview-media {
-        min-height: 360px;
-    }
-
-    .evaluate-card {
-        min-height: 250px;
-    }
-
-    .service-cta-image {
-        min-height: 360px;
-    }
-
-    .service-cta-content {
-        padding: 22px;
-    }
-
-    .service-request-note {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 520px) {
-    .service-hero-panel::before {
-        display: none;
-    }
-
-    .service-hero-panel h2 {
-        font-size: 2.25rem;
-    }
-
-    .service-overview-media {
-        min-height: 330px;
-    }
-
-    .service-media-badge {
-        left: 14px;
-        right: 14px;
-        bottom: 14px;
-    }
-
-    .service-media-badge strong {
-        font-size: 1.75rem;
-    }
-
-    .evaluate-card {
-        min-height: 230px;
-    }
-
-    .service-cta-image {
-        min-height: 320px;
-    }
-
-    .service-request-note i,
-    .service-request-note svg {
-        width: 42px;
-        height: 42px;
-    }
-}
-
-.is-active-service {
-    border-color: rgba(185, 166, 129, 0.7) !important;
-    background: rgba(185, 166, 129, 0.16) !important;
-}
-
-.footer-links .is-active-service {
-    color: var(--color-accent) !important;
-    background: transparent !important;
-}
-
-/* ==================================================
-   SERVICE PAGES HERO — COMPACT HEIGHT FIX
-   Applies to all individual service pages
-================================================== */
-
-.service-hero {
-    min-height: calc(100svh - var(--header-height));
-    padding-top: clamp(82px, 8vw, 118px);
-    padding-bottom: clamp(22px, 3vw, 38px);
-}
-
-.service-hero-shell {
-    gap: clamp(24px, 4.5vw, 62px);
-    align-items: center;
-}
-
-.service-hero-copy {
-    gap: clamp(14px, 1.8vw, 22px);
-}
-
-.service-hero .page-title {
-    font-size: clamp(3.2rem, 7vw, 7.9rem);
-    line-height: 0.86;
-    letter-spacing: -0.075em;
-}
-
-.service-hero-copy p {
-    max-width: 650px;
-    font-size: clamp(0.96rem, 1.08vw, 1.06rem);
-    line-height: 1.62;
-}
-
-.service-hero .hero-actions {
-    margin-top: 0;
-}
-
-.service-hero-panel {
-    padding: clamp(16px, 2.2vw, 24px);
-}
-
-.service-hero-panel::before {
-    inset: 10px;
-}
-
-.service-hero-panel span {
-    margin-bottom: 18px;
-    font-size: 0.64rem;
-}
-
-.service-hero-panel h2 {
-    font-size: clamp(1.65rem, 2.6vw, 2.65rem);
-    line-height: 0.96;
-}
-
-.service-hero-panel p {
-    margin-top: 14px;
-    font-size: 0.86rem;
-    line-height: 1.55;
-}
-
-@media (max-width: 1180px) {
-    .service-hero {
-        min-height: auto;
-    }
-
-    .service-hero-panel {
-        max-width: none;
-    }
-}
-
-@media (max-width: 820px) {
-    .service-hero {
-        padding-top: 88px;
-        padding-bottom: 32px;
-    }
-
-    .service-hero .page-title {
-        font-size: clamp(2.8rem, 12vw, 5.4rem);
-        line-height: 0.9;
-    }
-
-    .service-hero-copy p {
-        font-size: 0.96rem;
-    }
-}
-
-@media (max-width: 560px) {
-    .service-hero {
-        padding-top: 84px;
-        padding-bottom: 28px;
-    }
-
-    .service-hero .page-title {
-        font-size: clamp(2.7rem, 14vw, 4.4rem);
-    }
-
-    .service-hero-panel {
-        padding: 20px;
-    }
-
-    .service-hero-panel::before {
-        display: none;
-    }
-
-    .service-hero-panel h2 {
-        font-size: 1.9rem;
-    }
-}
-
-
-/* Tighter first section after service hero */
-
-.service-overview {
-    padding-top: clamp(34px, 5vw, 64px);
-}
-
-.service-overview-layout {
-    gap: clamp(24px, 5vw, 64px);
-}
-
-.service-overview-media {
-    min-height: clamp(360px, 44vw, 540px);
-}
-
-@media (max-width: 900px) {
-    .service-overview-media {
-        min-height: 340px;
-    }
-}
-
-@media (max-width: 560px) {
-    .service-overview-media {
-        min-height: 280px;
-    }
-}
-
-/* ==================================================
-   ALL SERVICE PAGES — FINAL COMPACT PHOTO HERO
-   Applies to every page with .service-hero
-================================================== */
-
-.service-hero {
-    position: relative;
-    min-height: min(720px, calc(100svh - var(--header-height)));
-    display: grid;
-    align-items: center;
-    overflow: hidden;
-
-    padding-top: clamp(92px, 8vw, 118px);
-    padding-bottom: clamp(28px, 4vw, 48px);
-
-    background:
-        linear-gradient(90deg,
-            rgba(25, 27, 24, 0.78) 0%,
-            rgba(25, 27, 24, 0.58) 42%,
-            rgba(25, 27, 24, 0.34) 68%,
-            rgba(25, 27, 24, 0.18) 100%),
-        linear-gradient(180deg,
-            rgba(25, 27, 24, 0.16) 0%,
-            rgba(25, 27, 24, 0.56) 100%),
-        url("../assets/images/services/window-installation-card.jpg") center right / cover no-repeat;
-
-    color: var(--color-white);
-}
-
-/* отключаем старую картинку из HTML, чтобы фон точно был через CSS */
-.service-hero-bg {
-    display: none !important;
-}
-
-.service-hero-overlay {
-    display: none !important;
-}
-
-.service-hero .noise-layer {
-    z-index: 1;
-    opacity: 0.12;
-}
-
-/* мягкий свет поверх фото */
-.service-hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    background:
-        radial-gradient(circle at 18% 18%, rgba(185, 166, 129, 0.16), transparent 30%),
-        radial-gradient(circle at 82% 18%, rgba(251, 248, 241, 0.08), transparent 28%),
-        linear-gradient(180deg, transparent 0%, rgba(25, 27, 24, 0.30) 100%);
-}
-
-/* шире контейнер hero */
-.service-hero .container-wide,
-.service-hero-shell {
-    width: min(100% - 28px, 1560px);
-    max-width: 1560px;
-    margin-inline: auto;
-}
-
-.service-hero-shell {
-    position: relative;
-    z-index: 3;
-
-    display: grid;
-    grid-template-columns: minmax(0, 1.22fr) minmax(360px, 0.58fr);
-    gap: clamp(28px, 4vw, 64px);
-    align-items: center;
-}
-
-/* левая часть шире */
-.service-hero-copy {
-    width: 100%;
-    max-width: 1040px;
-    display: grid;
-    gap: clamp(12px, 1.6vw, 20px);
-}
-
-.service-hero .eyebrow {
-    color: rgba(251, 248, 241, 0.82);
-}
-
-/* заголовок ниже, шире, не жирный */
-.service-hero .page-title,
-.service-hero .page-title.text-balance {
-    max-width: 1040px;
-    color: var(--color-white);
-    font-size: clamp(2.8rem, 5.8vw, 6.6rem);
-    font-weight: 500;
-    line-height: 0.92;
-    letter-spacing: -0.055em;
-    text-wrap: initial;
-    text-shadow:
-        0 14px 42px rgba(0, 0, 0, 0.28),
-        0 2px 16px rgba(0, 0, 0, 0.22);
-}
-
-/* параграф шире */
-.service-hero-copy p {
-    max-width: 860px;
-    color: rgba(251, 248, 241, 0.78);
-    font-size: clamp(0.98rem, 1.08vw, 1.08rem);
-    line-height: 1.58;
-}
-
-/* кнопки ближе и аккуратнее */
-.service-hero .hero-actions {
-    margin-top: 2px;
-    gap: 10px;
-}
-
-/* правая карточка компактнее */
-.service-hero-panel {
-    width: 100%;
-    max-width: 520px;
-    justify-self: end;
-
-    padding: clamp(18px, 2.2vw, 26px);
-    border: 1px solid rgba(251, 248, 241, 0.24);
-    background:
-        linear-gradient(145deg, rgba(251, 248, 241, 0.18), rgba(251, 248, 241, 0.07)),
-        rgba(25, 27, 24, 0.34);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
-}
-
-.service-hero-panel::before {
-    inset: 10px;
-    border-color: rgba(185, 166, 129, 0.18);
-}
-
-.service-hero-panel span {
-    margin-bottom: 16px;
-    font-size: 0.62rem;
-}
-
-.service-hero-panel h2 {
-    font-size: clamp(1.65rem, 2.5vw, 2.55rem);
-    font-weight: 500;
-    line-height: 0.98;
-    letter-spacing: -0.045em;
-}
-
-.service-hero-panel p {
-    margin-top: 12px;
-    color: rgba(251, 248, 241, 0.70);
-    font-size: 0.86rem;
-    line-height: 1.52;
-}
-
-/* чтобы первая секция после hero не была слишком далеко */
-.service-overview {
-    padding-top: clamp(32px, 4vw, 58px) !important;
-}
-
-/* ================= TABLET ================= */
-
-@media (max-width: 1180px) {
-    .service-hero {
-        min-height: auto;
-        padding-top: 92px;
-        padding-bottom: 34px;
-
-        background:
-            linear-gradient(180deg,
-                rgba(25, 27, 24, 0.74) 0%,
-                rgba(25, 27, 24, 0.56) 52%,
-                rgba(25, 27, 24, 0.72) 100%),
-            url("../assets/images/services/window-installation-card.jpg") center / cover no-repeat;
-    }
-
-    .service-hero-shell {
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
-
-    .service-hero-copy,
-    .service-hero .page-title,
-    .service-hero-copy p {
-        max-width: 100%;
-    }
-
-    .service-hero-panel {
-        max-width: 100%;
-        justify-self: stretch;
-    }
-}
-
-/* ================= MOBILE ================= */
-
-@media (max-width: 680px) {
-    .service-hero {
-        padding-top: 84px;
-        padding-bottom: 28px;
-
-        background:
-            linear-gradient(180deg,
-                rgba(25, 27, 24, 0.80) 0%,
-                rgba(25, 27, 24, 0.60) 50%,
-                rgba(25, 27, 24, 0.78) 100%),
-            url("../assets/images/services/window-installation-card.jpg") center / cover no-repeat;
-    }
-
-    .service-hero-shell {
-        gap: 18px;
-    }
-
-    .service-hero .page-title,
-    .service-hero .page-title.text-balance {
-        font-size: clamp(2.45rem, 11.5vw, 4.2rem);
-        line-height: 0.98;
-        letter-spacing: -0.045em;
-    }
-
-    .service-hero-copy p {
-        font-size: 0.95rem;
-        line-height: 1.5;
-    }
-
-    .service-hero-panel {
-        padding: 20px;
-    }
-
-    .service-hero-panel::before {
-        display: none;
-    }
-
-    .service-hero-panel h2 {
-        font-size: 1.75rem;
-    }
-}
-
-
-/* ==================================================
-   SERVICE OVERVIEW — COMPACT ONE-SCROLL FIX
-   Photo keeps the same visual size, text gets wider
-================================================== */
-
-.service-overview {
-    padding: clamp(28px, 3.4vw, 52px) 0 !important;
-    background:
-        linear-gradient(180deg, var(--color-bg) 0%, rgba(221, 215, 202, 0.34) 100%);
-    overflow: hidden;
-}
-
-.service-overview .container,
-.service-overview .container-wide {
-    width: min(100% - 28px, 1560px) !important;
-    max-width: 1560px !important;
-}
-
-/* layout шире и компактнее */
-.service-overview-layout {
-    display: grid !important;
-    grid-template-columns: minmax(420px, 0.76fr) minmax(0, 1.08fr) !important;
-    gap: clamp(24px, 3.8vw, 58px) !important;
-    align-items: center !important;
-}
-
-/* ФОТО: оставляем размер почти как был */
-.service-overview-media {
-    position: relative;
-    min-height: clamp(430px, 54vw, 660px) !important;
-    height: 100%;
-    overflow: hidden;
-}
-
-/* чтобы фото точно заполняло карточку */
-.service-overview-media img {
-    position: absolute;
-    inset: 0;
-    width: 100% !important;
-    height: 100% !important;
-    max-width: none !important;
-    object-fit: cover !important;
-    object-position: center center !important;
-}
-
-/* badge на фото компактнее, чтобы не перегружал */
-.service-media-badge {
-    left: clamp(14px, 2vw, 26px);
-    right: clamp(14px, 2vw, 26px);
-    bottom: clamp(14px, 2vw, 26px);
-    padding: clamp(14px, 1.8vw, 20px);
-    gap: 6px;
-}
-
-.service-media-badge span {
-    font-size: 0.62rem;
-}
-
-.service-media-badge strong {
-    max-width: 620px;
-    font-size: clamp(1.35rem, 2.1vw, 2.1rem);
-    line-height: 0.98;
-    font-weight: 500;
-}
-
-/* правая текстовая часть шире */
-.service-overview-content {
-    width: 100%;
-    max-width: 980px;
-    display: grid;
-    gap: clamp(12px, 1.6vw, 20px);
-}
-
-/* заголовок шире, ниже и легче */
-.service-overview-content .section-title,
-.service-overview .section-title {
-    max-width: 980px;
-    font-size: clamp(2.55rem, 4.7vw, 5.4rem);
-    line-height: 0.94;
-    font-weight: 500;
-    letter-spacing: -0.045em;
-    text-wrap: initial;
-}
-
-/* основной текст не узкой колонкой */
-.service-rich-text {
-    max-width: 980px;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: clamp(14px, 2vw, 26px);
-    color: var(--color-muted);
-    font-size: clamp(0.95rem, 1vw, 1.04rem);
-    line-height: 1.56;
-}
-
-.service-rich-text p {
-    max-width: none;
-}
-
-/* если есть кнопки внутри overview */
-.service-overview .section-actions,
-.service-overview .hero-actions,
-.service-overview .card-actions {
-    margin-top: 2px;
-    gap: 10px;
-}
-
-/* TABLET */
-@media (max-width: 1180px) {
-    .service-overview {
-        padding: 32px 0 !important;
-    }
-
-    .service-overview-layout {
-        grid-template-columns: 1fr !important;
-        gap: 24px !important;
-    }
-
-    .service-overview-content,
-    .service-overview-content .section-title,
-    .service-overview .section-title,
-    .service-rich-text {
-        max-width: 100%;
-    }
-
-    .service-rich-text {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .service-overview-media {
-        min-height: 430px !important;
-    }
-}
-
-/* MOBILE */
-@media (max-width: 720px) {
-    .service-overview {
-        padding: 28px 0 !important;
-    }
-
-    .service-overview-media {
-        min-height: 360px !important;
-    }
-
-    .service-rich-text {
-        grid-template-columns: 1fr;
-        gap: 12px;
-        font-size: 0.94rem;
-        line-height: 1.5;
-    }
-
-    .service-overview-content .section-title,
-    .service-overview .section-title {
-        font-size: clamp(2.25rem, 10vw, 3.8rem);
-        line-height: 1;
-    }
-}
-
-@media (max-width: 520px) {
-    .service-overview-media {
-        min-height: 330px !important;
-    }
-
-    .service-media-badge {
-        left: 14px;
-        right: 14px;
-        bottom: 14px;
-        padding: 16px;
-    }
-
-    .service-media-badge strong {
-        font-size: 1.55rem;
-    }
-}
-
-/* ==================================================
-   SERVICE EVALUATE — SLIGHTLY DARKER BACKGROUND
-================================================== */
-
-.service-evaluate {
-    background:
-        radial-gradient(circle at 12% 12%, rgba(185, 166, 129, 0.16), transparent 32%),
-        linear-gradient(180deg, #D5CEC0 0%, #CFC7B8 100%) !important;
-}
-
-.service-evaluate .section-title {
-    color: #171A16;
-}
-
-.service-evaluate .section-kicker {
-    color: rgba(25, 27, 24, 0.72);
-}
-
-.service-evaluate .evaluate-card {
-    background: rgba(251, 248, 241, 0.54);
-    border-color: rgba(52, 58, 50, 0.14);
-}
-
-.service-evaluate .evaluate-card:hover {
-    background: rgba(251, 248, 241, 0.76);
-    border-color: var(--color-accent);
-}
-
-
-/* ==================================================
-   SERVICE FACTORS — WIDER COPY COLUMN
-================================================== */
-
-.service-factors {
-    overflow: hidden;
-}
-
-.service-factors .container,
-.service-factors .container-wide {
-    width: min(100% - 28px, 1560px) !important;
-    max-width: 1560px !important;
-}
-
-/* даём левой части больше места */
-.factors-layout {
-    display: grid !important;
-    grid-template-columns: minmax(0, 1.05fr) minmax(480px, 0.95fr) !important;
-    gap: clamp(28px, 4vw, 68px) !important;
-    align-items: start !important;
-}
-
-/* сам блок с заголовком и текстом шире */
-.factors-copy {
-    max-width: 960px !important;
-    width: 100%;
-    display: grid;
-    gap: clamp(14px, 1.8vw, 22px);
-}
-
-/* заголовок не узким столбиком */
-.factors-copy .section-title {
-    max-width: 960px !important;
-    font-size: clamp(2.55rem, 4.7vw, 5.4rem);
-    line-height: 0.94;
-    font-weight: 500;
-    letter-spacing: -0.045em;
-    text-wrap: initial;
-}
-
-/* параграф шире */
-.factors-copy .section-kicker {
-    max-width: 840px !important;
-    font-size: clamp(0.98rem, 1.08vw, 1.08rem);
-    line-height: 1.58;
-}
-
-/* кнопки под текстом аккуратнее */
-.factors-copy .section-actions {
-    margin-top: 4px;
-}
-
-/* правая часть тоже не сжимается */
-.factors-list {
-    width: 100%;
-    max-width: 760px;
-    justify-self: end;
-}
-
-/* сами пункты чуть компактнее и шире */
-.factor-item {
-    grid-template-columns: 60px minmax(0, 1fr) !important;
-    gap: 16px !important;
-    padding: clamp(16px, 2vw, 24px) 0 !important;
-}
-
-.factor-item h3 {
-    font-size: clamp(1.45rem, 2vw, 2.05rem);
-    font-weight: 500;
-}
-
-.factor-item p {
-    max-width: 620px;
-    font-size: 0.92rem;
-    line-height: 1.56;
-}
-
-/* TABLET */
-@media (max-width: 1180px) {
-    .factors-layout {
-        grid-template-columns: 1fr !important;
-        gap: 24px !important;
-    }
-
-    .factors-copy,
-    .factors-copy .section-title,
-    .factors-copy .section-kicker,
-    .factors-list {
-        max-width: 100% !important;
-    }
-
-    .factors-copy {
-        position: relative;
-        top: auto;
-    }
-
-    .factors-list {
-        justify-self: stretch;
-    }
-}
-
-/* MOBILE */
-@media (max-width: 680px) {
-    .factors-copy .section-title {
-        font-size: clamp(2.25rem, 10vw, 3.8rem);
-        line-height: 1;
-    }
-
-    .factor-item {
-        grid-template-columns: 1fr !important;
-        gap: 12px !important;
-    }
-
-    .factor-item>span {
-        width: 46px;
-        height: 46px;
-    }
-}
-
-/* ==================================================
-   SERVICE CTA BAND — COMPACT ONE-SCROLL + EQUAL IMAGE
-================================================== */
-
-.service-cta-band {
-    padding: clamp(32px, 4vw, 58px) 0 !important;
-    overflow: hidden;
-    background:
-        linear-gradient(180deg, rgba(221, 215, 202, 0.58), var(--color-bg));
-}
-
-.service-cta-band .container,
-.service-cta-band .container-wide {
-    width: min(100% - 28px, 1560px) !important;
-    max-width: 1560px !important;
-}
-
-.service-cta-shell {
-    display: grid !important;
-    grid-template-columns: minmax(420px, 0.88fr) minmax(0, 1fr) !important;
-    gap: 12px !important;
-    align-items: stretch !important;
-
-    min-height: clamp(390px, 36vw, 520px) !important;
-}
-
-/* фото такого же размера, как правая карточка */
-.service-cta-image,
-.service-cta-content {
-    height: 100% !important;
-    min-height: clamp(390px, 36vw, 520px) !important;
-}
-
-/* фото растягивается ровно по размеру карточки */
-.service-cta-image {
-    position: relative !important;
-    overflow: hidden !important;
-}
-
-.service-cta-image img {
-    position: absolute !important;
-    inset: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    object-position: center !important;
-}
-
-/* правая карточка компактнее */
 .service-cta-content {
     display: grid !important;
     align-content: center !important;
     gap: clamp(14px, 1.8vw, 22px) !important;
-    padding: clamp(22px, 3.4vw, 46px) !important;
+    padding: clamp(24px, 4vw, 54px) !important;
+    background:
+        radial-gradient(circle at 100% 0%, rgba(185, 166, 129, 0.22), transparent 34%),
+        linear-gradient(145deg, rgba(251, 248, 241, 0.84), rgba(221, 215, 202, 0.66));
 }
 
 .service-cta-content .section-title {
-    max-width: 900px;
-    font-size: clamp(2.45rem, 4.5vw, 5.2rem);
-    line-height: 0.94;
-    font-weight: 500;
-    letter-spacing: -0.045em;
+    max-width: 860px !important;
+    font-size: clamp(2.35rem, 4.2vw, 5rem) !important;
+    line-height: 0.96 !important;
+    font-weight: 500 !important;
+    letter-spacing: -0.045em !important;
+    text-wrap: initial !important;
 }
 
 .service-cta-content p {
-    max-width: 780px;
-    font-size: clamp(0.96rem, 1.05vw, 1.05rem);
-    line-height: 1.55;
+    max-width: 760px !important;
+    color: var(--color-muted);
+    font-size: clamp(0.96rem, 1.05vw, 1.06rem) !important;
+    line-height: 1.58 !important;
 }
 
 .service-cta-content .section-actions {
-    margin-top: 2px;
+    margin-top: 4px;
+    gap: 10px;
 }
 
-/* TABLET */
-@media (max-width: 1180px) {
-    .service-cta-shell {
-        grid-template-columns: 1fr !important;
-        min-height: auto !important;
-    }
-
-    .service-cta-image {
-        min-height: 360px !important;
-    }
-
-    .service-cta-content {
-        min-height: auto !important;
-    }
-}
-
-/* MOBILE */
-@media (max-width: 680px) {
-    .service-cta-band {
-        padding: 28px 0 !important;
-    }
-
-    .service-cta-image {
-        min-height: 300px !important;
-    }
-
-    .service-cta-content {
-        padding: 22px !important;
-    }
-
-    .service-cta-content .section-title {
-        font-size: clamp(2.25rem, 10vw, 3.8rem);
-        line-height: 1;
-    }
-}
-
-@media (max-width: 520px) {
-    .service-cta-image {
-        min-height: 270px !important;
-    }
-}
-
-/* ==================================================
-   SERVICE REQUEST — COMPACT PREMIUM REDESIGN
-   One-scroll section + darker warm background
-================================================== */
+/* ================= REQUEST ================= */
 
 .service-request {
     position: relative;
@@ -1475,11 +589,8 @@
 .service-request .container-wide {
     position: relative;
     z-index: 2;
-    width: min(100% - 28px, 1560px) !important;
-    max-width: 1560px !important;
 }
 
-/* layout */
 .service-request-layout {
     display: grid !important;
     grid-template-columns: minmax(0, 0.9fr) minmax(520px, 0.86fr) !important;
@@ -1487,7 +598,6 @@
     align-items: center !important;
 }
 
-/* left copy */
 .service-request-copy {
     max-width: 900px;
     display: grid;
@@ -1511,7 +621,6 @@
     color: rgba(25, 27, 24, 0.72);
 }
 
-/* note card */
 .service-request-note {
     max-width: 760px;
     display: grid !important;
@@ -1541,7 +650,6 @@
     line-height: 1.52 !important;
 }
 
-/* form */
 .service-form {
     width: 100% !important;
     max-width: 680px !important;
@@ -1562,7 +670,6 @@
     box-shadow: 0 28px 76px rgba(25, 27, 24, 0.18);
 }
 
-/* compact form fields */
 .service-request .form-grid {
     gap: 10px !important;
 }
@@ -1608,15 +715,225 @@
     font-size: 0.8rem !important;
 }
 
-/* tablet */
+/* ================= FAQ ================= */
+
+.service-faq {
+    overflow: hidden;
+    background: var(--color-bg);
+}
+
+.service-faq .faq-layout {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.02fr) minmax(520px, 0.98fr) !important;
+    gap: clamp(28px, 4vw, 68px) !important;
+    align-items: start !important;
+}
+
+.service-faq .faq-copy {
+    position: sticky;
+    top: calc(var(--header-height) + 28px);
+    width: 100%;
+    max-width: 960px !important;
+    display: grid;
+    gap: clamp(14px, 1.8vw, 22px);
+    transform: translateY(-24px);
+}
+
+.service-faq .faq-copy .section-title {
+    max-width: 1080px !important;
+    font-size: clamp(2.55rem, 4.7vw, 5.4rem);
+    line-height: 0.94;
+    font-weight: 500;
+    letter-spacing: -0.045em;
+    text-wrap: initial;
+}
+
+.service-faq .faq-copy .section-kicker {
+    max-width: 820px !important;
+    font-size: clamp(0.98rem, 1.08vw, 1.08rem);
+    line-height: 1.58;
+}
+
+.service-faq .faq-list {
+    width: 100%;
+    max-width: 760px;
+    justify-self: end;
+}
+
+/* ================= SECTION HEAD ================= */
+
+.service-page .section-head.split-head {
+    width: 100%;
+    max-width: 1560px;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.08fr) minmax(420px, 0.72fr);
+    align-items: end;
+    gap: clamp(24px, 4vw, 68px);
+    margin-inline: auto;
+    margin-bottom: clamp(20px, 3vw, 42px);
+}
+
+.service-page .section-head.split-head>div {
+    width: 100%;
+    max-width: 980px;
+    min-width: 0;
+}
+
+.service-page .section-head.split-head .section-title {
+    max-width: 980px;
+    font-size: clamp(2.45rem, 4.7vw, 5.4rem);
+    line-height: 0.94;
+    font-weight: 500;
+    letter-spacing: -0.045em;
+    text-wrap: initial;
+}
+
+.service-page .section-head.split-head .section-kicker {
+    max-width: 760px;
+    justify-self: end;
+    font-size: clamp(0.96rem, 1.05vw, 1.06rem);
+    line-height: 1.56;
+}
+
+.service-page .section-head.split-head.aos-init,
+.service-page .section-head.split-head.aos-animate {
+    width: 100%;
+}
+
+/* ================= ACTIVE SERVICE ================= */
+
+.is-active-service {
+    border-color: rgba(185, 166, 129, 0.7) !important;
+    background: rgba(185, 166, 129, 0.16) !important;
+}
+
+.footer-links .is-active-service {
+    color: var(--color-accent) !important;
+    background: transparent !important;
+}
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
 @media (max-width: 1180px) {
-    .service-request {
+
+    .service-page .container,
+    .service-page .container-wide {
+        width: min(100% - 32px, 920px);
+        max-width: 920px;
+    }
+
+    .service-hero {
+        min-height: auto;
+        padding-top: 92px;
+        padding-bottom: 34px;
+        background:
+            linear-gradient(180deg,
+                rgba(25, 27, 24, 0.74) 0%,
+                rgba(25, 27, 24, 0.56) 52%,
+                rgba(25, 27, 24, 0.72) 100%),
+            url("../assets/images/services/window-installation-card.jpg") center / cover no-repeat;
+    }
+
+    .service-hero-shell,
+    .service-overview-layout,
+    .factors-layout,
+    .service-request-layout,
+    .service-faq .faq-layout {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+    }
+
+    .service-hero-copy,
+    .service-hero .page-title,
+    .service-hero-copy p {
+        max-width: 100%;
+    }
+
+    .service-hero-panel {
+        max-width: 100%;
+        justify-self: stretch;
+    }
+
+    .service-overview-media {
+        width: min(100%, 920px) !important;
+        height: 420px !important;
+        min-height: 420px !important;
+        max-height: 420px !important;
+        justify-self: center !important;
+    }
+
+    .service-overview-content {
+        max-width: 100% !important;
+    }
+
+    .evaluate-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .factors-copy,
+    .service-faq .faq-copy {
+        position: relative;
+        top: auto;
+        transform: none;
+    }
+
+    .factors-copy,
+    .factors-copy .section-title,
+    .factors-copy .section-kicker,
+    .factors-list,
+    .service-faq .faq-copy,
+    .service-faq .faq-copy .section-title,
+    .service-faq .faq-copy .section-kicker,
+    .service-faq .faq-list {
+        max-width: 100% !important;
+    }
+
+    .factors-list,
+    .service-faq .faq-list {
+        justify-self: stretch;
+    }
+
+    .service-cta-band {
         padding: 34px 0 !important;
     }
 
-    .service-request-layout {
+    .service-cta-band .container-wide {
+        width: min(100% - 32px, 920px) !important;
+        max-width: 920px !important;
+    }
+
+    .service-cta-shell {
         grid-template-columns: 1fr !important;
-        gap: 24px !important;
+        justify-items: center !important;
+        gap: 14px !important;
+    }
+
+    .service-cta-image,
+    .service-cta-content {
+        width: 100% !important;
+        max-width: 920px !important;
+        justify-self: center !important;
+    }
+
+    .service-cta-image {
+        min-height: 360px !important;
+        height: 360px !important;
+    }
+
+    .service-cta-content {
+        min-height: auto !important;
+        padding: clamp(24px, 4vw, 38px) !important;
+    }
+
+    .service-cta-content .section-title,
+    .service-cta-content p {
+        max-width: 100% !important;
+    }
+
+    .service-request {
+        padding: 34px 0 !important;
     }
 
     .service-request-copy,
@@ -1630,10 +947,114 @@
     .service-form {
         justify-self: stretch !important;
     }
+
+    .service-page .section-head.split-head {
+        grid-template-columns: 1fr;
+        align-items: start;
+        gap: 14px;
+        margin-bottom: 24px;
+    }
+
+    .service-page .section-head.split-head>div,
+    .service-page .section-head.split-head .section-title,
+    .service-page .section-head.split-head .section-kicker {
+        max-width: 100%;
+        justify-self: stretch;
+    }
 }
 
-/* mobile */
-@media (max-width: 680px) {
+@media (max-width: 820px) {
+    .service-hero {
+        padding-top: 88px;
+        padding-bottom: 32px;
+    }
+
+    .service-hero .page-title,
+    .service-hero .page-title.text-balance {
+        font-size: clamp(2.8rem, 12vw, 5.4rem);
+        line-height: 0.9;
+    }
+
+    .service-hero-copy p {
+        font-size: 0.96rem;
+    }
+}
+
+@media (max-width: 720px) {
+
+    .service-page .container,
+    .service-page .container-wide {
+        width: min(100% - 28px, 100%);
+    }
+
+    .service-overview {
+        padding: 28px 0 !important;
+    }
+
+    .service-overview-media {
+        width: 100% !important;
+        height: 340px !important;
+        min-height: 340px !important;
+        max-height: 340px !important;
+    }
+
+    .service-rich-text {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+        font-size: 0.94rem !important;
+        line-height: 1.5 !important;
+    }
+
+    .service-overview-content .section-title,
+    .service-overview .section-title {
+        font-size: clamp(2.25rem, 10vw, 3.8rem) !important;
+        line-height: 1 !important;
+    }
+
+    .evaluate-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .evaluate-card {
+        min-height: 250px;
+    }
+
+    .service-cta-band {
+        padding: 28px 0 !important;
+    }
+
+    .service-cta-shell {
+        gap: 12px !important;
+    }
+
+    .service-cta-image {
+        min-height: 280px !important;
+        height: 280px !important;
+    }
+
+    .service-cta-content {
+        padding: 22px !important;
+    }
+
+    .service-cta-content .section-title {
+        font-size: clamp(2.15rem, 10vw, 3.6rem) !important;
+        line-height: 1 !important;
+    }
+
+    .service-cta-content p {
+        font-size: 0.94rem !important;
+        line-height: 1.5 !important;
+    }
+
+    .service-cta-content .section-actions {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+    }
+
+    .service-cta-content .section-actions .btn {
+        width: 100% !important;
+    }
+
     .service-request {
         padding: 28px 0 !important;
     }
@@ -1654,398 +1075,166 @@
     .service-request textarea.form-control {
         min-height: 84px !important;
     }
-}
 
-/* ==================================================
-   SERVICE FAQ — WIDER COPY COLUMN
-================================================== */
-
-.service-faq {
-    overflow: hidden;
-}
-
-.service-faq .container,
-.service-faq .container-wide {
-    width: min(100% - 28px, 1560px) !important;
-    max-width: 1560px !important;
-}
-
-/* даём левой колонке больше места */
-.service-faq .faq-layout {
-    display: grid !important;
-    grid-template-columns: minmax(0, 1.02fr) minmax(520px, 0.98fr) !important;
-    gap: clamp(28px, 4vw, 68px) !important;
-    align-items: start !important;
-}
-
-/* сам блок с заголовком/текстом шире */
-.service-faq .faq-copy {
-    width: 100%;
-    max-width: 960px !important;
-    display: grid;
-    gap: clamp(14px, 1.8vw, 22px);
-}
-
-/* заголовок не узкой колонкой */
-.service-faq .faq-copy .section-title {
-    max-width: 960px !important;
-    font-size: clamp(2.55rem, 4.7vw, 5.4rem);
-    line-height: 0.94;
-    font-weight: 500;
-    letter-spacing: -0.045em;
-    text-wrap: initial;
-}
-
-/* параграф шире */
-.service-faq .faq-copy .section-kicker {
-    max-width: 820px !important;
-    font-size: clamp(0.98rem, 1.08vw, 1.08rem);
-    line-height: 1.58;
-}
-
-/* правая колонка тоже аккуратно держит ширину */
-.service-faq .faq-list {
-    width: 100%;
-    max-width: 760px;
-    justify-self: end;
-}
-
-/* tablet */
-@media (max-width: 1180px) {
-    .service-faq .faq-layout {
+    .factor-item {
         grid-template-columns: 1fr !important;
-        gap: 24px !important;
+        gap: 12px !important;
     }
 
-    .service-faq .faq-copy,
+    .factor-item>span {
+        width: 46px;
+        height: 46px;
+    }
+
+    .factors-copy .section-title,
     .service-faq .faq-copy .section-title,
-    .service-faq .faq-copy .section-kicker,
-    .service-faq .faq-list {
-        max-width: 100% !important;
-    }
-
-    .service-faq .faq-copy {
-        position: relative;
-        top: auto;
-    }
-
-    .service-faq .faq-list {
-        justify-self: stretch;
-    }
-}
-
-/* mobile */
-@media (max-width: 680px) {
-    .service-faq .faq-copy .section-title {
-        font-size: clamp(2.25rem, 10vw, 3.8rem);
-        line-height: 1;
-    }
-}
-
-.service-faq .faq-copy .section-title {
-    max-width: 1080px !important;
-}
-
-/* ==================================================
-   SERVICE FAQ — LIFT COPY BLOCK
-================================================== */
-
-.service-faq .faq-copy {
-    transform: translateY(-24px);
-}
-
-@media (max-width: 1180px) {
-    .service-faq .faq-copy {
-        transform: none;
-    }
-}
-
-/* ==================================================
-   SERVICE CTA BAND — STABLE IMAGE SIZE FIX
-   Fixes jumping / shrinking image
-================================================== */
-
-.service-cta-band {
-    padding: clamp(30px, 3.8vw, 54px) 0 !important;
-    overflow: hidden !important;
-}
-
-.service-cta-band .container,
-.service-cta-band .container-wide {
-    width: min(100% - 28px, 1560px) !important;
-    max-width: 1560px !important;
-}
-
-/* стабильная сетка */
-.service-cta-shell {
-    display: grid !important;
-    grid-template-columns: minmax(420px, 0.88fr) minmax(0, 1fr) !important;
-    gap: 12px !important;
-    align-items: stretch !important;
-    min-height: auto !important;
-}
-
-/* фиксируем высоту обеих карточек */
-.service-cta-image,
-.service-cta-content {
-    height: clamp(400px, 34vw, 520px) !important;
-    min-height: clamp(400px, 34vw, 520px) !important;
-    max-height: 520px !important;
-}
-
-/* фото больше не скачет */
-.service-cta-image {
-    position: relative !important;
-    overflow: hidden !important;
-    align-self: stretch !important;
-    flex-shrink: 0 !important;
-    transform: none !important;
-}
-
-/* отключаем transform от AOS именно на фото-блоке */
-.service-cta-image.aos-init,
-.service-cta-image.aos-animate,
-.service-cta-image[data-aos] {
-    transform: none !important;
-}
-
-/* сама картинка всегда ровно по карточке */
-.service-cta-image img {
-    position: absolute !important;
-    inset: 0 !important;
-    z-index: 1 !important;
-
-    width: 100% !important;
-    height: 100% !important;
-    max-width: none !important;
-
-    object-fit: cover !important;
-    object-position: center center !important;
-
-    transform: scale(1.001) !important;
-}
-
-/* hover без резкого скачка */
-.service-cta-image:hover img {
-    transform: scale(1.04) !important;
-}
-
-/* затемнение поверх фото */
-.service-cta-image::after {
-    z-index: 2 !important;
-}
-
-/* правая карточка держит ту же высоту */
-.service-cta-content {
-    display: grid !important;
-    align-content: center !important;
-    overflow: hidden !important;
-    padding: clamp(22px, 3.2vw, 44px) !important;
-}
-
-/* tablet */
-@media (max-width: 1180px) {
-    .service-cta-shell {
-        grid-template-columns: 1fr !important;
-    }
-
-    .service-cta-image {
-        height: 360px !important;
-        min-height: 360px !important;
-        max-height: 360px !important;
-    }
-
-    .service-cta-content {
-        height: auto !important;
-        min-height: auto !important;
-        max-height: none !important;
-    }
-}
-
-/* mobile */
-@media (max-width: 680px) {
-    .service-cta-image {
-        height: 300px !important;
-        min-height: 300px !important;
-        max-height: 300px !important;
-    }
-}
-
-@media (max-width: 520px) {
-    .service-cta-image {
-        height: 270px !important;
-        min-height: 270px !important;
-        max-height: 270px !important;
-    }
-}
-
-/* ==================================================
-   SPLIT SECTION HEAD — WIDER HORIZONTAL TEXT
-================================================== */
-
-.section-head.split-head {
-    width: 100%;
-    max-width: 1560px;
-    display: grid !important;
-    grid-template-columns: minmax(0, 1.05fr) minmax(420px, 0.75fr);
-    align-items: end;
-    gap: clamp(24px, 4vw, 68px);
-    margin-inline: auto;
-}
-
-.section-head.split-head>div {
-    width: 100%;
-    max-width: 980px;
-    min-width: 0;
-}
-
-.section-head.split-head .section-title {
-    max-width: 980px;
-    font-size: clamp(2.5rem, 4.7vw, 5.4rem);
-    line-height: 0.94;
-    font-weight: 500;
-    letter-spacing: -0.045em;
-    text-wrap: initial;
-}
-
-.section-head.split-head .section-kicker {
-    max-width: 760px;
-    justify-self: end;
-    font-size: clamp(0.96rem, 1.05vw, 1.06rem);
-    line-height: 1.56;
-}
-
-/* если AOS добавляет ограничения/transform — не даем ломать ширину */
-.section-head.split-head.aos-init,
-.section-head.split-head.aos-animate {
-    width: 100%;
-}
-
-/* tablet */
-@media (max-width: 1180px) {
-    .section-head.split-head {
-        grid-template-columns: 1fr;
-        align-items: start;
-        gap: 14px;
-    }
-
-    .section-head.split-head>div,
-    .section-head.split-head .section-title,
-    .section-head.split-head .section-kicker {
-        max-width: 100%;
-        justify-self: stretch;
-    }
-}
-
-/* mobile */
-@media (max-width: 680px) {
-    .section-head.split-head .section-title {
-        font-size: clamp(2.25rem, 10vw, 3.8rem);
-        line-height: 1;
-    }
-
-    .section-head.split-head .section-kicker {
-        font-size: 0.94rem;
-        line-height: 1.5;
-    }
-}
-
-/* ==================================================
-   ALL SERVICE PAGES — SAME WIDE SECTION HEAD STYLE
-   Applies to every individual service page
-================================================== */
-
-/* расширяем контейнеры внутри всех сервисных страниц */
-.service-page .container,
-.service-page .container-wide {
-    width: min(100% - 28px, 1560px);
-    max-width: 1560px;
-}
-
-/* одинаковый широкий split-head на всех service pages */
-.service-page .section-head.split-head {
-    width: 100%;
-    max-width: 1560px;
-    display: grid !important;
-    grid-template-columns: minmax(0, 1.08fr) minmax(420px, 0.72fr);
-    align-items: end;
-    gap: clamp(24px, 4vw, 68px);
-    margin-inline: auto;
-    margin-bottom: clamp(20px, 3vw, 42px);
-}
-
-/* левая часть с eyebrow + заголовком */
-.service-page .section-head.split-head>div {
-    width: 100%;
-    max-width: 980px;
-    min-width: 0;
-}
-
-/* заголовок шире и не узким столбиком */
-.service-page .section-head.split-head .section-title {
-    max-width: 980px;
-    font-size: clamp(2.45rem, 4.7vw, 5.4rem);
-    line-height: 0.94;
-    font-weight: 500;
-    letter-spacing: -0.045em;
-    text-wrap: initial;
-}
-
-/* параграф справа шире */
-.service-page .section-head.split-head .section-kicker {
-    max-width: 760px;
-    justify-self: end;
-    font-size: clamp(0.96rem, 1.05vw, 1.06rem);
-    line-height: 1.56;
-}
-
-/* защита от AOS */
-.service-page .section-head.split-head.aos-init,
-.service-page .section-head.split-head.aos-animate {
-    width: 100%;
-}
-
-/* tablet */
-@media (max-width: 1180px) {
-    .service-page .section-head.split-head {
-        grid-template-columns: 1fr;
-        align-items: start;
-        gap: 14px;
-        margin-bottom: 24px;
-    }
-
-    .service-page .section-head.split-head>div,
-    .service-page .section-head.split-head .section-title,
-    .service-page .section-head.split-head .section-kicker {
-        max-width: 100%;
-        justify-self: stretch;
-    }
-}
-
-/* mobile */
-@media (max-width: 680px) {
-    .service-page .section-head.split-head {
-        margin-bottom: 20px;
-    }
-
     .service-page .section-head.split-head .section-title {
         font-size: clamp(2.25rem, 10vw, 3.8rem);
         line-height: 1;
     }
 
+    .service-page .section-head.split-head {
+        margin-bottom: 20px;
+    }
+
     .service-page .section-head.split-head .section-kicker {
         font-size: 0.94rem;
         line-height: 1.5;
     }
 }
 
+@media (max-width: 560px) {
+    .service-hero {
+        padding-top: 84px;
+        padding-bottom: 28px;
+    }
+
+    .service-hero .page-title,
+    .service-hero .page-title.text-balance {
+        font-size: clamp(2.45rem, 11.5vw, 4.2rem);
+        line-height: 0.98;
+        letter-spacing: -0.045em;
+    }
+
+    .service-hero-copy p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .service-hero-panel {
+        padding: 20px;
+    }
+
+    .service-hero-panel::before {
+        display: none;
+    }
+
+    .service-hero-panel h2 {
+        font-size: 1.75rem;
+    }
+
+    .service-overview-media {
+        height: 290px !important;
+        min-height: 290px !important;
+        max-height: 290px !important;
+    }
+
+    .service-media-badge {
+        left: 14px !important;
+        right: 14px !important;
+        bottom: 14px !important;
+        padding: 14px !important;
+    }
+
+    .service-media-badge strong {
+        font-size: 1.45rem !important;
+        line-height: 1 !important;
+    }
+
+    .evaluate-card {
+        min-height: 230px;
+    }
+}
+
+@media (max-width: 420px) {
+    .service-cta-image {
+        min-height: 250px !important;
+        height: 250px !important;
+    }
+
+    .service-cta-content {
+        padding: 20px !important;
+    }
+}
 
 /* ==================================================
-   SERVICE CTA BAND — CENTER CARD ON TABLET / MOBILE
+   SERVICE CTA BAND — ABSOLUTE FINAL CENTER FIX
+   Fixes .service-cta-content shifted to the right
 ================================================== */
 
+.service-page .service-cta-band {
+    overflow: hidden !important;
+}
+
+.service-page .service-cta-band .container-wide {
+    width: min(100% - 28px, 1420px) !important;
+    max-width: 1420px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.service-page .service-cta-band .service-cta-shell {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    display: grid !important;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1fr) !important;
+    gap: clamp(12px, 1.6vw, 22px) !important;
+
+    align-items: stretch !important;
+    justify-content: center !important;
+    justify-items: stretch !important;
+}
+
+.service-page .service-cta-band .service-cta-image,
+.service-page .service-cta-band .service-cta-content {
+    width: 100% !important;
+    max-width: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    justify-self: stretch !important;
+    align-self: stretch !important;
+}
+
+/* убираем любой боковой сдвиг от AOS */
+.service-page .service-cta-band .service-cta-content[data-aos],
+.service-page .service-cta-band .service-cta-content.aos-init,
+.service-page .service-cta-band .service-cta-content.aos-animate {
+    transform: none !important;
+}
+
+/* фото тоже не должно получать боковой сдвиг */
+.service-page .service-cta-band .service-cta-image[data-aos],
+.service-page .service-cta-band .service-cta-image.aos-init,
+.service-page .service-cta-band .service-cta-image.aos-animate {
+    transform: none !important;
+}
+
+/* ================= TABLET ================= */
+
 @media (max-width: 1180px) {
-    .service-cta-band .service-cta-shell {
+    .service-page .service-cta-band .container-wide {
+        width: min(100% - 32px, 920px) !important;
+        max-width: 920px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .service-page .service-cta-band .service-cta-shell {
         display: grid !important;
         grid-template-columns: 1fr !important;
         justify-items: center !important;
@@ -2053,268 +1242,49 @@
         gap: 14px !important;
     }
 
-    .service-cta-band .service-cta-image {
-        width: min(100%, 920px) !important;
+    .service-page .service-cta-band .service-cta-image,
+    .service-page .service-cta-band .service-cta-content {
+        width: 100% !important;
+        max-width: 920px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
         justify-self: center !important;
     }
 
-    .service-cta-band .service-cta-content {
-        width: min(100%, 920px) !important;
-        max-width: 920px !important;
-        justify-self: center !important;
-        margin-inline: auto !important;
+    .service-page .service-cta-band .service-cta-content {
+        transform: none !important;
     }
 }
+
+/* ================= MOBILE ================= */
 
 @media (max-width: 680px) {
-    .service-cta-band .service-cta-shell {
+    .service-page .service-cta-band .container-wide {
+        width: min(100% - 28px, 100%) !important;
+        max-width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .service-page .service-cta-band .service-cta-shell {
+        width: 100% !important;
+        max-width: 100% !important;
         justify-items: center !important;
+        align-items: center !important;
+    }
+
+    .service-page .service-cta-band .service-cta-image,
+    .service-page .service-cta-band .service-cta-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        justify-self: center !important;
+    }
+
+    .service-page .service-cta-band .service-cta-content {
+        padding: 22px !important;
         text-align: left !important;
-    }
-
-    .service-cta-band .service-cta-image,
-    .service-cta-band .service-cta-content {
-        width: 100% !important;
-        max-width: 100% !important;
-        justify-self: center !important;
-        margin-inline: auto !important;
-    }
-
-    .service-cta-band .service-cta-content {
-        align-content: center !important;
-    }
-}
-
-/* ==================================================
-   SERVICE OVERVIEW — ABSOLUTE STABLE IMAGE FIX
-   Fixes jumping image on all service pages
-================================================== */
-
-.service-page .service-overview,
-.section.service-overview {
-    padding: clamp(30px, 3.6vw, 54px) 0 !important;
-    overflow: hidden !important;
-}
-
-/* широкий контейнер */
-.service-page .service-overview .container,
-.service-page .service-overview .container-wide,
-.section.service-overview .container,
-.section.service-overview .container-wide {
-    width: min(100% - 28px, 1560px) !important;
-    max-width: 1560px !important;
-}
-
-/* стабильная сетка */
-.service-page .service-overview-layout,
-.section.service-overview .service-overview-layout {
-    display: grid !important;
-    grid-template-columns: minmax(420px, 560px) minmax(0, 1fr) !important;
-    gap: clamp(24px, 4vw, 64px) !important;
-    align-items: center !important;
-}
-
-/* ГЛАВНОЕ: фото больше не зависит от текста и clamp/vw */
-.service-page .service-overview-media,
-.section.service-overview .service-overview-media {
-    position: relative !important;
-    display: block !important;
-
-    width: 100% !important;
-    height: 520px !important;
-    min-height: 520px !important;
-    max-height: 520px !important;
-
-    overflow: hidden !important;
-    flex: none !important;
-    align-self: center !important;
-
-    border: 1px solid rgba(189, 182, 168, 0.78) !important;
-    background: var(--color-bg-soft) !important;
-    box-shadow: var(--shadow-card) !important;
-
-    transform: none !important;
-    contain: layout paint;
-}
-
-/* если AOS стоит на фото — он больше не двигает размер */
-.service-page .service-overview-media[data-aos],
-.service-page .service-overview-media.aos-init,
-.service-page .service-overview-media.aos-animate,
-.section.service-overview .service-overview-media[data-aos],
-.section.service-overview .service-overview-media.aos-init,
-.section.service-overview .service-overview-media.aos-animate {
-    transform: none !important;
-}
-
-/* картинка всегда заполняет карточку */
-.service-page .service-overview-media img,
-.section.service-overview .service-overview-media img {
-    position: absolute !important;
-    inset: 0 !important;
-    z-index: 1 !important;
-
-    display: block !important;
-    width: 100% !important;
-    height: 100% !important;
-    max-width: none !important;
-    max-height: none !important;
-
-    object-fit: cover !important;
-    object-position: center center !important;
-
-    transform: scale(1.001) !important;
-    transform-origin: center center !important;
-
-    transition:
-        transform 0.7s var(--ease-out),
-        filter 0.7s var(--ease-out);
-}
-
-/* overlay всегда поверх */
-.service-page .service-overview-media::after,
-.section.service-overview .service-overview-media::after {
-    content: "";
-    position: absolute !important;
-    inset: 0 !important;
-    z-index: 2 !important;
-    pointer-events: none !important;
-    background:
-        linear-gradient(180deg, rgba(25, 27, 24, 0.02), rgba(25, 27, 24, 0.44)),
-        radial-gradient(circle at 22% 20%, rgba(185, 166, 129, 0.14), transparent 30%) !important;
-}
-
-/* badge не влияет на высоту фото */
-.service-page .service-media-badge,
-.section.service-overview .service-media-badge {
-    position: absolute !important;
-    z-index: 3 !important;
-    left: clamp(14px, 2vw, 26px) !important;
-    right: clamp(14px, 2vw, 26px) !important;
-    bottom: clamp(14px, 2vw, 26px) !important;
-
-    padding: clamp(14px, 1.8vw, 20px) !important;
-    gap: 6px !important;
-}
-
-/* hover только картинка, не сама карточка */
-.service-page .service-overview-media:hover,
-.section.service-overview .service-overview-media:hover {
-    transform: none !important;
-}
-
-.service-page .service-overview-media:hover img,
-.section.service-overview .service-overview-media:hover img {
-    transform: scale(1.04) !important;
-    filter: saturate(1.06) contrast(1.04);
-}
-
-/* текстовая часть шире */
-.service-page .service-overview-content,
-.section.service-overview .service-overview-content {
-    width: 100% !important;
-    max-width: 980px !important;
-    display: grid !important;
-    gap: clamp(12px, 1.6vw, 20px) !important;
-}
-
-.service-page .service-overview-content .section-title,
-.section.service-overview .service-overview-content .section-title,
-.section.service-overview .section-title {
-    max-width: 980px !important;
-    font-size: clamp(2.45rem, 4.5vw, 5.2rem) !important;
-    line-height: 0.94 !important;
-    font-weight: 500 !important;
-    letter-spacing: -0.045em !important;
-    text-wrap: initial !important;
-}
-
-.service-page .service-rich-text,
-.section.service-overview .service-rich-text {
-    max-width: 980px !important;
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: clamp(14px, 2vw, 26px) !important;
-    font-size: clamp(0.94rem, 1vw, 1.02rem) !important;
-    line-height: 1.55 !important;
-}
-
-/* TABLET */
-@media (max-width: 1180px) {
-
-    .service-page .service-overview-layout,
-    .section.service-overview .service-overview-layout {
-        grid-template-columns: 1fr !important;
-        gap: 24px !important;
-    }
-
-    .service-page .service-overview-media,
-    .section.service-overview .service-overview-media {
-        width: min(100%, 920px) !important;
-        height: 420px !important;
-        min-height: 420px !important;
-        max-height: 420px !important;
-        justify-self: center !important;
-    }
-
-    .service-page .service-overview-content,
-    .section.service-overview .service-overview-content {
-        max-width: 100% !important;
-    }
-}
-
-/* MOBILE */
-@media (max-width: 720px) {
-
-    .service-page .service-overview,
-    .section.service-overview {
-        padding: 28px 0 !important;
-    }
-
-    .service-page .service-overview-media,
-    .section.service-overview .service-overview-media {
-        width: 100% !important;
-        height: 340px !important;
-        min-height: 340px !important;
-        max-height: 340px !important;
-    }
-
-    .service-page .service-rich-text,
-    .section.service-overview .service-rich-text {
-        grid-template-columns: 1fr !important;
-        gap: 12px !important;
-        font-size: 0.94rem !important;
-        line-height: 1.5 !important;
-    }
-
-    .service-page .service-overview-content .section-title,
-    .section.service-overview .service-overview-content .section-title,
-    .section.service-overview .section-title {
-        font-size: clamp(2.25rem, 10vw, 3.8rem) !important;
-        line-height: 1 !important;
-    }
-}
-
-@media (max-width: 520px) {
-
-    .service-page .service-overview-media,
-    .section.service-overview .service-overview-media {
-        height: 290px !important;
-        min-height: 290px !important;
-        max-height: 290px !important;
-    }
-
-    .service-page .service-media-badge,
-    .section.service-overview .service-media-badge {
-        left: 14px !important;
-        right: 14px !important;
-        bottom: 14px !important;
-        padding: 14px !important;
-    }
-
-    .service-page .service-media-badge strong,
-    .section.service-overview .service-media-badge strong {
-        font-size: 1.45rem !important;
-        line-height: 1 !important;
+        transform: none !important;
     }
 }
