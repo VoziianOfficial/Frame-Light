@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Compare local window installation providers with Frame & Light. Request quotes from independent companies for new window installation projects." />
+
+    <title>Window Installation | Frame & Light</title>
+
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
+
+    <!-- Libraries CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div class="page service-page service-installation-page">
+        <!-- HEADER -->
+        <header class="site-header" data-header>
+            <div class="header-shell">
+                <a class="brand" href="index.html" aria-label="Frame & Light home">
+                    <span class="brand-mark" aria-hidden="true"></span>
+                    <span class="brand-text">
+                        <span class="brand-name" data-config="company.name">Frame & Light</span>
+                        <span class="brand-label">Window Matching Platform</span>
+                    </span>
+                </a>
+
+                <nav class="desktop-nav" aria-label="Primary navigation">
+                    <a class="nav-link" href="index.html">Home</a>
+
+                    <div class="nav-dropdown">
+                        <button class="nav-dropdown-trigger" type="button" aria-expanded="false">
+                            Services
+                            <i data-lucide="chevron-down" aria-hidden="true"></i>
+                        </button>
+
+                        <div class="nav-dropdown-menu" aria-label="Service pages">
+                            <a class="dropdown-service-link" href="window-installation.html">
+                                <strong>Installation</strong>
+                                <span>Compare providers for new window projects.</span>
+                            </a>
+
+                            <a class="dropdown-service-link" href="window-replacement.html">
+                                <strong>Replacement</strong>
+                                <span>Explore options for outdated or drafty windows.</span>
+                            </a>
+
+                            <a class="dropdown-service-link" href="window-repair.html">
+                                <strong>Repair</strong>
+                                <span>Find providers for frame, seal, or hardware issues.</span>
+                            </a>
+
+                            <a class="dropdown-service-link" href="glass-replacement.html">
+                                <strong>Glass Replacement</strong>
+                                <span>Compare companies for cracked or fogged panes.</span>
+                            </a>
+
+                            <a class="dropdown-service-link" href="energy-efficient-windows.html">
+                                <strong>Energy-Efficient</strong>
+                                <span>Review comfort-focused window upgrade options.</span>
+                            </a>
+
+                            <a class="dropdown-service-link" href="custom-window-design.html">
+                                <strong>Custom Design</strong>
+                                <span>Connect with specialty window design providers.</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <a class="nav-link" href="services.html">All Services</a>
+                    <a class="nav-link" href="about.html">About</a>
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </nav>
+
+                <div class="header-actions">
+                    <a class="btn btn-primary btn-small header-phone" href="tel:+18885550148" data-config-href="phone">
+                        <span data-config="contact.phoneButtonText">Call Now</span>
+                        <i data-lucide="phone" aria-hidden="true"></i>
+                    </a>
+
+                    <a class="btn btn-primary btn-small mobile-phone" href="tel:+18885550148" data-config-href="phone"
+                        aria-label="Call Frame & Light">
+                        <i data-lucide="phone" aria-hidden="true"></i>
+                    </a>
+
+                    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"
+                        data-menu-toggle>
+                        <span class="nav-toggle-lines" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- MOBILE MENU -->
+        <aside class="mobile-menu" data-mobile-menu aria-hidden="true">
+            <div class="mobile-menu-inner">
+                <div class="mobile-menu-panel">
+                    <nav class="mobile-nav-main" aria-label="Mobile navigation">
+                        <a href="index.html">Home</a>
+                        <a href="services.html">Services</a>
+                        <a href="about.html">About</a>
+                        <a href="contact.html">Contact</a>
+                    </nav>
+                </div>
+
+                <div class="mobile-menu-panel mobile-services">
+                    <div class="mobile-services-head">
+                        <span>Service categories</span>
+                        <a class="btn btn-outline btn-small" href="services.html">View all</a>
+                    </div>
+
+                    <div class="mobile-services-grid">
+                        <a class="mobile-service-link" href="window-installation.html">
+                            <i data-lucide="panel-top" aria-hidden="true"></i>
+                            <span>Window Installation</span>
+                        </a>
+
+                        <a class="mobile-service-link" href="window-replacement.html">
+                            <i data-lucide="refresh-cw" aria-hidden="true"></i>
+                            <span>Window Replacement</span>
+                        </a>
+
+                        <a class="mobile-service-link" href="window-repair.html">
+                            <i data-lucide="wrench" aria-hidden="true"></i>
+                            <span>Window Repair</span>
+                        </a>
+
+                        <a class="mobile-service-link" href="glass-replacement.html">
+                            <i data-lucide="scan" aria-hidden="true"></i>
+                            <span>Glass Replacement</span>
+                        </a>
+
+                        <a class="mobile-service-link" href="energy-efficient-windows.html">
+                            <i data-lucide="leaf" aria-hidden="true"></i>
+                            <span>Energy-Efficient Windows</span>
+                        </a>
+
+                        <a class="mobile-service-link" href="custom-window-design.html">
+                            <i data-lucide="drafting-compass" aria-hidden="true"></i>
+                            <span>Custom Window Design</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="mobile-menu-panel mobile-contact">
+                    <a class="mobile-contact-row" href="tel:+18885550148" data-config-href="phone">
+                        <i data-lucide="phone" aria-hidden="true"></i>
+                        <span data-config="contact.phoneDisplay">(888) 555-0148</span>
+                    </a>
+
+                    <a class="mobile-contact-row" href="mailto:hello@frameandlight.com" data-config-href="email">
+                        <i data-lucide="mail" aria-hidden="true"></i>
+                        <span data-config="contact.email">hello@frameandlight.com</span>
+                    </a>
+
+                    <div class="mobile-contact-row">
+                        <i data-lucide="map-pin" aria-hidden="true"></i>
+                        <span data-config="company.serviceArea">Available across selected areas in the United
+                            States</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main id="main-content">
+            <!-- SERVICE HERO -->
+            <section class="service-hero" aria-labelledby="service-hero-title">
+                <div class="service-hero-bg" aria-hidden="true">
+                    <img src="assets/images/service-pages/window-installation-hero.jpg"
+                        alt="Modern home with newly installed architectural windows" />
+                </div>
+
+                <div class="service-hero-overlay" aria-hidden="true"></div>
+                <div class="noise-layer" aria-hidden="true"></div>
+
+                <div class="container-wide service-hero-shell">
+                    <div class="service-hero-copy" data-aos="fade-up">
+                        <span class="eyebrow">Window installation providers</span>
+
+                        <h1 class="page-title text-balance" id="service-hero-title">
+                            Compare local window installation options.
+                        </h1>
+
+                        <p>
+                            Frame & Light helps homeowners request contact from independent providers for new window
+                            installation projects. The platform does not install windows directly or act as a
+                            contractor.
+                        </p>
+
+                        <div class="hero-actions">
+                            <a class="btn btn-primary" href="#service-request">
+                                Request Quotes
+                                <i data-lucide="arrow-down" aria-hidden="true"></i>
+                            </a>
+
+                            <a class="btn btn-light" href="services.html">
+                                All Services
+                                <i data-lucide="panel-top" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <aside class="service-hero-panel tilt-card" data-aos="fade-left" data-aos-delay="140">
+                        <span>Category focus</span>
+                        <h2>New openings, remodels, additions, and planned upgrades.</h2>
+                        <p>
+                            Use provider conversations to compare measurements, frame material, glass options,
+                            installation approach, warranties, and written estimate details.
+                        </p>
+                    </aside>
+                </div>
+            </section>
+
+            <!-- OVERVIEW -->
+            <section class="section service-overview" aria-labelledby="service-overview-title">
+                <div class="container">
+                    <div class="service-overview-layout">
+                        <div class="service-overview-media" data-aos="zoom-in">
+                            <img src="assets/images/service-pages/window-installation-overview.jpg"
+                                alt="Clean bright interior with newly installed windows" />
+
+                            <div class="service-media-badge">
+                                <span>Installation request</span>
+                                <strong>Compare provider fit before scheduling work.</strong>
+                            </div>
+                        </div>
+
+                        <div class="service-overview-content" data-aos="fade-left">
+                            <span class="eyebrow">What this category covers</span>
+                            <h2 class="section-title" id="service-overview-title">
+                                Window installation starts with the right project scope.
+                            </h2>
+
+                            <div class="service-rich-text">
+                                <p>
+                                    Window installation can apply to new construction, additions, remodels, converted
+                                    spaces, or projects where a homeowner wants to add windows where they did not
+                                    previously exist. It may involve measurements, product selection, wall conditions,
+                                    weatherproofing, trim details, and coordination with other project steps.
+                                </p>
+
+                                <p>
+                                    Because installation work depends heavily on the home, the opening, the product,
+                                    and the provider’s process, homeowners should compare more than a single price.
+                                    Written scope, warranty terms, product specifications, and timeline expectations
+                                    are all important.
+                                </p>
+
+                                <p>
+                                    Frame & Light helps organize the quote request stage so homeowners can connect with
+                                    independent providers and review their options directly.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- EVALUATION -->
+            <section class="section service-evaluate" aria-labelledby="service-evaluate-title">
+                <div class="container-wide">
+                    <div class="section-head split-head" data-aos="fade-up">
+                        <div>
+                            <span class="eyebrow">Provider evaluation</span>
+                            <h2 class="section-title" id="service-evaluate-title">
+                                Questions to ask before choosing an installer.
+                            </h2>
+                        </div>
+
+                        <p class="section-kicker">
+                            Frame & Light can help homeowners connect with providers, but the final review should
+                            happen directly between the homeowner and each company.
+                        </p>
+                    </div>
+
+                    <div class="evaluate-grid">
+                        <article class="evaluate-card surface-card light" data-aos="fade-up">
+                            <i data-lucide="badge-check" aria-hidden="true"></i>
+                            <span>01</span>
+                            <h3>Required credentials</h3>
+                            <p>
+                                Ask whether the provider holds any license, insurance, bonding, or registration required
+                                for window installation in your area.
+                            </p>
+                        </article>
+
+                        <article class="evaluate-card surface-card light" data-aos="fade-up" data-aos-delay="80">
+                            <i data-lucide="ruler" aria-hidden="true"></i>
+                            <span>02</span>
+                            <h3>Measurement process</h3>
+                            <p>
+                                Confirm how openings are measured, who verifies measurements, and what happens if
+                                framing or wall conditions require adjustment.
+                            </p>
+                        </article>
+
+                        <article class="evaluate-card surface-card light" data-aos="fade-up" data-aos-delay="160">
+                            <i data-lucide="layers-3" aria-hidden="true"></i>
+                            <span>03</span>
+                            <h3>Product specifications</h3>
+                            <p>
+                                Compare frame material, glass package, insulation, hardware, grid style, color, trim
+                                approach, and energy-performance details.
+                            </p>
+                        </article>
+
+                        <article class="evaluate-card surface-card light" data-aos="fade-up" data-aos-delay="240">
+                            <i data-lucide="file-text" aria-hidden="true"></i>
+                            <span>04</span>
+                            <h3>Written estimate</h3>
+                            <p>
+                                Review labor, materials, exclusions, payment terms, cleanup, disposal, permits,
+                                warranty coverage, and timeline details in writing.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FACTORS -->
+            <section class="section service-factors" aria-labelledby="service-factors-title">
+                <div class="container">
+                    <div class="factors-layout">
+                        <div class="factors-copy" data-aos="fade-right">
+                            <span class="eyebrow">Project factors</span>
+                            <h2 class="section-title" id="service-factors-title">
+                                What may affect window installation provider choice.
+                            </h2>
+
+                            <p class="section-kicker">
+                                Installation projects are not identical. Provider recommendations, pricing, and timeline
+                                can vary based on property conditions and project details.
+                            </p>
+                        </div>
+
+                        <div class="factors-list" data-aos="fade-left">
+                            <article class="factor-item">
+                                <span>01</span>
+                                <div>
+                                    <h3>Opening type and wall conditions</h3>
+                                    <p>
+                                        A new opening, structural change, or remodel condition may require a different
+                                        provider process than installing a window into an existing prepared opening.
+                                    </p>
+                                </div>
+                            </article>
+
+                            <article class="factor-item">
+                                <span>02</span>
+                                <div>
+                                    <h3>Window quantity and size</h3>
+                                    <p>
+                                        Large windows, multiple openings, specialty sizes, or upper-floor access can
+                                        affect labor, equipment, and scheduling.
+                                    </p>
+                                </div>
+                            </article>
+
+                            <article class="factor-item">
+                                <span>03</span>
+                                <div>
+                                    <h3>Frame and glass selections</h3>
+                                    <p>
+                                        Vinyl, fiberglass, wood, aluminum-clad, double-pane, triple-pane, low-E glass,
+                                        and other options may influence provider recommendations.
+                                    </p>
+                                </div>
+                            </article>
+
+                            <article class="factor-item">
+                                <span>04</span>
+                                <div>
+                                    <h3>Permits, cleanup, and warranty terms</h3>
+                                    <p>
+                                        Ask whether permits are needed, who handles disposal, how cleanup works, and
+                                        what warranty coverage applies to product and labor.
+                                    </p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA BAND -->
+            <section class="section service-cta-band" aria-labelledby="service-cta-title">
+                <div class="container-wide">
+                    <div class="service-cta-shell">
+                        <div class="service-cta-image" data-aos="zoom-in">
+                            <img src="assets/images/service-pages/window-installation-cta.jpg"
+                                alt="Large elegant windows in a premium home interior" />
+                        </div>
+
+                        <div class="service-cta-content" data-aos="fade-left">
+                            <span class="eyebrow">Compare before committing</span>
+                            <h2 class="section-title" id="service-cta-title">
+                                Request window installation quotes from independent providers.
+                            </h2>
+
+                            <p>
+                                Share project basics once and use provider responses to compare fit, pricing structure,
+                                timelines, products, and written terms. Frame & Light helps with the connection stage,
+                                not the installation work itself.
+                            </p>
+
+                            <div class="section-actions">
+                                <a class="btn btn-primary" href="#service-request">
+                                    Start Request
+                                    <i data-lucide="send" aria-hidden="true"></i>
+                                </a>
+
+                                <a class="btn btn-outline" href="tel:+18885550148" data-config-href="phone">
+                                    <span data-config="contact.phoneButtonText">Call Now</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- REQUEST FORM -->
+            <section class="section service-request" id="service-request" aria-labelledby="service-request-title">
+                <div class="container">
+                    <div class="service-request-layout">
+                        <div class="service-request-copy" data-aos="fade-right">
+                            <span class="eyebrow">Installation quote request</span>
+                            <h2 class="section-title" id="service-request-title">
+                                Send the basics and compare possible provider responses.
+                            </h2>
+
+                            <p class="section-kicker">
+                                This request does not schedule work with Frame & Light. Independent providers may
+                                contact you directly if available for your location and project category.
+                            </p>
+
+                            <div class="service-request-note surface-card dark">
+                                <i data-lucide="info" aria-hidden="true"></i>
+                                <p>
+                                    Before hiring, verify licensing, insurance, written scope, warranty terms, pricing,
+                                    timeline, and contract conditions directly with each provider.
+                                </p>
+                            </div>
+                        </div>
+
+                        <form class="form-card service-form" action="#" method="post" data-lead-form
+                            data-aos="fade-left">
+                            <div class="form-grid">
+                                <label class="form-field">
+                                    <span class="form-label">Full name</span>
+                                    <span class="input-wrap">
+                                        <i class="input-icon" data-lucide="user" aria-hidden="true"></i>
+                                        <input class="form-control" type="text" name="name" placeholder="Your name"
+                                            required />
+                                    </span>
+                                </label>
+
+                                <label class="form-field">
+                                    <span class="form-label">Phone</span>
+                                    <span class="input-wrap">
+                                        <i class="input-icon" data-lucide="phone" aria-hidden="true"></i>
+                                        <input class="form-control" type="tel" name="phone" placeholder="Phone number"
+                                            required />
+                                    </span>
+                                </label>
+
+                                <label class="form-field">
+                                    <span class="form-label">Email</span>
+                                    <span class="input-wrap">
+                                        <i class="input-icon" data-lucide="mail" aria-hidden="true"></i>
+                                        <input class="form-control" type="email" name="email"
+                                            placeholder="Email address" required />
+                                    </span>
+                                </label>
+
+                                <label class="form-field">
+                                    <span class="form-label">ZIP code</span>
+                                    <span class="input-wrap">
+                                        <i class="input-icon" data-lucide="map-pin" aria-hidden="true"></i>
+                                        <input class="form-control" type="text" name="zip" placeholder="Project ZIP"
+                                            required />
+                                    </span>
+                                </label>
+
+                                <label class="form-field">
+                                    <span class="form-label">Project category</span>
+                                    <select class="form-control" name="project_type" required>
+                                        <option value="Window installation" selected>Window installation</option>
+                                        <option value="Window replacement">Window replacement</option>
+                                        <option value="Window repair">Window repair</option>
+                                        <option value="Glass replacement">Glass replacement</option>
+                                        <option value="Energy-efficient windows">Energy-efficient windows</option>
+                                        <option value="Custom window design">Custom window design</option>
+                                        <option value="Not sure yet">Not sure yet</option>
+                                    </select>
+                                </label>
+
+                                <label class="form-field">
+                                    <span class="form-label">Timeline</span>
+                                    <select class="form-control" name="timeline" required>
+                                        <option value="">Select timing</option>
+                                        <option value="As soon as possible">As soon as possible</option>
+                                        <option value="Within 1 month">Within 1 month</option>
+                                        <option value="1–3 months">1–3 months</option>
+                                        <option value="Planning ahead">Planning ahead</option>
+                                    </select>
+                                </label>
+
+                                <label class="form-field full">
+                                    <span class="form-label">Project notes</span>
+                                    <textarea class="form-control" name="message"
+                                        placeholder="Example: new window installation for a remodel, 4 openings, looking to compare frame and glass options."></textarea>
+                                </label>
+
+                                <label class="form-field full form-check">
+                                    <input type="checkbox" name="consent" required />
+                                    <span class="custom-check" aria-hidden="true"></span>
+                                    <span>
+                                        I agree to be contacted about my request and understand that Frame & Light is a
+                                        matching platform, not a direct window contractor.
+                                    </span>
+                                </label>
+
+                                <div class="form-field full">
+                                    <button class="btn btn-primary btn-full" type="submit">
+                                        Request Installation Quotes
+                                        <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+
+                                <p class="form-status full" data-form-status role="status" aria-live="polite"></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ -->
+            <section class="section service-faq" aria-labelledby="service-faq-title">
+                <div class="container">
+                    <div class="faq-layout">
+                        <div class="faq-copy" data-aos="fade-right">
+                            <span class="eyebrow">Installation FAQ</span>
+                            <h2 class="section-title" id="service-faq-title">
+                                Questions before comparing window installation providers.
+                            </h2>
+                        </div>
+
+                        <div class="faq-list" data-aos="fade-left">
+                            <article class="faq-item">
+                                <button class="faq-question" type="button" aria-expanded="false">
+                                    Is Frame & Light a window installation company?
+                                    <i data-lucide="plus" aria-hidden="true"></i>
+                                </button>
+                                <div class="faq-answer">
+                                    <div class="faq-answer-inner">
+                                        <p>
+                                            No. Frame & Light is an independent matching platform. It does not install
+                                            windows or perform contractor work directly.
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="faq-item">
+                                <button class="faq-question" type="button" aria-expanded="false">
+                                    What should I ask a window installation provider?
+                                    <i data-lucide="plus" aria-hidden="true"></i>
+                                </button>
+                                <div class="faq-answer">
+                                    <div class="faq-answer-inner">
+                                        <p>
+                                            Ask about licensing, insurance, measurements, product options, installation
+                                            method, permits, timeline, cleanup, payment terms, and warranty coverage.
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="faq-item">
+                                <button class="faq-question" type="button" aria-expanded="false">
+                                    Are installation quotes usually free?
+                                    <i data-lucide="plus" aria-hidden="true"></i>
+                                </button>
+                                <div class="faq-answer">
+                                    <div class="faq-answer-inner">
+                                        <p>
+                                            Many providers may offer free initial quotes, but policies vary. Confirm
+                                            quote terms directly with each provider before scheduling.
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="faq-item">
+                                <button class="faq-question" type="button" aria-expanded="false">
+                                    What affects window installation pricing?
+                                    <i data-lucide="plus" aria-hidden="true"></i>
+                                </button>
+                                <div class="faq-answer">
+                                    <div class="faq-answer-inner">
+                                        <p>
+                                            Pricing may depend on window size, quantity, frame material, glass package,
+                                            wall conditions, access, permits, labor complexity, and provider-specific
+                                            pricing.
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="faq-item">
+                                <button class="faq-question" type="button" aria-expanded="false">
+                                    How do I know if a provider serves my area?
+                                    <i data-lucide="plus" aria-hidden="true"></i>
+                                </button>
+                                <div class="faq-answer">
+                                    <div class="faq-answer-inner">
+                                        <p>
+                                            Provider availability depends on your location and project type. Confirm
+                                            service area, scheduling, and availability directly with any provider that
+                                            contacts you.
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+                <script type="application/ld+json">
+                {
+                    "@context": "https://schema.org",
+                    "@type": "FAQPage",
+                    "mainEntity": [
+                        {
+                            "@type": "Question",
+                            "name": "Is Frame & Light a window installation company?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "No. Frame & Light is an independent matching platform. It does not install windows or perform contractor work directly."
+                            }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "What should I ask a window installation provider?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Ask about licensing, insurance, measurements, product options, installation method, permits, timeline, cleanup, payment terms, and warranty coverage."
+                            }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "Are installation quotes usually free?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Many providers may offer free initial quotes, but policies vary. Confirm quote terms directly with each provider before scheduling."
+                            }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "What affects window installation pricing?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Pricing may depend on window size, quantity, frame material, glass package, wall conditions, access, permits, labor complexity, and provider-specific pricing."
+                            }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "How do I know if a provider serves my area?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Provider availability depends on your location and project type. Confirm service area, scheduling, and availability directly with any provider that contacts you."
+                            }
+                        }
+                    ]
+                }
+                </script>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="site-footer">
+            <div class="container-wide">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a class="brand" href="index.html" aria-label="Frame & Light home">
+                            <span class="brand-mark" aria-hidden="true"></span>
+                            <span class="brand-text">
+                                <span class="brand-name" data-config="company.name">Frame & Light</span>
+                                <span class="brand-label">Window Matching Platform</span>
+                            </span>
+                        </a>
+
+                        <p class="footer-description" data-config="footer.description">
+                            A calm, modern way to compare window service categories and request contact from
+                            independent local providers.
+                        </p>
+
+                        <div class="footer-social" aria-label="Social links">
+                            <a href="#" aria-label="Instagram">
+                                <i data-lucide="instagram" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" aria-label="Pinterest">
+                                <i data-lucide="send" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" aria-label="Facebook">
+                                <i data-lucide="facebook" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-col">
+                        <h2 class="footer-title">Navigation</h2>
+                        <nav class="footer-links" aria-label="Footer navigation">
+                            <a href="index.html">Home</a>
+                            <a href="services.html">Services</a>
+                            <a href="about.html">About</a>
+                            <a href="contact.html">Contact</a>
+                        </nav>
+                    </div>
+
+                    <div class="footer-col">
+                        <h2 class="footer-title">Services</h2>
+                        <nav class="footer-links" aria-label="Footer services">
+                            <a href="window-installation.html">Window Installation</a>
+                            <a href="window-replacement.html">Window Replacement</a>
+                            <a href="window-repair.html">Window Repair</a>
+                            <a href="glass-replacement.html">Glass Replacement</a>
+                            <a href="energy-efficient-windows.html">Energy-Efficient Windows</a>
+                            <a href="custom-window-design.html">Custom Window Design</a>
+                        </nav>
+                    </div>
+
+                    <div class="footer-col">
+                        <h2 class="footer-title">Contact</h2>
+                        <div class="footer-contact">
+                            <a href="tel:+18885550148" data-config-href="phone" data-config="contact.phoneDisplay">(888)
+                                555-0148</a>
+                            <a href="mailto:hello@frameandlight.com" data-config-href="email"
+                                data-config="contact.email">hello@frameandlight.com</a>
+                            <span data-config="company.address">USA Service Area</span>
+                            <span>Company ID: <span data-config="company.companyId">FL-WIN-2048</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-disclaimer" data-config="legal.disclaimer">
+                    Disclaimer: This site is a free service to assist homeowners in connecting with local service
+                    providers. All contractors/providers are independent and this site does not warrant or guarantee any
+                    work performed. It is the responsibility of the homeowner to verify that the hired contractor
+                    furnishes the necessary license and insurance required for the work being performed. All persons
+                    depicted in a photo or video are actors or models and not contractors listed on this site.
+                </div>
+
+                <div class="footer-bottom">
+                    <p>
+                        © <span data-current-year>2026</span>
+                        <span data-config="company.name">Frame & Light</span>.
+                        <span data-config="footer.copyright">All rights reserved.</span>
+                    </p>
+
+                    <nav class="footer-bottom-links" aria-label="Legal navigation">
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="cookie-policy.html">Cookie Policy</a>
+                        <a href="terms-of-service.html">Terms of Service</a>
+                    </nav>
+                </div>
+            </div>
+        </footer>
+
+        <!-- COOKIE CONSENT -->
+        <div class="cookie-banner" data-cookie-banner role="dialog" aria-live="polite" aria-label="Privacy preferences">
+            <div class="cookie-inner">
+                <div class="cookie-copy">
+                    <h2 class="cookie-title" data-cookie-title>Privacy preferences</h2>
+                    <p class="cookie-text" data-cookie-text>
+                        Frame & Light uses basic cookies and similar technologies to improve site functionality and
+                        understand general usage. Please review our policies before continuing.
+                    </p>
+
+                    <div class="cookie-links">
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="cookie-policy.html">Cookie Policy</a>
+                        <a href="terms-of-service.html">Terms of Service</a>
+                    </div>
+                </div>
+
+                <div class="cookie-actions">
+                    <button class="btn btn-outline btn-small" type="button" data-cookie-decline>
+                        Decline
+                    </button>
+
+                    <button class="btn btn-primary btn-small" type="button" data-cookie-accept>
+                        Accept
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Libraries JS -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Project JS -->
+    <script src="js/site-config.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/service-page.js"></script>
+</body>
+
+</html>

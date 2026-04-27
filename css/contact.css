@@ -1,0 +1,472 @@
+/* ==================================================
+   FRAME & LIGHT — CONTACT PAGE
+================================================== */
+
+/* ================= CONTACT HERO ================= */
+
+.contact-hero {
+    position: relative;
+    min-height: calc(90vh - var(--header-height));
+    display: grid;
+    align-items: end;
+    padding: clamp(82px, 9vw, 138px) 0 clamp(34px, 5vw, 72px);
+    overflow: hidden;
+    background: var(--color-dark);
+    color: var(--color-white);
+}
+
+.contact-hero-bg,
+.contact-hero-overlay {
+    position: absolute;
+    inset: 0;
+}
+
+.contact-hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.88) contrast(1.04);
+    transform: scale(1.04);
+}
+
+.contact-hero-overlay {
+    z-index: 1;
+    background:
+        radial-gradient(circle at 78% 18%, rgba(185, 166, 129, 0.22), transparent 30%),
+        linear-gradient(90deg, rgba(25, 27, 24, 0.92) 0%, rgba(25, 27, 24, 0.62) 50%, rgba(25, 27, 24, 0.78) 100%),
+        linear-gradient(180deg, rgba(25, 27, 24, 0.08) 0%, rgba(25, 27, 24, 0.86) 100%);
+}
+
+.contact-hero .noise-layer {
+    z-index: 2;
+}
+
+.contact-hero-shell {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 430px);
+    gap: clamp(30px, 6vw, 86px);
+    align-items: end;
+}
+
+.contact-hero-copy {
+    max-width: 960px;
+    display: grid;
+    gap: clamp(18px, 2.4vw, 28px);
+}
+
+.contact-hero .eyebrow {
+    color: rgba(251, 248, 241, 0.78);
+}
+
+.contact-hero .page-title {
+    color: var(--color-white);
+}
+
+.contact-hero-copy p {
+    max-width: 700px;
+    color: rgba(251, 248, 241, 0.76);
+    font-size: clamp(1rem, 1.35vw, 1.16rem);
+    line-height: 1.75;
+}
+
+.contact-hero-card {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(22px, 3vw, 34px);
+    border: 1px solid rgba(251, 248, 241, 0.2);
+    background:
+        linear-gradient(145deg, rgba(251, 248, 241, 0.16), rgba(251, 248, 241, 0.06)),
+        rgba(25, 27, 24, 0.28);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.24);
+}
+
+.contact-hero-card::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 1px solid rgba(185, 166, 129, 0.18);
+    pointer-events: none;
+}
+
+.contact-hero-card span {
+    display: inline-flex;
+    margin-bottom: 28px;
+    font-family: var(--font-accent);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+}
+
+.contact-hero-card h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 3.4vw, 3.25rem);
+    font-weight: 600;
+    line-height: 0.94;
+    letter-spacing: -0.05em;
+}
+
+.contact-hero-card p {
+    margin-top: 18px;
+    color: rgba(251, 248, 241, 0.68);
+    font-size: 0.94rem;
+    line-height: 1.7;
+}
+
+/* ================= CONTACT MAIN ================= */
+
+.contact-main {
+    background:
+        linear-gradient(180deg, var(--color-bg) 0%, rgba(221, 215, 202, 0.55) 100%);
+}
+
+.contact-main-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(320px, 0.58fr);
+    gap: clamp(28px, 6vw, 76px);
+    align-items: start;
+}
+
+.contact-form-side {
+    display: grid;
+    gap: 20px;
+}
+
+.contact-form {
+    margin-top: 4px;
+}
+
+.contact-info-side {
+    position: sticky;
+    top: calc(var(--header-height) + 28px);
+    display: grid;
+    gap: 12px;
+}
+
+.contact-info-card {
+    display: grid;
+    gap: 18px;
+    padding: clamp(22px, 3vw, 34px);
+}
+
+.contact-info-label {
+    font-family: var(--font-accent);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+}
+
+.contact-info-card h3 {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 3.3vw, 3.2rem);
+    font-weight: 600;
+    line-height: 0.94;
+    letter-spacing: -0.05em;
+}
+
+.contact-info-card p {
+    color: rgba(251, 248, 241, 0.68);
+    font-size: 0.94rem;
+    line-height: 1.72;
+}
+
+.contact-info-links {
+    display: grid;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.contact-info-links a,
+.contact-info-links div {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 14px;
+    border: 1px solid rgba(251, 248, 241, 0.14);
+    background: rgba(251, 248, 241, 0.06);
+    color: rgba(251, 248, 241, 0.76);
+    transition:
+        transform 0.25s var(--ease-out),
+        border-color 0.25s var(--ease-out),
+        background 0.25s var(--ease-out),
+        color 0.25s var(--ease-out);
+}
+
+.contact-info-links a:hover {
+    transform: translateX(4px);
+    border-color: rgba(185, 166, 129, 0.48);
+    background: rgba(185, 166, 129, 0.13);
+    color: var(--color-white);
+}
+
+.contact-info-links i,
+.contact-info-links svg {
+    width: 18px;
+    height: 18px;
+    color: var(--color-accent);
+    flex: 0 0 auto;
+}
+
+.contact-mini-card {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 16px;
+    padding: clamp(18px, 2.4vw, 26px);
+    transition:
+        transform 0.32s var(--ease-out),
+        border-color 0.32s var(--ease-out),
+        background 0.32s var(--ease-out);
+}
+
+.contact-mini-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-accent);
+    background: var(--color-card-light);
+}
+
+.contact-mini-card>i,
+.contact-mini-card>svg {
+    width: 44px;
+    height: 44px;
+    padding: 11px;
+    border: 1px solid rgba(52, 58, 50, 0.18);
+    background: rgba(185, 166, 129, 0.16);
+    color: var(--color-dark);
+}
+
+.contact-mini-card h3 {
+    margin-bottom: 8px;
+    font-family: var(--font-heading);
+    font-size: clamp(1.45rem, 2.2vw, 2rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.04em;
+}
+
+.contact-mini-card p {
+    color: var(--color-muted);
+    font-size: 0.92rem;
+    line-height: 1.62;
+}
+
+/* ================= MAP / SERVICE AREA ================= */
+
+.contact-map-section {
+    background: var(--color-bg);
+}
+
+.contact-map-layout {
+    display: grid;
+    grid-template-columns: minmax(320px, 0.92fr) minmax(0, 0.72fr);
+    gap: 12px;
+    align-items: stretch;
+}
+
+.contact-map-card {
+    min-height: 620px;
+}
+
+.contact-map-card .eyebrow {
+    color: rgba(251, 248, 241, 0.74);
+}
+
+.service-area-panel {
+    display: grid;
+    align-content: center;
+    gap: 22px;
+    padding: clamp(24px, 5vw, 58px);
+    border: 1px solid rgba(189, 182, 168, 0.78);
+    background:
+        radial-gradient(circle at 100% 0%, rgba(185, 166, 129, 0.24), transparent 34%),
+        linear-gradient(145deg, rgba(251, 248, 241, 0.76), rgba(221, 215, 202, 0.64));
+    box-shadow: var(--shadow-card);
+}
+
+.service-area-steps {
+    display: grid;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.service-area-steps article {
+    display: grid;
+    grid-template-columns: 46px 1fr;
+    gap: 16px;
+    padding: 18px 0;
+    border-top: 1px solid rgba(52, 58, 50, 0.14);
+}
+
+.service-area-steps article:last-child {
+    border-bottom: 1px solid rgba(52, 58, 50, 0.14);
+}
+
+.service-area-steps span {
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(52, 58, 50, 0.18);
+    background: rgba(185, 166, 129, 0.16);
+    font-family: var(--font-accent);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: var(--color-dark);
+}
+
+.service-area-steps strong {
+    display: block;
+    margin-bottom: 7px;
+    font-family: var(--font-heading);
+    font-size: clamp(1.45rem, 2.3vw, 2.05rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.04em;
+}
+
+.service-area-steps p {
+    color: var(--color-muted);
+    font-size: 0.92rem;
+    line-height: 1.62;
+}
+
+/* ================= FAQ ================= */
+
+.contact-faq {
+    background:
+        linear-gradient(180deg, rgba(221, 215, 202, 0.58), var(--color-bg));
+}
+
+.contact-faq .faq-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.68fr) minmax(320px, 0.82fr);
+    gap: clamp(28px, 6vw, 78px);
+    align-items: start;
+}
+
+.contact-faq .faq-copy {
+    position: sticky;
+    top: calc(var(--header-height) + 28px);
+    display: grid;
+    gap: 18px;
+}
+
+/* ================= ACTIVE FORM EFFECT ================= */
+
+.contact-form.is-active {
+    border-color: var(--color-accent);
+    box-shadow: 0 24px 70px rgba(25, 27, 24, 0.15);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1180px) {
+
+    .contact-hero-shell,
+    .contact-main-layout,
+    .contact-map-layout,
+    .contact-faq .faq-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-hero-card {
+        max-width: 620px;
+    }
+
+    .contact-info-side,
+    .contact-faq .faq-copy {
+        position: relative;
+        top: auto;
+    }
+
+    .contact-map-card {
+        min-height: 520px;
+    }
+}
+
+@media (max-width: 900px) {
+    .contact-hero {
+        min-height: auto;
+        padding-top: clamp(88px, 16vw, 126px);
+    }
+
+    .contact-info-side {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .contact-info-card {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 720px) {
+    .contact-info-side {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-mini-card {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-map-card {
+        min-height: 380px;
+    }
+
+    .service-area-panel {
+        padding: 22px;
+    }
+
+    .service-area-steps article {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 520px) {
+    .contact-hero-card::before {
+        display: none;
+    }
+
+    .contact-hero-card h2 {
+        font-size: 2.25rem;
+    }
+
+    .contact-map-card {
+        min-height: 340px;
+    }
+
+    .contact-info-card {
+        padding: 22px;
+    }
+
+    .contact-info-links a,
+    .contact-info-links div {
+        align-items: flex-start;
+    }
+
+    .contact-mini-card>i,
+    .contact-mini-card>svg {
+        width: 42px;
+        height: 42px;
+    }
+}
+
+.contact-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: radial-gradient(circle at var(--contact-glow-x, 78%) var(--contact-glow-y, 18%),
+            rgba(185, 166, 129, 0.18),
+            transparent 30%);
+    opacity: 0.8;
+}
