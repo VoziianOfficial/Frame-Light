@@ -611,12 +611,7 @@ h6 {
         transform 0.28s var(--ease-out);
 }
 
-.nav-dropdown:hover .nav-dropdown-menu,
-.nav-dropdown:focus-within .nav-dropdown-menu {
-    opacity: 1;
-    transform: translate(-50%, 0);
-    pointer-events: auto;
-}
+
 
 .dropdown-service-link {
     position: relative;
@@ -1775,5 +1770,137 @@ select.form-control {
 
     .cookie-actions {
         grid-template-columns: 1fr;
+    }
+}
+
+/* ==================================================
+   DESKTOP DROPDOWN — CLICK OPEN / CLICK CLOSE
+================================================== */
+
+.nav-dropdown.is-open .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.nav-dropdown.is-open .nav-dropdown-trigger i,
+.nav-dropdown.is-open .nav-dropdown-trigger svg {
+    transform: rotate(180deg);
+}
+
+.nav-dropdown.is-click-closed .nav-dropdown-menu {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateY(10px) !important;
+}
+
+/* ==================================================
+   DESKTOP DROPDOWN — CLICK ONLY
+================================================== */
+
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown-menu {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(12px);
+    transition:
+        opacity 0.24s var(--ease-out),
+        visibility 0.24s var(--ease-out),
+        transform 0.24s var(--ease-out);
+}
+
+.nav-dropdown.is-open .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.nav-dropdown.is-open .nav-dropdown-trigger svg,
+.nav-dropdown.is-open .nav-dropdown-trigger i {
+    transform: rotate(180deg);
+}
+
+/* ==================================================
+   DESKTOP DROPDOWN — FINAL ALIGNMENT FIX
+================================================== */
+
+.nav-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* сама кнопка Services */
+.nav-dropdown-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+}
+
+/* стрелка */
+.nav-dropdown-trigger svg,
+.nav-dropdown-trigger i {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 auto;
+    transform: rotate(0deg) !important;
+    transform-origin: center;
+    transition: transform 0.24s var(--ease-out);
+}
+
+/* меню закрыто */
+.nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 14px);
+    left: 50%;
+    z-index: 90;
+
+    min-width: 430px;
+    max-width: min(520px, calc(100vw - 32px));
+
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+
+    transform: translateX(-50%) translateY(12px) !important;
+    transition:
+        opacity 0.24s var(--ease-out),
+        visibility 0.24s var(--ease-out),
+        transform 0.24s var(--ease-out);
+}
+
+/* меню открыто */
+.nav-dropdown.is-open .nav-dropdown-menu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translateX(-50%) translateY(0) !important;
+}
+
+/* стрелка открыта */
+.nav-dropdown.is-open .nav-dropdown-trigger svg,
+.nav-dropdown.is-open .nav-dropdown-trigger i {
+    transform: rotate(180deg) !important;
+}
+
+/* чтобы dropdown не вылезал на маленьких desktop/tablet */
+@media (max-width: 1180px) {
+    .nav-dropdown-menu {
+        min-width: 360px;
+        left: auto;
+        right: 0;
+        transform: translateY(12px) !important;
+    }
+
+    .nav-dropdown.is-open .nav-dropdown-menu {
+        transform: translateY(0) !important;
     }
 }
