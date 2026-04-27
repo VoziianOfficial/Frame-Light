@@ -2503,3 +2503,50 @@ button,
         display: none !important;
     }
 }
+
+/* ==================================================
+   HEADER PHONE ICON — FINAL FIX
+   Desktop: header-phone
+   Tablet/Mobile: mobile-phone
+================================================== */
+
+/* desktop */
+.header-actions .header-phone {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-actions .mobile-phone {
+    display: none !important;
+}
+
+/* не двигаем иконку внутри кнопки телефона */
+.header-actions .header-phone i,
+.header-actions .header-phone svg,
+.header-actions .mobile-phone i,
+.header-actions .mobile-phone svg {
+    flex: 0 0 auto;
+    margin: 0;
+    transform: none !important;
+}
+
+.header-actions .header-phone:hover i,
+.header-actions .header-phone:hover svg,
+.header-actions .mobile-phone:hover i,
+.header-actions .mobile-phone:hover svg {
+    transform: none !important;
+}
+
+/* tablet / mobile */
+@media (max-width: 1120px) {
+    .header-actions .header-phone {
+        display: none !important;
+    }
+
+    .header-actions .mobile-phone {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+}
