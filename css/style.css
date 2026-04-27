@@ -1991,3 +1991,191 @@ section[id],
 .contact-map-section * {
     min-width: 0;
 }
+
+/* ==================================================
+   ABSOLUTE FINAL PHOTO CARD FIX
+   All card photos fill, crop and center correctly
+================================================== */
+
+/* Главная карточка с фото */
+.image-card,
+.home-service-card,
+.service-route-card {
+    position: relative !important;
+    display: grid !important;
+    overflow: hidden !important;
+    min-height: 320px;
+    isolation: isolate;
+    background: var(--color-dark);
+    color: var(--color-white);
+}
+
+/* ВАЖНО: ловим img даже если он не прямой ребенок */
+.image-card img,
+.home-service-card img,
+.service-route-card img {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
+
+    object-fit: cover !important;
+    object-position: center center !important;
+
+    transform: scale(1.001);
+    transform-origin: center center;
+    transition:
+        transform 0.7s var(--ease-out),
+        filter 0.7s var(--ease-out);
+}
+
+/* Если где-то картинка завернута в picture */
+.image-card picture,
+.home-service-card picture,
+.service-route-card picture {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.image-card picture img,
+.home-service-card picture img,
+.service-route-card picture img {
+    position: absolute !important;
+    inset: 0 !important;
+}
+
+/* затемнение поверх фото */
+.image-card::after,
+.home-service-card::after,
+.service-route-card::after {
+    content: "";
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 2 !important;
+    pointer-events: none;
+    background:
+        linear-gradient(180deg, rgba(25, 27, 24, 0.04) 0%, rgba(25, 27, 24, 0.82) 100%),
+        linear-gradient(90deg, rgba(25, 27, 24, 0.48) 0%, rgba(25, 27, 24, 0.08) 72%);
+}
+
+/* иконка поверх фото */
+.image-card-icon {
+    position: absolute !important;
+    top: clamp(14px, 1.8vw, 22px) !important;
+    left: clamp(14px, 1.8vw, 22px) !important;
+    z-index: 5 !important;
+}
+
+/* текст поверх фото */
+.image-card-content {
+    position: relative !important;
+    z-index: 4 !important;
+
+    width: 100% !important;
+    min-height: inherit !important;
+
+    display: grid !important;
+    align-content: end !important;
+    gap: 10px;
+
+    padding: clamp(18px, 2.4vw, 30px);
+}
+
+/* текст внутри */
+.image-card-content h3,
+.image-card-content p,
+.image-card-content span {
+    position: relative;
+    z-index: 5;
+}
+
+.image-card-content p {
+    max-width: 440px;
+}
+
+/* hover */
+.image-card:hover img,
+.home-service-card:hover img,
+.service-route-card:hover img {
+    transform: scale(1.055);
+    filter: saturate(1.06) contrast(1.04);
+}
+
+/* ================= SERVICES DIRECTORY CARDS ================= */
+
+.services-directory .service-route-card {
+    min-height: clamp(245px, 18vw, 310px) !important;
+}
+
+.services-directory .service-route-card .image-card-content {
+    min-height: clamp(245px, 18vw, 310px) !important;
+    padding: clamp(14px, 1.4vw, 20px) !important;
+}
+
+/* ================= HOME SERVICE CARDS ================= */
+
+.home-service-card {
+    min-height: clamp(320px, 34vw, 460px) !important;
+}
+
+.home-service-card .image-card-content {
+    min-height: clamp(320px, 34vw, 460px) !important;
+}
+
+/* ================= SWIPER CARDS ================= */
+
+.swiper-slide.image-card,
+.swiper-slide.service-route-card {
+    height: auto !important;
+}
+
+.swiper-slide.image-card .image-card-content,
+.swiper-slide.service-route-card .image-card-content {
+    height: 100% !important;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 760px) {
+
+    .image-card,
+    .home-service-card,
+    .service-route-card {
+        min-height: 300px !important;
+    }
+
+    .image-card-content,
+    .home-service-card .image-card-content,
+    .service-route-card .image-card-content,
+    .services-directory .service-route-card .image-card-content {
+        min-height: 300px !important;
+    }
+}
+
+@media (max-width: 520px) {
+
+    .image-card,
+    .home-service-card,
+    .service-route-card {
+        min-height: 280px !important;
+    }
+
+    .image-card-content,
+    .home-service-card .image-card-content,
+    .service-route-card .image-card-content,
+    .services-directory .service-route-card .image-card-content {
+        min-height: 280px !important;
+        padding: 18px !important;
+    }
+}
