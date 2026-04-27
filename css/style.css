@@ -2179,3 +2179,63 @@ section[id],
         padding: 18px !important;
     }
 }
+
+/* ==================================================
+   FORM STATUS — HORIZONTAL STYLE
+================================================== */
+
+.form-status.full {
+    grid-column: 1 / -1;
+}
+
+.form-status {
+    width: 100%;
+    min-height: 42px;
+    display: none;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+
+    padding: 10px 14px;
+    border: 1px solid rgba(52, 58, 50, 0.16);
+    background: rgba(251, 248, 241, 0.68);
+    color: var(--color-muted-dark);
+
+    font-size: 0.84rem;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.form-status.is-visible {
+    display: flex;
+}
+
+.form-status::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    flex: 0 0 auto;
+    border-radius: 999px;
+    background: var(--color-accent);
+    box-shadow: 0 0 0 5px rgba(185, 166, 129, 0.18);
+}
+
+/* если статус внутри маленькой формы */
+.services-mini-form .form-status,
+.quote-form .form-status,
+.contact-form .form-status {
+    margin-top: 2px;
+}
+
+/* mobile */
+@media (max-width: 520px) {
+    .form-status {
+        align-items: flex-start;
+        font-size: 0.8rem;
+        line-height: 1.45;
+    }
+
+    .form-status::before {
+        margin-top: 5px;
+    }
+}
