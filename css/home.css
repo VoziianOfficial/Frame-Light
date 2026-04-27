@@ -1276,3 +1276,44 @@
         min-height: 86px;
     }
 }
+
+/* ==================================================
+   HOME PROVIDER SLIDER — CONTROLS RIGHT ALIGN
+================================================== */
+
+.home-provider-slider-section .split-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: clamp(18px, 3vw, 34px);
+}
+
+.home-provider-slider-section .slider-controls {
+    justify-self: end;
+    align-self: end;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    width: auto;
+    margin-left: auto;
+}
+
+/* чтобы кнопки не сжимались */
+.home-provider-slider-section .slider-controls .slider-btn {
+    flex: 0 0 auto;
+}
+
+/* tablet / mobile */
+@media (max-width: 760px) {
+    .home-provider-slider-section .split-head {
+        grid-template-columns: 1fr;
+    }
+
+    .home-provider-slider-section .slider-controls {
+        width: 100%;
+        justify-content: flex-end;
+        justify-self: stretch;
+        margin-left: 0;
+    }
+}
