@@ -955,3 +955,112 @@
 .services-hero-directory .services-directory-footer span {
     color: rgba(25, 27, 24, 0.78);
 }
+
+/* ==================================================
+   SERVICES COMPARE — BACKGROUND PHOTO + GRADIENT
+================================================== */
+.services-compare {
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(90deg,
+            rgba(241, 237, 228, 0.58) 0%,
+            rgba(241, 237, 228, 0.42) 38%,
+            rgba(221, 215, 202, 0.22) 68%,
+            rgba(52, 58, 50, 0.08) 100%),
+        linear-gradient(180deg,
+            rgba(241, 237, 228, 0.22) 0%,
+            rgba(241, 237, 228, 0.36) 100%),
+        url("../assets/images/services/provider-comparison-window.jpg") center / cover no-repeat;
+}
+
+.services-compare::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 16% 18%, rgba(185, 166, 129, 0.08), transparent 30%),
+        radial-gradient(circle at 88% 18%, rgba(52, 58, 50, 0.08), transparent 34%),
+        linear-gradient(180deg, transparent 0%, rgba(241, 237, 228, 0.22) 100%);
+}
+
+.services-compare .container-wide {
+    position: relative;
+    z-index: 2;
+}
+
+/* Левая картинка внутри секции станет глубже */
+.services-compare .compare-image {
+    border-color: rgba(251, 248, 241, 0.34);
+    box-shadow: 0 24px 70px rgba(25, 27, 24, 0.16);
+}
+
+.services-compare .compare-image::after {
+    background:
+        linear-gradient(180deg, rgba(25, 27, 24, 0.02), rgba(25, 27, 24, 0.24)),
+        radial-gradient(circle at 24% 18%, rgba(185, 166, 129, 0.12), transparent 30%);
+}
+
+/* Правая карточка — легче, чтобы фон был виднее */
+.services-compare .compare-content {
+    background:
+        linear-gradient(145deg, rgba(251, 248, 241, 0.58), rgba(221, 215, 202, 0.34)),
+        radial-gradient(circle at 100% 0%, rgba(185, 166, 129, 0.10), transparent 34%);
+    border-color: rgba(251, 248, 241, 0.32);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 24px 70px rgba(25, 27, 24, 0.12);
+}
+
+/* Текст контрастный */
+.services-compare .compare-content .eyebrow {
+    color: rgba(25, 27, 24, 0.82);
+}
+
+.services-compare .compare-content .section-title {
+    color: #11140F;
+}
+
+.services-compare .compare-content p,
+.services-compare .compare-points span {
+    color: rgba(25, 27, 24, 0.76);
+}
+
+.services-compare .compare-points strong {
+    color: #141713;
+}
+
+/* mobile/tablet */
+@media (max-width: 1180px) {
+    .services-compare {
+        background:
+            linear-gradient(180deg,
+                rgba(241, 237, 228, 0.58) 0%,
+                rgba(241, 237, 228, 0.46) 52%,
+                rgba(221, 215, 202, 0.34) 100%),
+            url("../assets/images/services/provider-comparison-window.jpg") center / cover no-repeat;
+    }
+}
+
+@media (max-width: 680px) {
+    .services-compare {
+        background:
+            linear-gradient(180deg,
+                rgba(241, 237, 228, 0.66) 0%,
+                rgba(241, 237, 228, 0.52) 54%,
+                rgba(221, 215, 202, 0.42) 100%),
+            url("../assets/images/services/provider-comparison-window.jpg") center / cover no-repeat;
+    }
+
+    .services-compare::before {
+        background:
+            linear-gradient(180deg, rgba(241, 237, 228, 0.06), rgba(241, 237, 228, 0.32));
+    }
+
+    .services-compare .compare-content {
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+}
