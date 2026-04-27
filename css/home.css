@@ -1010,3 +1010,74 @@
         margin-top: 20px;
     }
 }
+
+
+/* ==================================================
+   HOME PROVIDER SWIPER — OVERFLOW FIX
+================================================== */
+
+.home-provider-slider-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.home-provider-slider-section .container-wide {
+    min-width: 0;
+    overflow: hidden;
+}
+
+.provider-swiper {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    padding: 4px 1px 18px;
+}
+
+.provider-swiper .swiper-wrapper {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.provider-swiper .swiper-slide {
+    height: auto;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.provider-check-card {
+    height: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+/* чтобы тени не создавали визуальный вылет за края */
+.provider-check-card.surface-card {
+    box-shadow: 0 14px 36px rgba(25, 27, 24, 0.08);
+}
+
+/* controls тоже фиксируем внутри контейнера */
+.home-provider-slider-section .section-head {
+    min-width: 0;
+}
+
+.slider-controls {
+    flex: 0 0 auto;
+}
+
+/* mobile/tablet */
+@media (max-width: 820px) {
+    .home-provider-slider-section {
+        overflow: hidden;
+    }
+
+    .provider-swiper {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .provider-swiper .swiper-slide {
+        max-width: 100%;
+    }
+}

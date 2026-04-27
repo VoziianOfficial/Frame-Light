@@ -11,28 +11,61 @@
 
         if (!slider || !window.Swiper) return;
 
+        const wrapper = slider.querySelector('.swiper-wrapper');
+        const slides = wrapper ? Array.from(wrapper.children) : [];
+
+        /*
+           Swiper loop works more reliably when there are enough slides.
+           We clone the existing slides once if the amount is small.
+        */
+        if (wrapper && slides.length > 0 && slides.length < 8 && !wrapper.dataset.loopCloned) {
+            slides.forEach((slide) => {
+                const clone = slide.cloneNode(true);
+                wrapper.appendChild(clone);
+            });
+
+            wrapper.dataset.loopCloned = 'true';
+        }
+
+        if (slider.swiper) {
+            slider.swiper.destroy(true, true);
+        }
+
         new window.Swiper(slider, {
-            slidesPerView: 1.08,
+            slidesPerView: 1,
             spaceBetween: 12,
-            speed: 700,
+            speed: 900,
             grabCursor: true,
             watchOverflow: true,
+            roundLengths: true,
+
+            loop: true,
+            loopAdditionalSlides: 4,
+            slidesPerGroup: 1,
+
+            autoplay: {
+                delay: 2400,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true
+            },
+
             navigation: {
                 nextEl: '.provider-next',
                 prevEl: '.provider-prev'
             },
+
             breakpoints: {
                 620: {
-                    slidesPerView: 2.05,
-                    spaceBetween: 14
+                    slidesPerView: 2,
+                    spaceBetween: 12
                 },
                 980: {
-                    slidesPerView: 3.05,
-                    spaceBetween: 16
+                    slidesPerView: 3,
+                    spaceBetween: 14
                 },
                 1280: {
-                    slidesPerView: 4.05,
-                    spaceBetween: 18
+                    slidesPerView: 4,
+                    spaceBetween: 16
                 }
             }
         });
