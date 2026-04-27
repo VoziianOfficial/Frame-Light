@@ -766,3 +766,416 @@
         min-height: 280px;
     }
 }
+
+/* ==================================================
+   ALL SERVICE PAGES — FINAL COMPACT PHOTO HERO
+   Applies to every page with .service-hero
+================================================== */
+
+.service-hero {
+    position: relative;
+    min-height: min(720px, calc(100svh - var(--header-height)));
+    display: grid;
+    align-items: center;
+    overflow: hidden;
+
+    padding-top: clamp(92px, 8vw, 118px);
+    padding-bottom: clamp(28px, 4vw, 48px);
+
+    background:
+        linear-gradient(90deg,
+            rgba(25, 27, 24, 0.78) 0%,
+            rgba(25, 27, 24, 0.58) 42%,
+            rgba(25, 27, 24, 0.34) 68%,
+            rgba(25, 27, 24, 0.18) 100%),
+        linear-gradient(180deg,
+            rgba(25, 27, 24, 0.16) 0%,
+            rgba(25, 27, 24, 0.56) 100%),
+        url("../assets/images/services/window-installation-card.jpg") center right / cover no-repeat;
+
+    color: var(--color-white);
+}
+
+/* отключаем старую картинку из HTML, чтобы фон точно был через CSS */
+.service-hero-bg {
+    display: none !important;
+}
+
+.service-hero-overlay {
+    display: none !important;
+}
+
+.service-hero .noise-layer {
+    z-index: 1;
+    opacity: 0.12;
+}
+
+/* мягкий свет поверх фото */
+.service-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 18% 18%, rgba(185, 166, 129, 0.16), transparent 30%),
+        radial-gradient(circle at 82% 18%, rgba(251, 248, 241, 0.08), transparent 28%),
+        linear-gradient(180deg, transparent 0%, rgba(25, 27, 24, 0.30) 100%);
+}
+
+/* шире контейнер hero */
+.service-hero .container-wide,
+.service-hero-shell {
+    width: min(100% - 28px, 1560px);
+    max-width: 1560px;
+    margin-inline: auto;
+}
+
+.service-hero-shell {
+    position: relative;
+    z-index: 3;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.22fr) minmax(360px, 0.58fr);
+    gap: clamp(28px, 4vw, 64px);
+    align-items: center;
+}
+
+/* левая часть шире */
+.service-hero-copy {
+    width: 100%;
+    max-width: 1040px;
+    display: grid;
+    gap: clamp(12px, 1.6vw, 20px);
+}
+
+.service-hero .eyebrow {
+    color: rgba(251, 248, 241, 0.82);
+}
+
+/* заголовок ниже, шире, не жирный */
+.service-hero .page-title,
+.service-hero .page-title.text-balance {
+    max-width: 1040px;
+    color: var(--color-white);
+    font-size: clamp(2.8rem, 5.8vw, 6.6rem);
+    font-weight: 500;
+    line-height: 0.92;
+    letter-spacing: -0.055em;
+    text-wrap: initial;
+    text-shadow:
+        0 14px 42px rgba(0, 0, 0, 0.28),
+        0 2px 16px rgba(0, 0, 0, 0.22);
+}
+
+/* параграф шире */
+.service-hero-copy p {
+    max-width: 860px;
+    color: rgba(251, 248, 241, 0.78);
+    font-size: clamp(0.98rem, 1.08vw, 1.08rem);
+    line-height: 1.58;
+}
+
+/* кнопки ближе и аккуратнее */
+.service-hero .hero-actions {
+    margin-top: 2px;
+    gap: 10px;
+}
+
+/* правая карточка компактнее */
+.service-hero-panel {
+    width: 100%;
+    max-width: 520px;
+    justify-self: end;
+
+    padding: clamp(18px, 2.2vw, 26px);
+    border: 1px solid rgba(251, 248, 241, 0.24);
+    background:
+        linear-gradient(145deg, rgba(251, 248, 241, 0.18), rgba(251, 248, 241, 0.07)),
+        rgba(25, 27, 24, 0.34);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
+}
+
+.service-hero-panel::before {
+    inset: 10px;
+    border-color: rgba(185, 166, 129, 0.18);
+}
+
+.service-hero-panel span {
+    margin-bottom: 16px;
+    font-size: 0.62rem;
+}
+
+.service-hero-panel h2 {
+    font-size: clamp(1.65rem, 2.5vw, 2.55rem);
+    font-weight: 500;
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+}
+
+.service-hero-panel p {
+    margin-top: 12px;
+    color: rgba(251, 248, 241, 0.70);
+    font-size: 0.86rem;
+    line-height: 1.52;
+}
+
+/* чтобы первая секция после hero не была слишком далеко */
+.service-overview {
+    padding-top: clamp(32px, 4vw, 58px) !important;
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width: 1180px) {
+    .service-hero {
+        min-height: auto;
+        padding-top: 92px;
+        padding-bottom: 34px;
+
+        background:
+            linear-gradient(180deg,
+                rgba(25, 27, 24, 0.74) 0%,
+                rgba(25, 27, 24, 0.56) 52%,
+                rgba(25, 27, 24, 0.72) 100%),
+            url("../assets/images/services/window-installation-card.jpg") center / cover no-repeat;
+    }
+
+    .service-hero-shell {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .service-hero-copy,
+    .service-hero .page-title,
+    .service-hero-copy p {
+        max-width: 100%;
+    }
+
+    .service-hero-panel {
+        max-width: 100%;
+        justify-self: stretch;
+    }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 680px) {
+    .service-hero {
+        padding-top: 84px;
+        padding-bottom: 28px;
+
+        background:
+            linear-gradient(180deg,
+                rgba(25, 27, 24, 0.80) 0%,
+                rgba(25, 27, 24, 0.60) 50%,
+                rgba(25, 27, 24, 0.78) 100%),
+            url("../assets/images/services/window-installation-card.jpg") center / cover no-repeat;
+    }
+
+    .service-hero-shell {
+        gap: 18px;
+    }
+
+    .service-hero .page-title,
+    .service-hero .page-title.text-balance {
+        font-size: clamp(2.45rem, 11.5vw, 4.2rem);
+        line-height: 0.98;
+        letter-spacing: -0.045em;
+    }
+
+    .service-hero-copy p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .service-hero-panel {
+        padding: 20px;
+    }
+
+    .service-hero-panel::before {
+        display: none;
+    }
+
+    .service-hero-panel h2 {
+        font-size: 1.75rem;
+    }
+}
+
+
+/* ==================================================
+   SERVICE OVERVIEW — COMPACT ONE-SCROLL FIX
+   Photo keeps the same visual size, text gets wider
+================================================== */
+
+.service-overview {
+    padding: clamp(28px, 3.4vw, 52px) 0 !important;
+    background:
+        linear-gradient(180deg, var(--color-bg) 0%, rgba(221, 215, 202, 0.34) 100%);
+    overflow: hidden;
+}
+
+.service-overview .container,
+.service-overview .container-wide {
+    width: min(100% - 28px, 1560px) !important;
+    max-width: 1560px !important;
+}
+
+/* layout шире и компактнее */
+.service-overview-layout {
+    display: grid !important;
+    grid-template-columns: minmax(420px, 0.76fr) minmax(0, 1.08fr) !important;
+    gap: clamp(24px, 3.8vw, 58px) !important;
+    align-items: center !important;
+}
+
+/* ФОТО: оставляем размер почти как был */
+.service-overview-media {
+    position: relative;
+    min-height: clamp(430px, 54vw, 660px) !important;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* чтобы фото точно заполняло карточку */
+.service-overview-media img {
+    position: absolute;
+    inset: 0;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+}
+
+/* badge на фото компактнее, чтобы не перегружал */
+.service-media-badge {
+    left: clamp(14px, 2vw, 26px);
+    right: clamp(14px, 2vw, 26px);
+    bottom: clamp(14px, 2vw, 26px);
+    padding: clamp(14px, 1.8vw, 20px);
+    gap: 6px;
+}
+
+.service-media-badge span {
+    font-size: 0.62rem;
+}
+
+.service-media-badge strong {
+    max-width: 620px;
+    font-size: clamp(1.35rem, 2.1vw, 2.1rem);
+    line-height: 0.98;
+    font-weight: 500;
+}
+
+/* правая текстовая часть шире */
+.service-overview-content {
+    width: 100%;
+    max-width: 980px;
+    display: grid;
+    gap: clamp(12px, 1.6vw, 20px);
+}
+
+/* заголовок шире, ниже и легче */
+.service-overview-content .section-title,
+.service-overview .section-title {
+    max-width: 980px;
+    font-size: clamp(2.55rem, 4.7vw, 5.4rem);
+    line-height: 0.94;
+    font-weight: 500;
+    letter-spacing: -0.045em;
+    text-wrap: initial;
+}
+
+/* основной текст не узкой колонкой */
+.service-rich-text {
+    max-width: 980px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(14px, 2vw, 26px);
+    color: var(--color-muted);
+    font-size: clamp(0.95rem, 1vw, 1.04rem);
+    line-height: 1.56;
+}
+
+.service-rich-text p {
+    max-width: none;
+}
+
+/* если есть кнопки внутри overview */
+.service-overview .section-actions,
+.service-overview .hero-actions,
+.service-overview .card-actions {
+    margin-top: 2px;
+    gap: 10px;
+}
+
+/* TABLET */
+@media (max-width: 1180px) {
+    .service-overview {
+        padding: 32px 0 !important;
+    }
+
+    .service-overview-layout {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+    }
+
+    .service-overview-content,
+    .service-overview-content .section-title,
+    .service-overview .section-title,
+    .service-rich-text {
+        max-width: 100%;
+    }
+
+    .service-rich-text {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .service-overview-media {
+        min-height: 430px !important;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 720px) {
+    .service-overview {
+        padding: 28px 0 !important;
+    }
+
+    .service-overview-media {
+        min-height: 360px !important;
+    }
+
+    .service-rich-text {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        font-size: 0.94rem;
+        line-height: 1.5;
+    }
+
+    .service-overview-content .section-title,
+    .service-overview .section-title {
+        font-size: clamp(2.25rem, 10vw, 3.8rem);
+        line-height: 1;
+    }
+}
+
+@media (max-width: 520px) {
+    .service-overview-media {
+        min-height: 330px !important;
+    }
+
+    .service-media-badge {
+        left: 14px;
+        right: 14px;
+        bottom: 14px;
+        padding: 16px;
+    }
+
+    .service-media-badge strong {
+        font-size: 1.55rem;
+    }
+}
