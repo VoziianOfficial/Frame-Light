@@ -2,20 +2,21 @@
    FRAME & LIGHT — HOME PAGE
 ================================================== */
 
-/* ================= HOME HERO ================= */
+/* ================= HOME HERO — FLAGSHIP ================= */
 
 .home-hero {
     position: relative;
     min-height: calc(100vh - var(--header-height));
     display: grid;
     align-items: end;
-    padding: clamp(78px, 9vw, 130px) 0 24px;
+    padding: clamp(104px, 10vw, 160px) 0 clamp(22px, 3vw, 34px);
     overflow: hidden;
     background: var(--color-dark);
     color: var(--color-white);
 }
 
 .home-hero-bg,
+.home-hero-bg img,
 .home-hero-overlay {
     position: absolute;
     inset: 0;
@@ -25,164 +26,339 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: saturate(0.85) contrast(1.02);
+    filter: saturate(0.82) contrast(1.05);
     transform: scale(1.04);
 }
 
 .home-hero-overlay {
     z-index: 1;
     background:
-        radial-gradient(circle at 74% 20%, rgba(185, 166, 129, 0.2), transparent 28%),
-        linear-gradient(90deg, rgba(25, 27, 24, 0.88) 0%, rgba(25, 27, 24, 0.56) 48%, rgba(25, 27, 24, 0.72) 100%),
-        linear-gradient(180deg, rgba(25, 27, 24, 0.1) 0%, rgba(25, 27, 24, 0.82) 100%);
+        radial-gradient(circle at 82% 16%, rgba(185, 166, 129, 0.26), transparent 32%),
+        linear-gradient(90deg, rgba(25, 27, 24, 0.94) 0%, rgba(25, 27, 24, 0.72) 42%, rgba(25, 27, 24, 0.42) 100%),
+        linear-gradient(180deg, rgba(25, 27, 24, 0.18) 0%, rgba(25, 27, 24, 0.92) 100%);
 }
 
 .home-hero .noise-layer {
     z-index: 2;
-    opacity: 0.08;
+}
+
+.home-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background:
+        linear-gradient(rgba(251, 248, 241, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(251, 248, 241, 0.045) 1px, transparent 1px);
+    background-size: 64px 64px;
+    opacity: 0.22;
+    mask-image: linear-gradient(90deg, black 0%, black 54%, transparent 100%);
 }
 
 .home-hero-shell {
     position: relative;
     z-index: 3;
     display: grid;
-    grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.45fr);
+    grid-template-columns: minmax(0, 0.92fr) minmax(340px, 430px);
+    gap: clamp(32px, 6vw, 86px);
     align-items: end;
-    gap: clamp(28px, 5vw, 70px);
 }
 
 .home-hero-content {
-    max-width: 960px;
+    max-width: 980px;
     display: grid;
-    gap: clamp(18px, 2vw, 28px);
+    gap: clamp(18px, 2.4vw, 28px);
 }
 
 .home-hero .eyebrow {
-    color: rgba(251, 248, 241, 0.76);
+    color: rgba(251, 248, 241, 0.78);
 }
 
 .home-hero .hero-title {
+    max-width: 1040px;
     color: var(--color-white);
-    max-width: 980px;
+    font-family: var(--font-heading);
+    font-size: clamp(4rem, 9vw, 10.4rem);
+    font-weight: 600;
+    line-height: 0.83;
+    letter-spacing: -0.075em;
 }
 
 .home-hero-text {
-    max-width: 650px;
-    color: rgba(251, 248, 241, 0.78);
-    font-size: clamp(1rem, 1.35vw, 1.18rem);
-    line-height: 1.75;
+    max-width: 720px;
+    color: rgba(251, 248, 241, 0.76);
+    font-size: clamp(1rem, 1.35vw, 1.16rem);
+    line-height: 1.76;
 }
 
-.home-hero-card {
+.home-hero-disclaimer-line {
+    max-width: 780px;
+    display: grid;
+    grid-template-columns: 38px 1fr;
+    gap: 12px;
+    align-items: start;
+    padding: 14px 0 0;
+    color: rgba(251, 248, 241, 0.62);
+    font-size: 0.9rem;
+    line-height: 1.58;
+}
+
+.home-hero-disclaimer-line i,
+.home-hero-disclaimer-line svg {
+    width: 38px;
+    height: 38px;
+    padding: 9px;
+    border: 1px solid rgba(251, 248, 241, 0.16);
+    background: rgba(251, 248, 241, 0.06);
+    color: var(--color-accent);
+}
+
+/* right service rail */
+
+.home-hero-service-rail {
     position: relative;
     overflow: hidden;
-    padding: clamp(20px, 2.6vw, 32px);
-    border: 1px solid rgba(251, 248, 241, 0.18);
+    display: grid;
+    gap: 18px;
+    padding: clamp(20px, 2.8vw, 30px);
+    border: 1px solid rgba(251, 248, 241, 0.2);
     background:
-        linear-gradient(145deg, rgba(251, 248, 241, 0.14), rgba(251, 248, 241, 0.06)),
-        rgba(25, 27, 24, 0.24);
+        radial-gradient(circle at 100% 0%, rgba(185, 166, 129, 0.18), transparent 34%),
+        linear-gradient(145deg, rgba(251, 248, 241, 0.14), rgba(251, 248, 241, 0.055)),
+        rgba(25, 27, 24, 0.38);
+    color: var(--color-white);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 32px 90px rgba(0, 0, 0, 0.26);
 }
 
-.home-hero-card::before {
+.home-hero-service-rail::before {
     content: "";
     position: absolute;
-    inset: 0;
-    border: 1px solid rgba(185, 166, 129, 0.12);
-    transform: translate(10px, 10px);
+    inset: 12px;
+    border: 1px solid rgba(185, 166, 129, 0.18);
     pointer-events: none;
 }
 
-.home-hero-card-label {
-    display: inline-flex;
-    margin-bottom: 28px;
+.home-hero-service-rail>* {
+    position: relative;
+    z-index: 2;
+}
+
+.home-rail-head {
+    display: grid;
+    gap: 8px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(251, 248, 241, 0.14);
+}
+
+.home-rail-head span {
     font-family: var(--font-accent);
     font-size: 0.68rem;
     font-weight: 800;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--color-accent);
 }
 
-.home-hero-card h2 {
-    max-width: 360px;
+.home-rail-head strong {
     font-family: var(--font-heading);
-    font-size: clamp(2.1rem, 3.5vw, 3.4rem);
+    font-size: clamp(1.75rem, 3vw, 2.85rem);
     font-weight: 600;
-    line-height: 0.92;
+    line-height: 0.94;
     letter-spacing: -0.05em;
-    color: var(--color-white);
 }
 
-.home-hero-card p {
-    margin-top: 18px;
-    color: rgba(251, 248, 241, 0.68);
-    font-size: 0.92rem;
-    line-height: 1.7;
-}
-
-.home-hero-mini-grid {
-    margin-top: 24px;
+.home-rail-services {
     display: grid;
     gap: 8px;
 }
 
-.home-hero-mini-grid span {
-    display: flex;
+.home-rail-services a {
+    min-height: 74px;
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    gap: 14px;
     align-items: center;
-    gap: 10px;
-    color: rgba(251, 248, 241, 0.78);
-    font-size: 0.84rem;
-    font-weight: 600;
+    padding: 12px;
+    border: 1px solid rgba(251, 248, 241, 0.13);
+    background: rgba(251, 248, 241, 0.055);
+    color: var(--color-white);
+    transition:
+        transform 0.28s var(--ease-out),
+        border-color 0.28s var(--ease-out),
+        background 0.28s var(--ease-out);
 }
 
-.home-hero-mini-grid span::before {
-    content: "";
-    width: 7px;
-    height: 7px;
-    border: 1px solid var(--color-accent);
-    background: rgba(185, 166, 129, 0.22);
+.home-rail-services a:hover {
+    transform: translateX(6px);
+    border-color: rgba(185, 166, 129, 0.48);
+    background: rgba(185, 166, 129, 0.14);
 }
+
+.home-rail-services i,
+.home-rail-services svg {
+    width: 42px;
+    height: 42px;
+    padding: 10px;
+    border: 1px solid rgba(251, 248, 241, 0.14);
+    background: rgba(251, 248, 241, 0.06);
+    color: var(--color-accent);
+}
+
+.home-rail-services span {
+    display: grid;
+    gap: 4px;
+}
+
+.home-rail-services small {
+    font-family: var(--font-accent);
+    font-size: 0.64rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    color: rgba(251, 248, 241, 0.48);
+}
+
+.home-rail-services strong {
+    font-family: var(--font-heading);
+    font-size: clamp(1.35rem, 2vw, 1.85rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.04em;
+}
+
+.home-rail-note {
+    display: grid;
+    gap: 8px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(251, 248, 241, 0.14);
+}
+
+.home-rail-note span {
+    font-family: var(--font-accent);
+    font-size: 0.66rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+}
+
+.home-rail-note p {
+    color: rgba(251, 248, 241, 0.64);
+    font-size: 0.88rem;
+    line-height: 1.6;
+}
+
+/* bottom steps */
 
 .home-hero-bottom {
     position: relative;
     z-index: 3;
-    margin-top: clamp(34px, 5vw, 70px);
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    margin-top: clamp(32px, 5vw, 70px);
     border: 1px solid rgba(251, 248, 241, 0.16);
-    background: rgba(25, 27, 24, 0.42);
+    background: rgba(251, 248, 241, 0.08);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
 }
 
 .hero-stat {
-    min-height: 96px;
+    min-height: 94px;
     display: grid;
     align-content: center;
     gap: 8px;
-    padding: clamp(18px, 2vw, 26px);
-    border-right: 1px solid rgba(251, 248, 241, 0.13);
+    padding: clamp(16px, 2vw, 22px);
+    color: var(--color-white);
+    background: rgba(25, 27, 24, 0.3);
+    transition:
+        background 0.28s var(--ease-out),
+        color 0.28s var(--ease-out),
+        transform 0.28s var(--ease-out);
 }
 
-.hero-stat:last-child {
-    border-right: 0;
+.hero-stat:hover {
+    background: rgba(185, 166, 129, 0.16);
+    transform: translateY(-2px);
 }
 
 .hero-stat span {
     font-family: var(--font-accent);
-    color: var(--color-accent);
-    font-size: 0.78rem;
+    font-size: 0.68rem;
     font-weight: 800;
     letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-accent);
 }
 
 .hero-stat strong {
-    color: rgba(251, 248, 241, 0.9);
-    font-size: clamp(0.95rem, 1.2vw, 1.08rem);
+    font-family: var(--font-heading);
+    font-size: clamp(1.25rem, 2vw, 1.9rem);
     font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.04em;
+}
+
+/* ================= HOME HERO RESPONSIVE ================= */
+
+@media (max-width: 1180px) {
+    .home-hero-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .home-hero-service-rail {
+        max-width: 680px;
+    }
+
+    .home-hero .hero-title {
+        font-size: clamp(4rem, 12vw, 8rem);
+    }
+}
+
+@media (max-width: 820px) {
+    .home-hero {
+        min-height: auto;
+        padding-top: 98px;
+    }
+
+    .home-hero-bottom {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-stat {
+        min-height: 76px;
+    }
+
+    .home-hero-disclaimer-line {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 560px) {
+    .home-hero .hero-title {
+        font-size: clamp(3.25rem, 16vw, 5rem);
+        line-height: 0.88;
+    }
+
+    .home-hero-service-rail {
+        padding: 20px;
+    }
+
+    .home-hero-service-rail::before {
+        display: none;
+    }
+
+    .home-rail-services a {
+        min-height: 68px;
+    }
+
+    .home-rail-services i,
+    .home-rail-services svg {
+        width: 38px;
+        height: 38px;
+    }
 }
 
 /* ================= SECTION HEAD ================= */
@@ -716,4 +892,121 @@
             rgba(185, 166, 129, 0.18),
             transparent 28%);
     opacity: 0.8;
+}
+
+/* ==================================================
+   HOME HERO — COMPACT HEIGHT FIX
+================================================== */
+
+.home-hero {
+    min-height: calc(100svh - var(--header-height));
+    padding-top: clamp(82px, 8vw, 118px);
+    padding-bottom: clamp(16px, 2vw, 24px);
+}
+
+.home-hero-shell {
+    gap: clamp(24px, 4vw, 58px);
+    align-items: center;
+}
+
+.home-hero .hero-title {
+    font-size: clamp(3.4rem, 7.8vw, 8.4rem);
+    line-height: 0.86;
+}
+
+.home-hero-content {
+    gap: clamp(14px, 1.8vw, 22px);
+}
+
+.home-hero-text {
+    max-width: 660px;
+    font-size: clamp(0.96rem, 1.12vw, 1.08rem);
+    line-height: 1.62;
+}
+
+.home-hero-disclaimer-line {
+    padding-top: 4px;
+    font-size: 0.84rem;
+    line-height: 1.48;
+}
+
+.home-hero-service-rail {
+    gap: 12px;
+    padding: clamp(16px, 2vw, 24px);
+}
+
+.home-rail-head {
+    padding-bottom: 12px;
+}
+
+.home-rail-head strong {
+    font-size: clamp(1.55rem, 2.4vw, 2.35rem);
+}
+
+.home-rail-services {
+    gap: 6px;
+}
+
+.home-rail-services a {
+    min-height: 58px;
+    padding: 9px 10px;
+    grid-template-columns: 36px 1fr;
+}
+
+.home-rail-services i,
+.home-rail-services svg {
+    width: 36px;
+    height: 36px;
+    padding: 9px;
+}
+
+.home-rail-services strong {
+    font-size: clamp(1.18rem, 1.6vw, 1.45rem);
+}
+
+.home-rail-note {
+    padding-top: 12px;
+}
+
+.home-rail-note p {
+    font-size: 0.82rem;
+    line-height: 1.48;
+}
+
+.home-hero-bottom {
+    margin-top: clamp(18px, 2.8vw, 34px);
+}
+
+.hero-stat {
+    min-height: 68px;
+    padding: 13px 16px;
+}
+
+.hero-stat strong {
+    font-size: clamp(1.12rem, 1.5vw, 1.45rem);
+}
+
+@media (max-width: 1180px) {
+    .home-hero {
+        min-height: auto;
+    }
+
+    .home-hero-service-rail {
+        max-width: none;
+    }
+}
+
+@media (max-width: 820px) {
+    .home-hero {
+        padding-top: 88px;
+        padding-bottom: 20px;
+    }
+
+    .home-hero .hero-title {
+        font-size: clamp(3.1rem, 13vw, 5.8rem);
+    }
+
+    .home-hero-bottom {
+        margin-top: 20px;
+    }
 }

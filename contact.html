@@ -174,51 +174,136 @@
 
         <main id="main-content">
             <!-- CONTACT HERO -->
-            <section class="contact-hero" aria-labelledby="contact-hero-title">
-                <div class="contact-hero-bg" aria-hidden="true">
-                    <img src="assets/images/contact/contact-hero-window.jpg"
-                        alt="Modern window detail with warm daylight and calm neutral interior" />
+<section class="contact-hero contact-hero-form-first" aria-labelledby="contact-hero-title">
+    <div class="contact-hero-grid-bg" aria-hidden="true"></div>
+
+    <div class="container-wide contact-hero-shell">
+        <div class="contact-hero-copy" data-aos="fade-up">
+            <span class="eyebrow">Request provider quotes</span>
+
+            <h1 class="page-title text-balance" id="contact-hero-title">
+                Start the request without overthinking the first step.
+            </h1>
+
+            <p>
+                Share a few project basics and use provider responses to compare window service options. Frame & Light
+                helps with the connection stage only — independent providers handle estimates, appointments, pricing,
+                and project terms directly.
+            </p>
+
+            <div class="contact-hero-actions">
+                <a class="contact-quick-link" href="tel:+18885550148" data-config-href="phone">
+                    <i data-lucide="phone" aria-hidden="true"></i>
+                    <span>
+                        <small>Call</small>
+                        <strong data-config="contact.phoneDisplay">(888) 555-0148</strong>
+                    </span>
+                </a>
+
+                <a class="contact-quick-link" href="mailto:hello@frameandlight.com" data-config-href="email">
+                    <i data-lucide="mail" aria-hidden="true"></i>
+                    <span>
+                        <small>Email</small>
+                        <strong data-config="contact.email">hello@frameandlight.com</strong>
+                    </span>
+                </a>
+            </div>
+
+            <div class="contact-hero-checks" aria-label="Before choosing provider">
+                <article>
+                    <i data-lucide="shield-check" aria-hidden="true"></i>
+                    <span>Verify license & insurance</span>
+                </article>
+
+                <article>
+                    <i data-lucide="file-text" aria-hidden="true"></i>
+                    <span>Compare written estimate terms</span>
+                </article>
+
+                <article>
+                    <i data-lucide="ruler" aria-hidden="true"></i>
+                    <span>Confirm measurements directly</span>
+                </article>
+            </div>
+        </div>
+
+        <div class="contact-hero-visual" data-aos="fade-left" data-aos-delay="120">
+            <div class="contact-hero-photo">
+                <img src="assets/images/contact/contact-hero-window.jpg"
+                    alt="Modern window detail with warm daylight and calm neutral interior" />
+            </div>
+
+            <form class="form-card contact-hero-form contact-hero-card tilt-card" action="#" method="post"
+                data-lead-form>
+                <div class="contact-hero-form-head">
+                    <span>Quick request</span>
+                    <h2>Compare provider options.</h2>
+                    <p>
+                        A provider may contact you directly if available for your location and project type.
+                    </p>
                 </div>
 
-                <div class="contact-hero-overlay" aria-hidden="true"></div>
-                <div class="noise-layer" aria-hidden="true"></div>
+                <div class="form-grid">
+                    <label class="form-field">
+                        <span class="form-label">Full name</span>
+                        <span class="input-wrap">
+                            <i class="input-icon" data-lucide="user" aria-hidden="true"></i>
+                            <input class="form-control" type="text" name="name" placeholder="Your name" required />
+                        </span>
+                    </label>
 
-                <div class="container-wide contact-hero-shell">
-                    <div class="contact-hero-copy" data-aos="fade-up">
-                        <span class="eyebrow">Request provider quotes</span>
+                    <label class="form-field">
+                        <span class="form-label">Phone</span>
+                        <span class="input-wrap">
+                            <i class="input-icon" data-lucide="phone" aria-hidden="true"></i>
+                            <input class="form-control" type="tel" name="phone" placeholder="Phone number" required />
+                        </span>
+                    </label>
 
-                        <h1 class="page-title text-balance" id="contact-hero-title">
-                            Share the basics. Compare local window provider options.
-                        </h1>
+                    <label class="form-field">
+                        <span class="form-label">ZIP code</span>
+                        <span class="input-wrap">
+                            <i class="input-icon" data-lucide="map-pin" aria-hidden="true"></i>
+                            <input class="form-control" type="text" name="zip" placeholder="Project ZIP" required />
+                        </span>
+                    </label>
 
-                        <p>
-                            Frame & Light helps route window project requests toward independent local providers.
-                            The platform does not install, repair, replace, inspect, or service windows directly.
-                        </p>
+                    <label class="form-field">
+                        <span class="form-label">Project type</span>
+                        <select class="form-control" name="project_type" required>
+                            <option value="">Select category</option>
+                            <option value="Window installation">Window installation</option>
+                            <option value="Window replacement">Window replacement</option>
+                            <option value="Window repair">Window repair</option>
+                            <option value="Glass replacement">Glass replacement</option>
+                            <option value="Energy-efficient windows">Energy-efficient windows</option>
+                            <option value="Custom window design">Custom window design</option>
+                            <option value="Not sure yet">Not sure yet</option>
+                        </select>
+                    </label>
 
-                        <div class="hero-actions">
-                            <a class="btn btn-primary" href="#contact-form">
-                                Start Request
-                                <i data-lucide="arrow-down" aria-hidden="true"></i>
-                            </a>
+                    <label class="form-field full form-check">
+                        <input type="checkbox" name="consent" required />
+                        <span class="custom-check" aria-hidden="true"></span>
+                        <span>
+                            I agree to be contacted about my request and understand that Frame & Light is a matching
+                            platform, not a direct window contractor.
+                        </span>
+                    </label>
 
-                            <a class="btn btn-light" href="tel:+18885550148" data-config-href="phone">
-                                <span data-config="contact.phoneButtonText">Call Now</span>
-                                <i data-lucide="phone" aria-hidden="true"></i>
-                            </a>
-                        </div>
+                    <div class="form-field full">
+                        <button class="btn btn-primary btn-full" type="submit">
+                            Submit Request
+                            <i data-lucide="send" aria-hidden="true"></i>
+                        </button>
                     </div>
 
-                    <div class="contact-hero-card tilt-card" data-aos="fade-left" data-aos-delay="140">
-                        <span>Before moving forward</span>
-                        <h2>Confirm details directly with each provider.</h2>
-                        <p>
-                            Ask about licensing, insurance, written estimate scope, product options, measurements,
-                            timeline, warranty terms, and final contract conditions.
-                        </p>
-                    </div>
+                    <p class="form-status full" data-form-status role="status" aria-live="polite"></p>
                 </div>
-            </section>
+            </form>
+        </div>
+    </div>
+</section>
 
             <!-- CONTACT MAIN -->
             <section class="section contact-main" id="contact-form" aria-labelledby="contact-main-title">
