@@ -956,3 +956,137 @@
         min-height: 300px;
     }
 }
+
+/* ==================================================
+   CONTACT HERO — BACKGROUND PHOTO
+================================================== */
+
+.contact-hero-form-first {
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(90deg,
+            rgba(241, 237, 228, 0.66) 0%,
+            rgba(241, 237, 228, 0.46) 42%,
+            rgba(221, 215, 202, 0.20) 68%,
+            rgba(52, 58, 50, 0.10) 100%),
+        linear-gradient(180deg,
+            rgba(241, 237, 228, 0.18) 0%,
+            rgba(241, 237, 228, 0.34) 100%),
+        url("../assets/images/contact/contact-hero-bg.jpg") center right / cover no-repeat;
+}
+
+.contact-hero-form-first::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 18% 18%, rgba(185, 166, 129, 0.12), transparent 30%),
+        radial-gradient(circle at 88% 14%, rgba(52, 58, 50, 0.10), transparent 34%),
+        linear-gradient(180deg, transparent 0%, rgba(241, 237, 228, 0.24) 100%);
+}
+
+.contact-hero-form-first .contact-hero-shell,
+.contact-hero-form-first .container,
+.contact-hero-form-first .container-wide {
+    position: relative;
+    z-index: 3;
+}
+
+/* если внутри есть старые overlay/noise */
+.contact-hero-form-first .contact-hero-overlay,
+.contact-hero-form-first .noise-layer {
+    opacity: 0.14;
+}
+
+/* текст слева читабельнее */
+.contact-hero-form-first .contact-hero-copy {
+    padding: clamp(16px, 2vw, 26px);
+    margin-left: clamp(-16px, -1.2vw, 0px);
+    background: linear-gradient(90deg,
+            rgba(241, 237, 228, 0.28),
+            rgba(241, 237, 228, 0.08),
+            transparent);
+}
+
+.contact-hero-form-first .page-title {
+    color: #11140F;
+    text-shadow:
+        0 2px 18px rgba(251, 248, 241, 0.62),
+        0 14px 42px rgba(251, 248, 241, 0.32);
+}
+
+.contact-hero-form-first .contact-hero-copy>p {
+    color: rgba(25, 27, 24, 0.80);
+    font-weight: 500;
+}
+
+/* форма на фоне фото */
+.contact-hero-form-first .contact-hero-form {
+    background:
+        linear-gradient(145deg, rgba(251, 248, 241, 0.76), rgba(221, 215, 202, 0.50)),
+        radial-gradient(circle at 100% 0%, rgba(185, 166, 129, 0.14), transparent 36%);
+    border-color: rgba(251, 248, 241, 0.44);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 24px 80px rgba(25, 27, 24, 0.16);
+}
+
+.contact-hero-form-first .contact-hero-form-head h2 {
+    color: #141713;
+}
+
+.contact-hero-form-first .contact-hero-form-head p {
+    color: rgba(25, 27, 24, 0.72);
+}
+
+/* поля чуть чище поверх фото */
+.contact-hero-form-first .form-control {
+    background: rgba(251, 248, 241, 0.72);
+}
+
+.contact-hero-form-first .form-control:focus {
+    background: rgba(251, 248, 241, 0.92);
+}
+
+/* tablet */
+@media (max-width: 1180px) {
+    .contact-hero-form-first {
+        background:
+            linear-gradient(180deg,
+                rgba(241, 237, 228, 0.66) 0%,
+                rgba(241, 237, 228, 0.50) 52%,
+                rgba(221, 215, 202, 0.38) 100%),
+            url("../assets/images/contact/contact-hero-bg.jpg") center / cover no-repeat;
+    }
+
+    .contact-hero-form-first .contact-hero-copy {
+        margin-left: 0;
+        padding: 0;
+        background: transparent;
+    }
+}
+
+/* mobile */
+@media (max-width: 680px) {
+    .contact-hero-form-first {
+        background:
+            linear-gradient(180deg,
+                rgba(241, 237, 228, 0.76) 0%,
+                rgba(241, 237, 228, 0.60) 54%,
+                rgba(221, 215, 202, 0.48) 100%),
+            url("../assets/images/contact/contact-hero-bg.jpg") center / cover no-repeat;
+    }
+
+    .contact-hero-form-first::before {
+        background:
+            linear-gradient(180deg, rgba(241, 237, 228, 0.06), rgba(241, 237, 228, 0.34));
+    }
+
+    .contact-hero-form-first .contact-hero-form {
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+}
