@@ -52,7 +52,7 @@ window.ServicesData = [
         shortTitle: 'Energy-Efficient',
         href: 'energy-efficient-windows.html',
         icon: 'leaf',
-        image: 'assets/images/services/energy-efficient-windows-card.jpg',
+	        image: 'assets/images/about/about-values-main.jpg',
         description:
             'Review local provider options for comfort-focused upgrades, improved insulation, and energy-conscious window packages.'
     },
@@ -62,7 +62,7 @@ window.ServicesData = [
         shortTitle: 'Custom Design',
         href: 'custom-window-design.html',
         icon: 'drafting-compass',
-        image: 'assets/images/services/custom-window-design-card.jpg',
+	        image: 'assets/images/contact/contact-faq-bg.jpg',
         description:
             'Connect with providers that may offer specialty shapes, custom sizing, architectural styles, and design-led window solutions.'
     }
