@@ -1,4 +1,4 @@
-/* ================= ABOUT HERO — EDITORIAL ================= */
+
 
 .about-hero {
     position: relative;
@@ -202,7 +202,7 @@
     line-height: 1.64;
 }
 
-/* ================= ABOUT HERO RESPONSIVE ================= */
+
 
 @media (max-width: 1180px) {
     .about-hero-shell {
@@ -289,7 +289,7 @@
     }
 }
 
-/* ================= ABOUT HERO RESPONSIVE ================= */
+
 
 @media (max-width: 1180px) {
     .about-hero-shell {
@@ -376,7 +376,7 @@
     }
 }
 
-/* ================= STORY ================= */
+
 
 .about-story {
     background: var(--color-bg);
@@ -465,7 +465,7 @@
     line-height: 1.78;
 }
 
-/* ================= MODEL ================= */
+
 
 .about-model {
     background:
@@ -549,7 +549,7 @@
     color: rgba(251, 248, 241, 0.68);
 }
 
-/* ================= COMPLIANCE ================= */
+
 
 .about-compliance {
     background: var(--color-bg);
@@ -618,7 +618,7 @@
     line-height: 1.68;
 }
 
-/* ================= VALUES ================= */
+
 
 .about-values {
     background: var(--color-bg-soft);
@@ -725,7 +725,7 @@
     line-height: 1.58;
 }
 
-/* ================= CTA ================= */
+
 
 .about-cta {
     background:
@@ -765,7 +765,7 @@
     line-height: 1.75;
 }
 
-/* ================= FAQ ================= */
+
 
 .about-faq {
     background: var(--color-bg);
@@ -785,7 +785,7 @@
     gap: 18px;
 }
 
-/* ================= RESPONSIVE ================= */
+
 
 @media (max-width: 1180px) {
 
@@ -931,9 +931,7 @@
     opacity: 0.75;
 }
 
-/* ==================================================
-   ABOUT HERO — COMPACT HEIGHT FIX
-================================================== */
+
 
 .about-hero {
     padding-top: clamp(88px, 9vw, 124px);
@@ -1030,9 +1028,7 @@
     }
 }
 
-/* ==================================================
-   ABOUT HERO — BACKGROUND PHOTO
-================================================== */
+
 
 .about-hero-editorial {
     position: relative;
@@ -1109,7 +1105,7 @@
     color: rgba(25, 27, 24, 0.74);
 }
 
-/* tablet */
+
 @media (max-width: 1180px) {
     .about-hero-editorial {
         background:
@@ -1127,7 +1123,7 @@
     }
 }
 
-/* mobile */
+
 @media (max-width: 680px) {
     .about-hero-editorial {
         background:
@@ -1145,9 +1141,7 @@
 }
 
 
-/* ==================================================
-   ABOUT HERO EDITORIAL — COMPACT ONE-SCREEN HEIGHT
-================================================== */
+
 
 .about-hero-editorial {
     min-height: auto;
@@ -1207,7 +1201,7 @@
     line-height: 1.5;
 }
 
-/* tablet */
+
 @media (max-width: 1180px) {
     .about-hero-editorial {
         padding-top: 92px;
@@ -1231,7 +1225,7 @@
     }
 }
 
-/* mobile */
+
 @media (max-width: 680px) {
     .about-hero-editorial {
         padding-top: 84px;
@@ -1265,9 +1259,7 @@
     }
 }
 
-/* ==================================================
-   ABOUT CTA — BACKGROUND PHOTO
-================================================== */
+
 
 .about-cta {
     position: relative;
@@ -1333,7 +1325,7 @@
     border-color: var(--color-accent);
 }
 
-/* mobile */
+
 @media (max-width: 680px) {
     .about-cta {
         background:
@@ -1346,9 +1338,7 @@
 }
 
 
-/* ==================================================
-   ABOUT CTA — WIDE TEXT + FIXED BUTTONS
-================================================== */
+
 
 .about-cta .container,
 .about-cta .container-wide {
@@ -1369,7 +1359,7 @@
     padding: clamp(26px, 4vw, 52px);
 }
 
-/* текстовая часть шире */
+
 .about-cta-card>div:first-child,
 .about-cta-card .about-cta-copy {
     max-width: 920px;
@@ -1377,7 +1367,7 @@
     min-width: 0;
 }
 
-/* заголовок — шире и ровнее */
+
 .about-cta-card .section-title,
 .about-cta-card h2 {
     max-width: 920px;
@@ -1388,7 +1378,7 @@
     text-wrap: initial;
 }
 
-/* текст — не узким столбиком */
+
 .about-cta-card .section-kicker,
 .about-cta-card p {
     max-width: 820px;
@@ -1396,7 +1386,7 @@
     line-height: 1.58;
 }
 
-/* блок кнопок справа */
+
 .about-cta-card .section-actions,
 .about-cta-card .hero-actions,
 .about-cta-card .card-actions {
@@ -1410,7 +1400,7 @@
     gap: 10px;
 }
 
-/* фиксированный размер кнопок */
+
 .about-cta-card .btn {
     width: 210px;
     min-width: 210px;
@@ -1419,7 +1409,7 @@
     padding-inline: 18px;
 }
 
-/* tablet */
+
 @media (max-width: 980px) {
     .about-cta-card {
         grid-template-columns: 1fr;
@@ -1451,7 +1441,7 @@
     }
 }
 
-/* mobile */
+
 @media (max-width: 560px) {
     .about-cta-card {
         padding: 22px;
@@ -1477,29 +1467,27 @@
     }
 }
 
-/* ==================================================
-   ABOUT CTA — HORIZONTAL TEXT INDENTS
-================================================== */
 
-/* левая текстовая колонка */
+
+
 .about-cta-card>div:first-child {
     padding-inline: clamp(24px, 4vw, 72px);
 }
 
-/* заголовок и параграф внутри */
+
 .about-cta-card>div:first-child .section-title,
 .about-cta-card>div:first-child h2,
 .about-cta-card>div:first-child p {
     max-width: 940px;
 }
 
-/* параграф чуть уже, чтобы читался красиво */
+
 .about-cta-card>div:first-child p {
     max-width: 780px;
     margin-top: 16px;
 }
 
-/* кнопки остаются фиксированными */
+
 .about-cta-card .section-actions {
     flex: 0 0 auto;
     min-width: 210px;
@@ -1511,7 +1499,7 @@
     max-width: 210px;
 }
 
-/* tablet */
+
 @media (max-width: 980px) {
     .about-cta-card>div:first-child {
         padding-inline: clamp(16px, 4vw, 34px);
@@ -1522,7 +1510,7 @@
     }
 }
 
-/* mobile */
+
 @media (max-width: 560px) {
     .about-cta-card>div:first-child {
         padding-inline: 0;
@@ -1535,21 +1523,19 @@
     }
 }
 
-/* ==================================================
-   ABOUT COMPLIANCE — WIDER LAYOUT
-================================================== */
+
 
 .about-compliance {
     padding: clamp(34px, 4.5vw, 64px) 0;
 }
 
-/* расширяем контейнер только этой секции */
+
 .about-compliance .container {
     width: min(100% - 28px, 1560px);
     max-width: 1560px;
 }
 
-/* шире обе колонки */
+
 .about-compliance .compliance-layout {
     display: grid;
     grid-template-columns: minmax(560px, 1fr) minmax(520px, 0.95fr);
@@ -1557,7 +1543,7 @@
     align-items: start;
 }
 
-/* левая текстовая часть */
+
 .about-compliance .compliance-content {
     max-width: 980px;
     width: 100%;
@@ -1578,14 +1564,14 @@
     line-height: 1.58;
 }
 
-/* правая колонка с карточками */
+
 .about-compliance .compliance-list {
     width: 100%;
     max-width: 780px;
     justify-self: end;
 }
 
-/* карточки компактнее и текст шире */
+
 .about-compliance .compliance-item {
     grid-template-columns: 44px minmax(0, 1fr);
     gap: 18px;
@@ -1604,7 +1590,7 @@
     line-height: 1.55;
 }
 
-/* tablet */
+
 @media (max-width: 1180px) {
     .about-compliance .container {
         width: min(100% - 28px, 1100px);
@@ -1626,7 +1612,7 @@
     }
 }
 
-/* mobile */
+
 @media (max-width: 680px) {
     .about-compliance .compliance-content .section-title {
         font-size: clamp(2.35rem, 11vw, 4rem);
@@ -1638,9 +1624,7 @@
     }
 }
 
-/* ==================================================
-   ABOUT — HIDE VISUAL SECTIONS ON TABLET / MOBILE
-================================================== */
+
 
 @media (max-width: 1180px) {
 
@@ -1653,9 +1637,7 @@
     }
 }
 
-/* ==================================================
-   CONTACT FORM SIDE — HIDE ON TABLET / MOBILE
-================================================== */
+
 
 @media (max-width: 1180px) {
 
@@ -1666,9 +1648,7 @@
     }
 }
 
-/* ==================================================
-   CONTACT REAL MAP — STABLE SIZE ON TABLET / MOBILE
-================================================== */
+
 
 .map-card.contact-map-card.real-contact-map,
 .map-card.contact-map-card.real-contact-map.aos-init,
@@ -1681,7 +1661,7 @@
     background: var(--color-dark);
 }
 
-/* iframe всегда заполняет всю карту */
+
 .map-card.contact-map-card.real-contact-map iframe {
     position: absolute !important;
     inset: 0 !important;
@@ -1695,7 +1675,7 @@
     border: 0 !important;
 }
 
-/* текст поверх карты не должен менять высоту карты */
+
 .map-card.contact-map-card.real-contact-map .map-content {
     position: absolute !important;
     left: 0;
@@ -1710,7 +1690,7 @@
     padding: clamp(20px, 3vw, 40px);
 }
 
-/* затемнение поверх карты */
+
 .map-card.contact-map-card.real-contact-map::after {
     content: "";
     position: absolute;
@@ -1727,12 +1707,12 @@
             rgba(25, 27, 24, 0.42) 100%);
 }
 
-/* убираем старые декоративные точки, если они остались */
+
 .map-card.contact-map-card.real-contact-map .map-pin {
     display: none !important;
 }
 
-/* TABLET */
+
 @media (max-width: 1180px) {
     .contact-map-layout {
         grid-template-columns: 1fr !important;
@@ -1749,7 +1729,7 @@
     }
 }
 
-/* MOBILE */
+
 @media (max-width: 680px) {
 
     .map-card.contact-map-card.real-contact-map,
@@ -1776,7 +1756,7 @@
     }
 }
 
-/* SMALL MOBILE */
+
 @media (max-width: 430px) {
 
     .map-card.contact-map-card.real-contact-map,
@@ -1789,9 +1769,7 @@
     }
 }
 
-/* ==================================================
-   ABOUT STORY — COMPACT ONE-SCROLL VERSION
-================================================== */
+
 
 .section.about-story,
 .about-story {
@@ -1813,7 +1791,7 @@
     align-items: center !important;
 }
 
-/* фото компактнее, но выглядит дорого */
+
 .about-story-media {
     min-height: clamp(360px, 38vw, 520px) !important;
     height: clamp(360px, 38vw, 520px) !important;
@@ -1826,7 +1804,7 @@
     object-position: center !important;
 }
 
-/* badge на фото компактнее */
+
 .about-story-badge {
     left: clamp(14px, 2vw, 24px) !important;
     right: clamp(14px, 2vw, 24px) !important;
@@ -1845,7 +1823,7 @@
     font-weight: 500 !important;
 }
 
-/* текстовая часть шире и плотнее */
+
 .about-story-content {
     max-width: 980px !important;
     display: grid !important;
@@ -1875,7 +1853,7 @@
     max-width: none !important;
 }
 
-/* tablet */
+
 @media (max-width: 1180px) {
 
     .section.about-story,
@@ -1905,7 +1883,7 @@
     }
 }
 
-/* mobile */
+
 @media (max-width: 720px) {
 
     .section.about-story,

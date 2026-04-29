@@ -1,8 +1,6 @@
-/* ==================================================
-   FRAME & LIGHT — LEGAL PAGES
-================================================== */
 
-/* ================= LEGAL HERO ================= */
+
+
 
 .legal-page {
     background: var(--color-bg);
@@ -98,7 +96,7 @@
     line-height: 1.65;
 }
 
-/* ================= LEGAL CONTENT ================= */
+
 
 .legal-content {
     padding: clamp(42px, 7vw, 96px) 0;
@@ -343,7 +341,7 @@
     line-height: 1.62;
 }
 
-/* ================= LEGAL CTA ================= */
+
 
 .legal-cta {
     padding: 0 0 clamp(42px, 7vw, 96px);
@@ -377,7 +375,7 @@
     line-height: 1.7;
 }
 
-/* ================= RESPONSIVE ================= */
+
 
 @media (max-width: 1040px) {
 

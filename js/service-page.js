@@ -1,9 +1,6 @@
 'use strict';
 
-/* ==================================================
-   FRAME & LIGHT — SERVICE PAGE SCRIPT
-   Shared motion for all individual service pages.
-================================================== */
+
 
 (function () {
     function initServiceHeroMotion() {

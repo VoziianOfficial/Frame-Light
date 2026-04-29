@@ -1,9 +1,6 @@
 'use strict';
 
-/* ==================================================
-   FRAME & LIGHT — CONTACT PAGE SCRIPT
-   Page-specific premium motion.
-================================================== */
+
 
 (function () {
     function initContactHeroMotion() {

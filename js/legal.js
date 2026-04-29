@@ -1,9 +1,6 @@
 'use strict';
 
-/* ==================================================
-   FRAME & LIGHT — LEGAL PAGES SCRIPT
-   Smooth TOC navigation and active section state.
-================================================== */
+
 
 (function () {
     const tocLinks = document.querySelectorAll('.legal-toc a');

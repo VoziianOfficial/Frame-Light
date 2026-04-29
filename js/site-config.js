@@ -1,10 +1,6 @@
 'use strict';
 
-/* ==================================================
-   FRAME & LIGHT — SITE CONFIG
-   Edit this file to update shared company data
-   across all pages.
-================================================== */
+
 
 window.SiteConfig = {
     company: {

@@ -1,9 +1,6 @@
 'use strict';
 
-/* ==================================================
-   FRAME & LIGHT — SERVICES DATA
-   Edit this file to update shared service categories.
-================================================== */
+
 
 window.ServicesData = [
     {

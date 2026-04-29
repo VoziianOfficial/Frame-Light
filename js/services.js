@@ -1,8 +1,6 @@
 'use strict';
 
-/* ==================================================
-   FRAME & LIGHT — SERVICES PAGE SCRIPT
-================================================== */
+
 
 (function () {
     const servicesData = Array.isArray(window.ServicesData) ? window.ServicesData : [];

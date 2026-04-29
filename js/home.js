@@ -1,9 +1,6 @@
 'use strict';
 
-/* ==================================================
-   FRAME & LIGHT — HOME PAGE SCRIPT
-   Page-specific motion and sliders.
-================================================== */
+
 
 (function () {
     function initProviderSwiper() {
@@ -14,10 +11,7 @@
         const wrapper = slider.querySelector('.swiper-wrapper');
         const slides = wrapper ? Array.from(wrapper.children) : [];
 
-        /*
-           Swiper loop works more reliably when there are enough slides.
-           We clone the existing slides once if the amount is small.
-        */
+        
         if (wrapper && slides.length > 0 && slides.length < 8 && !wrapper.dataset.loopCloned) {
             slides.forEach((slide) => {
                 const clone = slide.cloneNode(true);

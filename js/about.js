@@ -1,9 +1,6 @@
 'use strict';
 
-/* ==================================================
-   FRAME & LIGHT — ABOUT PAGE SCRIPT
-   Page-specific premium motion.
-================================================== */
+
 
 (function () {
     function initAboutHeroMotion() {

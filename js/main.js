@@ -1,9 +1,6 @@
 'use strict';
 
-/* ==================================================
-   FRAME & LIGHT — MAIN GLOBAL SCRIPT
-   Shared behavior for all pages.
-================================================== */
+
 
 (function () {
     const config = window.SiteConfig || {};

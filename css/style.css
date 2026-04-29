@@ -7,9 +7,7 @@
 @import url("./service-page.css");
 @import url("./legal.css");
 
-/* ==================================================
-   FRAME & LIGHT — GLOBAL STYLE SYSTEM
-================================================== */
+
 
 :root {
     --color-bg: #F1EDE4;
@@ -51,9 +49,7 @@
     --section-y-compact: clamp(34px, 5vw, 68px);
 }
 
-/* ==================================================
-   RESET
-================================================== */
+
 
 *,
 *::before,
@@ -137,9 +133,7 @@ h6 {
     color: var(--color-white);
 }
 
-/* ==================================================
-   ACCESSIBILITY
-================================================== */
+
 
 .skip-link {
     position: fixed;
@@ -176,9 +170,7 @@ h6 {
     }
 }
 
-/* ==================================================
-   LAYOUT HELPERS
-================================================== */
+
 
 .page {
     position: relative;
@@ -242,9 +234,7 @@ h6 {
     background: var(--color-line);
 }
 
-/* ==================================================
-   TYPOGRAPHY
-================================================== */
+
 
 .eyebrow {
     display: inline-flex;
@@ -308,9 +298,7 @@ h6 {
     text-wrap: balance;
 }
 
-/* ==================================================
-   BUTTONS
-================================================== */
+
 
 .btn {
     --btn-bg: transparent;
@@ -425,9 +413,7 @@ h6 {
     gap: 12px;
 }
 
-/* ==================================================
-   HEADER
-================================================== */
+
 
 .site-header {
     position: sticky;
@@ -708,9 +694,7 @@ h6 {
     transform: rotate(-45deg);
 }
 
-/* ==================================================
-   MOBILE MENU
-================================================== */
+
 
 .mobile-menu {
     position: fixed;
@@ -854,9 +838,7 @@ h6 {
     color: var(--color-accent);
 }
 
-/* ==================================================
-   CARDS / MEDIA / EFFECTS
-================================================== */
+
 
 .surface-card {
     position: relative;
@@ -980,9 +962,7 @@ h6 {
         transform 0.7s var(--ease-out);
 }
 
-/* ==================================================
-   FORMS
-================================================== */
+
 
 .form-card {
     position: relative;
@@ -1156,9 +1136,7 @@ select.form-control {
     display: block;
 }
 
-/* ==================================================
-   FAQ
-================================================== */
+
 
 .faq-list {
     display: grid;
@@ -1215,9 +1193,7 @@ select.form-control {
     line-height: 1.7;
 }
 
-/* ==================================================
-   FOOTER
-================================================== */
+
 
 .site-footer {
     position: relative;
@@ -1366,9 +1342,7 @@ select.form-control {
     color: var(--color-accent);
 }
 
-/* ==================================================
-   COOKIE CONSENT
-================================================== */
+
 
 .cookie-banner {
     position: fixed;
@@ -1449,9 +1423,7 @@ select.form-control {
     gap: 10px;
 }
 
-/* ==================================================
-   MAP BLOCK
-================================================== */
+
 
 .map-card {
     position: relative;
@@ -1524,9 +1496,7 @@ select.form-control {
     color: rgba(251, 248, 241, 0.7);
 }
 
-/* ==================================================
-   SWIPER BASE
-================================================== */
+
 
 .swiper {
     width: 100%;
@@ -1568,9 +1538,7 @@ select.form-control {
     height: 18px;
 }
 
-/* ==================================================
-   RESPONSIVE
-================================================== */
+
 
 @media (max-width: 1120px) {
     .grid-4 {
@@ -1773,9 +1741,7 @@ select.form-control {
     }
 }
 
-/* ==================================================
-   DESKTOP DROPDOWN — CLICK OPEN / CLICK CLOSE
-================================================== */
+
 
 .nav-dropdown.is-open .nav-dropdown-menu {
     opacity: 1;
@@ -1796,9 +1762,7 @@ select.form-control {
     transform: translateY(10px) !important;
 }
 
-/* ==================================================
-   DESKTOP DROPDOWN — CLICK ONLY
-================================================== */
+
 
 .nav-dropdown {
     position: relative;
@@ -1827,9 +1791,7 @@ select.form-control {
     transform: rotate(180deg);
 }
 
-/* ==================================================
-   DESKTOP DROPDOWN — FINAL ALIGNMENT FIX
-================================================== */
+
 
 .nav-dropdown {
     position: relative;
@@ -1837,7 +1799,7 @@ select.form-control {
     align-items: center;
 }
 
-/* сама кнопка Services */
+
 .nav-dropdown-trigger {
     display: inline-flex;
     align-items: center;
@@ -1845,7 +1807,7 @@ select.form-control {
     gap: 7px;
 }
 
-/* стрелка */
+
 .nav-dropdown-trigger svg,
 .nav-dropdown-trigger i {
     width: 16px;
@@ -1856,7 +1818,7 @@ select.form-control {
     transition: transform 0.24s var(--ease-out);
 }
 
-/* меню закрыто */
+
 .nav-dropdown-menu {
     position: absolute;
     top: calc(100% + 14px);
@@ -1877,7 +1839,7 @@ select.form-control {
         transform 0.24s var(--ease-out);
 }
 
-/* меню открыто */
+
 .nav-dropdown.is-open .nav-dropdown-menu {
     opacity: 1 !important;
     visibility: visible !important;
@@ -1885,13 +1847,13 @@ select.form-control {
     transform: translateX(-50%) translateY(0) !important;
 }
 
-/* стрелка открыта */
+
 .nav-dropdown.is-open .nav-dropdown-trigger svg,
 .nav-dropdown.is-open .nav-dropdown-trigger i {
     transform: rotate(180deg) !important;
 }
 
-/* чтобы dropdown не вылезал на маленьких desktop/tablet */
+
 @media (max-width: 1180px) {
     .nav-dropdown-menu {
         min-width: 360px;
@@ -1905,9 +1867,7 @@ select.form-control {
     }
 }
 
-/* ==================================================
-   GLOBAL STICKY HEADER FIX
-================================================== */
+
 
 :root {
     --header-height: 76px;
@@ -1942,13 +1902,13 @@ select.form-control {
     min-height: var(--header-height);
 }
 
-/* чтобы якоря не прятались под fixed header */
+
 section[id],
 [id] {
     scroll-margin-top: calc(var(--header-height) + 18px);
 }
 
-/* mobile menu should start below/over fixed header correctly */
+
 .mobile-menu {
     z-index: 998;
 }
@@ -1971,9 +1931,7 @@ section[id],
     }
 }
 
-/* ==================================================
-   WIDE COMPACT SECTION SAFETY
-================================================== */
+
 
 .services-directory,
 .services-compare,
@@ -1992,12 +1950,9 @@ section[id],
     min-width: 0;
 }
 
-/* ==================================================
-   ABSOLUTE FINAL PHOTO CARD FIX
-   All card photos fill, crop and center correctly
-================================================== */
 
-/* Главная карточка с фото */
+
+
 .image-card,
 .home-service-card,
 .service-route-card {
@@ -2010,7 +1965,7 @@ section[id],
     color: var(--color-white);
 }
 
-/* ВАЖНО: ловим img даже если он не прямой ребенок */
+
 .image-card img,
 .home-service-card img,
 .service-route-card img {
@@ -2036,7 +1991,7 @@ section[id],
         filter 0.7s var(--ease-out);
 }
 
-/* Если где-то картинка завернута в picture */
+
 .image-card picture,
 .home-service-card picture,
 .service-route-card picture {
@@ -2055,7 +2010,7 @@ section[id],
     inset: 0 !important;
 }
 
-/* затемнение поверх фото */
+
 .image-card::after,
 .home-service-card::after,
 .service-route-card::after {
@@ -2069,7 +2024,7 @@ section[id],
         linear-gradient(90deg, rgba(25, 27, 24, 0.48) 0%, rgba(25, 27, 24, 0.08) 72%);
 }
 
-/* иконка поверх фото */
+
 .image-card-icon {
     position: absolute !important;
     top: clamp(14px, 1.8vw, 22px) !important;
@@ -2077,7 +2032,7 @@ section[id],
     z-index: 5 !important;
 }
 
-/* текст поверх фото */
+
 .image-card-content {
     position: relative !important;
     z-index: 4 !important;
@@ -2092,7 +2047,7 @@ section[id],
     padding: clamp(18px, 2.4vw, 30px);
 }
 
-/* текст внутри */
+
 .image-card-content h3,
 .image-card-content p,
 .image-card-content span {
@@ -2104,7 +2059,7 @@ section[id],
     max-width: 440px;
 }
 
-/* hover */
+
 .image-card:hover img,
 .home-service-card:hover img,
 .service-route-card:hover img {
@@ -2112,7 +2067,7 @@ section[id],
     filter: saturate(1.06) contrast(1.04);
 }
 
-/* ================= SERVICES DIRECTORY CARDS ================= */
+
 
 .services-directory .service-route-card {
     min-height: clamp(245px, 18vw, 310px) !important;
@@ -2123,7 +2078,7 @@ section[id],
     padding: clamp(14px, 1.4vw, 20px) !important;
 }
 
-/* ================= HOME SERVICE CARDS ================= */
+
 
 .home-service-card {
     min-height: clamp(320px, 34vw, 460px) !important;
@@ -2133,7 +2088,7 @@ section[id],
     min-height: clamp(320px, 34vw, 460px) !important;
 }
 
-/* ================= SWIPER CARDS ================= */
+
 
 .swiper-slide.image-card,
 .swiper-slide.service-route-card {
@@ -2145,7 +2100,7 @@ section[id],
     height: 100% !important;
 }
 
-/* ================= MOBILE ================= */
+
 
 @media (max-width: 760px) {
 
@@ -2180,9 +2135,7 @@ section[id],
     }
 }
 
-/* ==================================================
-   FORM STATUS — HORIZONTAL STYLE
-================================================== */
+
 
 .form-status.full {
     grid-column: 1 / -1;
@@ -2220,14 +2173,14 @@ section[id],
     box-shadow: 0 0 0 5px rgba(185, 166, 129, 0.18);
 }
 
-/* если статус внутри маленькой формы */
+
 .services-mini-form .form-status,
 .quote-form .form-status,
 .contact-form .form-status {
     margin-top: 2px;
 }
 
-/* mobile */
+
 @media (max-width: 520px) {
     .form-status {
         align-items: flex-start;
@@ -2241,12 +2194,9 @@ section[id],
 }
 
 
-/* ==================================================
-   FRAME & LIGHT — CSS ONLY PREMIUM MOTION
-   Lightweight, no JS needed
-================================================== */
 
-/* плавность для всего сайта */
+
+
 a,
 button,
 .btn,
@@ -2278,7 +2228,7 @@ button,
         filter 0.32s var(--ease-out);
 }
 
-/* карточки оживают */
+
 .surface-card:hover,
 .image-card:hover,
 .service-route-card:hover,
@@ -2300,7 +2250,7 @@ button,
     box-shadow: 0 22px 58px rgba(25, 27, 24, 0.12);
 }
 
-/* фото мягко увеличиваются */
+
 .image-card img,
 .service-route-card img,
 .home-service-card img,
@@ -2331,7 +2281,7 @@ button,
     filter: saturate(1.06) contrast(1.04);
 }
 
-/* кнопки */
+
 .btn {
     transform: translateZ(0);
 }
@@ -2344,7 +2294,7 @@ button,
     transform: translateY(0) scale(0.985);
 }
 
-/* красивый блик на кнопках */
+
 .btn::after {
     content: "";
     position: absolute;
@@ -2363,7 +2313,7 @@ button,
     transform: translateX(120%);
 }
 
-/* input живее */
+
 .form-control {
     transition:
         border-color 0.25s var(--ease-out),
@@ -2376,7 +2326,7 @@ button,
     transform: translateY(-1px);
 }
 
-/* FAQ */
+
 .faq-question {
     transition:
         background 0.28s var(--ease-out),
@@ -2393,7 +2343,7 @@ button,
     box-shadow: 0 18px 52px rgba(25, 27, 24, 0.08);
 }
 
-/* линия eyebrow немного оживает */
+
 .eyebrow::before {
     transform-origin: left center;
     transition:
@@ -2406,7 +2356,7 @@ button,
     opacity: 0.9;
 }
 
-/* лёгкое плавание только для главных карточек */
+
 .services-hero-directory-panel,
 .service-hero-panel,
 .contact-hero-form,
@@ -2426,7 +2376,7 @@ button,
     }
 }
 
-/* точки карты */
+
 .map-pin {
     animation: mapPinPulse 2.8s ease-in-out infinite;
 }
@@ -2453,7 +2403,7 @@ button,
     }
 }
 
-/* на телефоне меньше движения */
+
 @media (max-width: 820px) {
 
     .services-hero-directory-panel,
@@ -2480,7 +2430,7 @@ button,
     }
 }
 
-/* для пользователей с выключенными анимациями */
+
 @media (prefers-reduced-motion: reduce) {
 
     *,
@@ -2492,9 +2442,7 @@ button,
     }
 }
 
-/* ==================================================
-   HOME SHOWCASE — HIDE ON TABLET / MOBILE
-================================================== */
+
 
 @media (max-width: 1180px) {
 
@@ -2504,13 +2452,9 @@ button,
     }
 }
 
-/* ==================================================
-   HEADER PHONE ICON — FINAL FIX
-   Desktop: header-phone
-   Tablet/Mobile: mobile-phone
-================================================== */
 
-/* desktop */
+
+
 .header-actions .header-phone {
     display: inline-flex !important;
     align-items: center;
@@ -2521,7 +2465,7 @@ button,
     display: none !important;
 }
 
-/* не двигаем иконку внутри кнопки телефона */
+
 .header-actions .header-phone i,
 .header-actions .header-phone svg,
 .header-actions .mobile-phone i,
@@ -2538,7 +2482,7 @@ button,
     transform: none !important;
 }
 
-/* tablet / mobile */
+
 @media (max-width: 1120px) {
     .header-actions .header-phone {
         display: none !important;
@@ -2553,10 +2497,7 @@ button,
 
 
 
-/* ==================================================
-   CONTACT AREA — NEW PREMIUM MAP SECTION
-   Replaces old contact-map-section
-================================================== */
+
 
 .contact-area-section {
     position: relative;
@@ -2586,7 +2527,7 @@ button,
     max-width: 1560px !important;
 }
 
-/* top text */
+
 .contact-area-head {
     display: grid;
     grid-template-columns: minmax(220px, 0.36fr) minmax(0, 1fr);
@@ -2616,7 +2557,7 @@ button,
     line-height: 1.58;
 }
 
-/* real map card */
+
 .contact-area-map-card {
     position: relative;
     width: 100%;
@@ -2654,7 +2595,7 @@ button,
             rgba(25, 27, 24, 0.34) 100%);
 }
 
-/* overlay on map */
+
 .contact-area-map-overlay {
     position: absolute;
     left: clamp(18px, 3vw, 42px);
@@ -2694,7 +2635,7 @@ button,
     line-height: 1.5;
 }
 
-/* bottom cards */
+
 .contact-area-steps {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2757,7 +2698,7 @@ button,
     line-height: 1.5;
 }
 
-/* tablet */
+
 @media (max-width: 1180px) {
     .contact-area-head {
         grid-template-columns: 1fr;
@@ -2782,7 +2723,7 @@ button,
     }
 }
 
-/* mobile */
+
 @media (max-width: 680px) {
     .contact-area-section {
         padding: 28px 0 !important;
@@ -2826,15 +2767,13 @@ button,
     }
 }
 
-/* ==================================================
-   CONTACT AREA — COMPACT ONE-SCROLL VERSION
-================================================== */
+
 
 .contact-area-section {
     padding: clamp(24px, 3vw, 42px) 0 !important;
 }
 
-/* верхний текст компактнее */
+
 .contact-area-head {
     grid-template-columns: minmax(180px, 0.28fr) minmax(0, 1fr);
     gap: clamp(16px, 3vw, 44px);
@@ -2858,12 +2797,12 @@ button,
     line-height: 1.48;
 }
 
-/* карта ниже */
+
 .contact-area-map-card {
     height: clamp(300px, 28vw, 430px) !important;
 }
 
-/* overlay на карте компактнее */
+
 .contact-area-map-overlay {
     gap: 6px;
     padding: clamp(14px, 1.8vw, 22px);
@@ -2879,7 +2818,7 @@ button,
     line-height: 1.42;
 }
 
-/* карточки ниже карты компактнее */
+
 .contact-area-steps {
     gap: 10px;
     margin-top: 10px;
@@ -2908,7 +2847,7 @@ button,
     line-height: 1.38;
 }
 
-/* tablet */
+
 @media (max-width: 1180px) {
     .contact-area-section {
         padding: 28px 0 !important;
@@ -2934,7 +2873,7 @@ button,
     }
 }
 
-/* mobile */
+
 @media (max-width: 680px) {
     .contact-area-section {
         padding: 24px 0 !important;
